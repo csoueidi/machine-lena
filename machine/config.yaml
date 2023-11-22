@@ -1,0 +1,36 @@
+motors:
+  motor_1:
+    sps: 50
+    steps_rev: 200
+    dir_pin: 20
+    step_pin: 21
+    max_deg: 1080   
+    min_deg: 0
+  motor_2:
+    sps: 50
+    steps_rev: 200
+    dir_pin:  25
+    step_pin: 8 
+    max_deg: 1080   
+    min_deg: 0
+  motor_3:
+    sps: 50
+    steps_rev: 200
+    dir_pin: 17
+    step_pin: 27
+    max_deg: 1080   
+    min_deg: 0
+  motor_4:
+    sps: 50
+    steps_rev: 200
+    dir_pin:  5
+    step_pin: 6
+    max_deg: 1080   
+    min_deg: 0
+
+application:
+  default_sps: 50
+
+
+
+    

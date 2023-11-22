@@ -5,20 +5,18 @@ class TB6560Interface:
     def __init__(self):
         # Virtual pin definitions for BufferInterface
         self.pinenable = 0
-        self.pindir = {'x': 1,}
-        self.pinstep = {'x': 2,}
+        self.pindir = {'x': 1, 'y':3, 'z':5,'u':7}
+        self.pinstep = {'x': 2,'y':4, 'z':6, 'u':8}
         self.pinaux = 7
 
         # Initialize BufferInterface
         self.io = BufferInterface()
         
         # Set default parameters, speed in pulses per second (Hz)
-        self.speed = {'x': 10.0,
-                      }
+        self.speed = {'x': 10.0, 'y': 10.0, 'z' : 10.0, 'u':  10.0 }
         
         # Initialize operation variables
-        self.pos = {'x': 0,
-                    }
+        self.pos = {'x': 0, 'y':0, 'z': 0, 'u':0 }
         
         self.busyFlag = False
         

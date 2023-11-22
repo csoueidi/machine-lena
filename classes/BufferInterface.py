@@ -4,7 +4,7 @@ class BufferInterface:
     def __init__(self):
         # Define GPIO pins being used
         GPIO.setmode(GPIO.BCM) # Using BCM numbers.
-        self.pins = {0: 18, 1: 20, 2: 21}
+        self.pins = {0: 18, 1: 20, 2: 21, 3:25, 4:8, 5:5, 6:6, 7:17, 8:27}
         
         # GPIO Configuration modes
         GPIO.setwarnings(False)
@@ -18,7 +18,7 @@ class BufferInterface:
         print ("done.")
     
     def write(self, pin, bit):
-        if (0 <= pin <= 7) and (bit == 0 or bit == 1):
+        if (0 <= pin <= 9) and (bit == 0 or bit == 1):
             GPIO.output(self.pins[pin], bit)
         else:
             # TODO: Throw exception

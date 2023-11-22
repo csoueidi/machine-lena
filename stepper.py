@@ -1,8 +1,8 @@
 from time import sleep
 import RPi.GPIO as gpio
 
-DIR = 20
-STEP = 21
+DIR = 17
+STEP = 27
 CW =1
 CCW =0
 
@@ -24,7 +24,7 @@ try:
         
         sleep(1)
         gpio.output(DIR,CW)
-        for x in range(4000):
+        for x in range(400):
             gpio.output(STEP,gpio.HIGH)
             sleep(.00001)
             gpio.output(STEP,gpio.LOW)
@@ -32,7 +32,7 @@ try:
         
         sleep(1)
         gpio.output(DIR,CCW)
-        for x in range(4000):
+        for x in range(40):
             gpio.output(STEP,gpio.HIGH)
             sleep(.00001)
             gpio.output(STEP,gpio.LOW)
