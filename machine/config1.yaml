@@ -1,21 +1,29 @@
 motors:
-  motor_2:
-    steps_per_second: 500
+  1:
+    steps_per_second: 850
+    steps_per_rev: 3200
+    dir_pin: 20
+    step_pin: 21
+    max_deg: 700   
+    min_deg: 0
+    inverted: true
+  2:
+    steps_per_second: 850
     steps_per_rev: 3200
     dir_pin: 25
     step_pin: 8
-    max_deg: 1500   
+    max_deg: 1700   
     min_deg: 0
     inverted: true
-  motor_3:
+  3:
     steps_per_second: 500
     steps_per_rev: 3200
     dir_pin: 17
     step_pin: 27
-    max_deg: 1080   
+    max_deg: 900   
     min_deg: 0
     inverted: true
-  motor_4:
+  4:
     steps_per_second: 500
     steps_per_rev: 3200
     dir_pin: 5

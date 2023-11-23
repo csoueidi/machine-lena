@@ -25,8 +25,10 @@ class Stepper:
         self.pos = 0
         self.update_rate = 1.0 / speed_sps
 
+       
+        self.max_deg = max_deg  
         self.max_steps = max_deg * steps_per_rev / 360
-        self.min_steps = min_deg * steps_per_rev / 360
+ 
        
         self.tasks = queue.Queue()
         self.running = False
@@ -34,40 +36,53 @@ class Stepper:
         self.timer = None
         self.track_target()
     
-    
-    def enqueue_item(self, item):
-        self.tasks.put(item)
+    def enqueue_item(self, degree, speed, is_move):
+        # Enqueue a tuple containing degree and speed
+        self.tasks.put((degree, speed,is_move))
 
     def dequeue_item(self):
         if not self.tasks.empty():
             return self.tasks.get()
         return None
 
+ 
 
     def speed(self, sps):
         self.speed_sps = sps
         self.update_rate = 1.0 / sps
-        if self.running:
-            self.track_target()
+        # if self.running:
+        #     self.track_target()
 
     def speed_rps(self, rps):
         self.speed(rps * self.steps_per_rev)
 
+    def speed_frps(self, rps):
+        self.speed(rps * self.max_steps)    
+
     def target(self, t):
         self.target_pos = t
 
+    def move(self, percentage, speed=None):
+        # Check if percentage is between 0 and 1 (inclusive)
+        if not 0 <= abs(percentage) <= 1:
+            return
 
-    def move(self,deg):
-        self.enqueue_item(deg)
+        # Rest of your function logic goes here
+        if speed is not None:
+            self.enqueue_item(self.max_deg*percentage, speed, percentage >= 0)
+        else:
+            self.enqueue_item(self.max_deg*percentage, self.speed_sps, percentage >= 0)
+
+
+    def move_deg(self,deg,speed=None):        
+        if speed is not None:
+            self.enqueue_item(deg,speed, False)
+        else:
+            self.enqueue_item(deg, self.speed_sps, False)    
         
 
 
-    def target_deg(self, deg):
 
-        target_steps = self.steps_per_rev * deg / 360.0
-        target_steps = math.ceil(target_steps)
-        # print(f"target steps {target_steps}")
-        self.target_pos = self.pos + target_steps
          
     def set_direction(self, d):
         self.invert_dir = d
@@ -113,19 +128,38 @@ class Stepper:
         time.sleep(0.00005)
 
         self.pos += direction
+   
     
         # print("Moved to pos " + str(self.pos))
         # print(f"Position degree {self.get_pos_deg()}")
         # print(f"target_pos   {self.target_pos}")
         # print(f"self.pos {self.pos}")
 
+    def target_deg(self, deg):
+        # This method is called from the timer thread
+
+        target_steps = self.steps_per_rev * deg / 360.0
+        target_steps = math.ceil(target_steps)
+
+        # print(f"target steps {target_steps}")
+        # self.target_pos = self.pos + target_steps
+        
+        self.target_pos = math.ceil(max(0, min(self.pos + target_steps, self.max_steps)))
+       
+        # print(f"Setting target pos  {self.target_pos}")
 
     def _timer_callback(self):
         while self.running:
             if(not self.isExecuting):
                 item = self.dequeue_item()
                 if item is not None:
-                      self.target_deg(item)
+                    degree, speed, is_move = item
+                    if is_move:
+                        degree = degree - self.get_pos_deg()
+                    if degree < 0:
+                        self.set_direction(True)
+                    self.speed(speed)
+                    self.target_deg(degree)
 
             if self.target_pos > self.pos:
                 self.step(1)
