@@ -1,5 +1,5 @@
 import yaml
-from stepper import Stepper
+from mockstepper import Stepper
 
 def load_config(file_path):
     with open(file_path, 'r') as file:
