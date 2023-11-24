@@ -12,19 +12,19 @@ class MockGPIO:
 
     @staticmethod
     def setmode(mode):
-        print(f"GPIO setmode({mode})")
+       x=1
 
     @staticmethod
     def setup(pin, mode):
-        print(f"GPIO setup(pin={pin}, mode={mode})")
+        x=1
 
     @staticmethod
     def output(pin, state):
-        print(f"GPIO output(pin={pin}, state={state})")
+        x=1
 
     @staticmethod
     def cleanup():
-        print("GPIO cleanup()")
+        x=1
 
 class Stepper:
     def __init__(self, step_pin, dir_pin, en_pin=None, steps_per_rev=200, speed_sps=10,  max_deg = 360, min_deg=0,invert_dir=False):
@@ -94,7 +94,7 @@ class Stepper:
         if speed is not None:
             self.enqueue_item(self.max_deg*percentage, speed, percentage >= 0)
         else:
-            self.enqueue_item(self.max_deg*percentage, self.speed_sps, percentage >= 0)
+            self.enqueue_item(self.max_deg*percentage, self.speed_frps, percentage >= 0)
 
 
     def move_deg(self,deg,speed=None):        
@@ -181,7 +181,7 @@ class Stepper:
                         degree = degree - self.get_pos_deg()
                     if degree < 0:
                         self.set_direction(True)
-                    self.speed(speed)
+                    self.speed(speed * self.max_steps)
                     self.target_deg(degree)
 
             if self.target_pos > self.pos:

@@ -14,14 +14,14 @@ import time
 
 
 
-motor_config = config.load_config('/Users/chukrisoueidi/Src/lena/machine/machine-lena/machine/config1.yaml')
+motor_config = config.load_config('/home/pi/demo/code/machine/config1.yaml')
     
     # motor_config = config.load_config('/home/pi/demo/code/machine/config1.yaml')
 motors = config.create_motors_map(motor_config)   
 
 def main():
     # Read input from file
-    with open("/Users/chukrisoueidi/Src/lena/machine/machine-lena/test/sample.chor", "r") as file:
+    with open("/home/pi/demo/code/test/sample.chor", "r") as file:
         input_stream = InputStream(file.read())
 
     # Create a lexer and parser
