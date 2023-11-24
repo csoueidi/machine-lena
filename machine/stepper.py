@@ -71,7 +71,7 @@ class Stepper:
         if speed is not None:
             self.enqueue_item(self.max_deg*percentage, speed, percentage >= 0)
         else:
-            self.enqueue_item(self.max_deg*percentage, self.speed_sps, percentage >= 0)
+            self.enqueue_item(self.max_deg*percentage, self.speed_frps, percentage >= 0)
 
 
     def move_deg(self,deg,speed=None):        
@@ -158,7 +158,7 @@ class Stepper:
                         degree = degree - self.get_pos_deg()
                     if degree < 0:
                         self.set_direction(True)
-                    self.speed(speed)
+                    self.speed(speed * self.max_steps)
                     self.target_deg(degree)
 
             if self.target_pos > self.pos:

@@ -26,16 +26,16 @@ class MockGPIO:
     def cleanup():
         print("GPIO cleanup()")
 
-class MockStepper:
+class Stepper:
     def __init__(self, step_pin, dir_pin, en_pin=None, steps_per_rev=200, speed_sps=10,  max_deg = 360, min_deg=0,invert_dir=False):
-        GPIO = MockGPIO
-        GPIO.setmode(GPIO.BCM)
-        GPIO.setup(step_pin, GPIO.OUT)
-        GPIO.setup(dir_pin, GPIO.OUT)
+        self.GPIO = MockGPIO
+        self.GPIO.setmode(MockGPIO.BCM)
+        self.GPIO.setup(step_pin, MockGPIO.OUT)
+        self.GPIO.setup(dir_pin, MockGPIO.OUT)
 
         if en_pin is not None:
-            GPIO.setup(en_pin, GPIO.OUT)
-            GPIO.output(en_pin, GPIO.HIGH)
+            self.GPIO.setup(en_pin, MockGPIO.OUT)
+            self.GPIO.output(en_pin, MockGPIO.HIGH)
 
         self.step_pin = step_pin
         self.dir_pin = dir_pin
@@ -90,7 +90,7 @@ class MockStepper:
         if not 0 <= abs(percentage) <= 1:
             return
 
-        # Rest of your function logic goes here
+        #Rest of your function logic goes here
         if speed is not None:
             self.enqueue_item(self.max_deg*percentage, speed, percentage >= 0)
         else:
@@ -133,7 +133,7 @@ class MockStepper:
 
     def enable(self, enable):
         if self.en_pin is not None:
-            GPIO.output(self.en_pin, GPIO.HIGH if enable else GPIO.LOW)
+            self.GPIO.output(self.en_pin, MockGPIO.HIGH if enable else MockGPIO.LOW)
         self.enabled = enable
 
     def is_enabled(self):
@@ -141,13 +141,13 @@ class MockStepper:
 
     def step(self, direction):         
         if direction > 0:
-            GPIO.output(self.dir_pin, GPIO.HIGH if not self.invert_dir else GPIO.LOW)
+            self.GPIO.output(self.dir_pin, MockGPIO.HIGH if not self.invert_dir else MockGPIO.LOW)
         elif direction < 0:
-            GPIO.output(self.dir_pin, GPIO.LOW if not self.invert_dir else GPIO.HIGH)
+            self.GPIO.output(self.dir_pin, MockGPIO.LOW if not self.invert_dir else MockGPIO.HIGH)
 
-        GPIO.output(self.step_pin, GPIO.HIGH)
+        self.GPIO.output(self.step_pin, MockGPIO.HIGH)
         time.sleep(0.00005)
-        GPIO.output(self.step_pin, GPIO.LOW)
+        self.GPIO.output(self.step_pin, MockGPIO.LOW)
         time.sleep(0.00005)
 
         self.pos += direction
@@ -208,11 +208,11 @@ class MockStepper:
         self.running = False
         if self.timer is not None and self.timer.is_alive():
             self.timer.join()
-        GPIO.output(self.step_pin, GPIO.LOW)
-        GPIO.output(self.dir_pin, GPIO.LOW)
+        self.GPIO.output(self.step_pin, MockGPIO.LOW)
+        self.GPIO.output(self.dir_pin, MockGPIO.LOW)
         if self.en_pin is not None:
-            GPIO.output(self.en_pin, GPIO.LOW)
-
+            self.GPIO.output(self.en_pin, MockGPIO.LOW)    
+     
     def reset_motor(motor):
         # Move to home position or set current position as home
         motor.overwrite_pos(0)  # Setting current position as 'home'       

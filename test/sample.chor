@@ -1,14 +1,14 @@
-set_frps 30
-move(1,0.5,10)
+set_frps 0.1
+move(1,0.5,0.1)
 sync {
-    move(2,1.0,20)
-    move(3,0.5)
+    move(2,1.0,0.1)
+    move(3,0.5,0.1)
 }
 repeat 2 {
-    move(1,0.2,5)
+    move(1,0.2,0.1)
     wait(3)
     sync {
-        move(2,1.0,20)
+        move(2,1.0,0.1)
         move(3,0.5)
     }
 }

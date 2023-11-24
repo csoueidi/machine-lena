@@ -13,7 +13,7 @@ waitCommand: 'wait' '(' seconds ')';
 motor: INTEGER;
 degree: DECIMAL | INTEGER;
 speed: DECIMAL | INTEGER;
-seconds: DECIMAL;
+seconds: DECIMAL | INTEGER;
 times: INTEGER ;
 
 

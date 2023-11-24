@@ -34,7 +34,7 @@ def serializedATN():
         5,8,0,0,68,9,1,0,0,0,69,70,5,10,0,0,70,71,3,18,9,0,71,11,1,0,0,0,
         72,73,5,11,0,0,73,74,5,2,0,0,74,75,3,20,10,0,75,76,5,5,0,0,76,13,
         1,0,0,0,77,78,5,12,0,0,78,15,1,0,0,0,79,80,7,0,0,0,80,17,1,0,0,0,
-        81,82,7,0,0,0,82,19,1,0,0,0,83,84,5,13,0,0,84,21,1,0,0,0,85,86,5,
+        81,82,7,0,0,0,82,19,1,0,0,0,83,84,7,0,0,0,84,21,1,0,0,0,85,86,5,
         12,0,0,86,23,1,0,0,0,6,27,34,40,46,55,65
     ]
 
@@ -677,6 +677,9 @@ class ChoreographyParser ( Parser ):
         def DECIMAL(self):
             return self.getToken(ChoreographyParser.DECIMAL, 0)
 
+        def INTEGER(self):
+            return self.getToken(ChoreographyParser.INTEGER, 0)
+
         def getRuleIndex(self):
             return ChoreographyParser.RULE_seconds
 
@@ -693,10 +696,16 @@ class ChoreographyParser ( Parser ):
 
         localctx = ChoreographyParser.SecondsContext(self, self._ctx, self.state)
         self.enterRule(localctx, 20, self.RULE_seconds)
+        self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
             self.state = 83
-            self.match(ChoreographyParser.DECIMAL)
+            _la = self._input.LA(1)
+            if not(_la==12 or _la==13):
+                self._errHandler.recoverInline(self)
+            else:
+                self._errHandler.reportMatch(self)
+                self.consume()
         except RecognitionException as re:
             localctx.exception = re
             self._errHandler.reportError(self, re)
