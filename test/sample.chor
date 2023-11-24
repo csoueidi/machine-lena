@@ -1,0 +1,14 @@
+set_frps 30
+move(1,0.5,10)
+sync {
+    move(2,1.0,20)
+    move(3,0.5)
+}
+repeat 2 {
+    move(1,0.2,5)
+    wait(3)
+    sync {
+        move(2,1.0,20)
+        move(3,0.5)
+    }
+}
