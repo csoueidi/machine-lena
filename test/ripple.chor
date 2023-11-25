@@ -1,0 +1,14 @@
+set_frps 0.6;
+sync {
+    move(1, 1, 0.5);
+    move(2, 0.8, 0.5);
+    move(3, 0.6, 0.5);
+    move(4, 0.4, 0.5);
+}
+wait(2);
+sync {
+    move(1, 0);
+    move(2, 0);
+    move(3, 0);
+    move(4, 0);
+}

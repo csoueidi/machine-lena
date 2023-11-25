@@ -1,0 +1,22 @@
+set_frps 0.5;
+repeat 2 {
+    // Aller (forward)
+    move(1, 1, 0.5);
+    wait(0.5);
+    move(2, 1, 0.5);
+    wait(0.5);
+    move(3, 1, 0.5);
+    wait(0.5);
+    move(4, 1, 0.5);
+    wait(0.5);
+    
+    // Retour (backward)
+    move(4, 0, 0.5);
+    wait(0.5);
+    move(3, 0, 0.5);
+    wait(0.5);
+    move(2, 0, 0.5);
+    wait(0.5);
+    move(1, 0, 0.5);
+    wait(0.5);
+}
