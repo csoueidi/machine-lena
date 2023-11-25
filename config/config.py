@@ -1,5 +1,19 @@
 import yaml
-from mockstepper import Stepper
+import sys
+from pathlib import Path
+import os
+
+parent_dir = str(Path(__file__).parent.parent)
+sys.path.append(parent_dir)
+
+from stepper.mockstepper import Stepper
+
+
+def get_motors_map():
+    current_dir = os.path.dirname(os.path.abspath(__file__))
+    config_path = os.path.join(current_dir, 'config1.yaml')
+    motor_config = load_config(config_path)
+    return create_motors_map(motor_config)   
 
 def load_config(file_path):
     with open(file_path, 'r') as file:

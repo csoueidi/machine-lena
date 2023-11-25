@@ -27,7 +27,8 @@ class Stepper:
 
        
         self.max_deg = max_deg  
-        self.max_steps = max_deg * steps_per_rev / 360
+        self.maxsteps = max_deg * steps_per_rev / 360
+      
  
        
         self.tasks = queue.Queue()
@@ -57,7 +58,7 @@ class Stepper:
         self.speed(rps * self.steps_per_rev)
 
     def speed_frps(self, rps):
-        self.speed(rps * self.max_steps)    
+        self.speed(rps * self.maxsteps)    
 
     def target(self, t):
         self.target_pos = t
@@ -94,7 +95,7 @@ class Stepper:
         return self.pos
 
     def get_pos_deg(self):
-        return self.get_pos() * 360.0 / self.steps_per_rev
+        return round(self.get_pos() * 360.0 / self.steps_per_rev)
 
     def get_pos_rad(self):
         return self.get_pos() * (2.0 * math.pi) / self.steps_per_rev
@@ -144,7 +145,7 @@ class Stepper:
         # print(f"target steps {target_steps}")
         # self.target_pos = self.pos + target_steps
         
-        self.target_pos = math.ceil(max(0, min(self.pos + target_steps, self.max_steps)))
+        self.target_pos = math.ceil(max(0, min(self.pos + target_steps, self.maxsteps)))
        
         # print(f"Setting target pos  {self.target_pos}")
 
@@ -153,12 +154,13 @@ class Stepper:
             if(not self.isExecuting):
                 item = self.dequeue_item()
                 if item is not None:
-                    degree, speed, is_move = item
+                    degree, vel, is_move = item
                     if is_move:
                         degree = degree - self.get_pos_deg()
                     if degree < 0:
                         self.set_direction(True)
-                    self.speed(speed * self.max_steps)
+                    velocity = vel * self.maxsteps    
+                    self.speed(velocity)
                     self.target_deg(degree)
 
             if self.target_pos > self.pos:

@@ -1,20 +1,20 @@
 import time
-import config
+import config.config as config
  
 def main():
-    # Load motor configurations from the YAML file
-    motor_config = config.load_config('/home/pi/demo/code/machine/config1.yaml')
-    motors = config.create_motors(motor_config)
+    
+    motors = config.get_motors_map
 
-   
-    for name, motor in motors.items():
-        motor.move_deg(360,1000)
-        motor.move_deg(-360,1000)
-       
+    for i in range(1):
+        for name, motor in motors.items():
+            motor.speed_frps(0.1)
+            motor.move(0.9)
+            motor.move(0)
+            motor.move(0.4)
+            motor.move(0)
+             
  
  
-
-    # # Wait for all motors to reach their target positions
     all_motors_reached_target = False
     while not all_motors_reached_target:
         time.sleep(1)

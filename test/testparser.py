@@ -1,5 +1,7 @@
 import sys
 from pathlib import Path
+import os
+ 
 
 # Adding the parent directory to sys.path
 parent_dir = str(Path(__file__).parent.parent)
@@ -8,20 +10,25 @@ sys.path.append(parent_dir)
 from antlr4 import *
 from choreography.ChoreographyLexer import ChoreographyLexer
 from choreography.ChoreographyParser import ChoreographyParser
-from MyChoreographyVisitor import MyChoreographyVisitor
-import config
+from choreography.MyChoreographyVisitor import MyChoreographyVisitor
+import config.config as config
 import time
 
 
-
-motor_config = config.load_config('/home/pi/demo/code/machine/config1.yaml')
-    
-    # motor_config = config.load_config('/home/pi/demo/code/machine/config1.yaml')
-motors = config.create_motors_map(motor_config)   
+motors = config.get_motors_map()
 
 def main():
-    # Read input from file
-    with open("/home/pi/demo/code/test/sample.chor", "r") as file:
+      # Check if an argument is provided
+    if len(sys.argv) < 2:
+        print("Usage: test.py <path_to_chor_file>")
+        sys.exit(1)
+
+    # Get the file path from the command line argument
+    file_name = sys.argv[1]
+    
+    current_dir = os.path.dirname(os.path.abspath(__file__))
+    chor_path = os.path.join(current_dir, file_name)
+    with open(chor_path, "r") as file:
         input_stream = InputStream(file.read())
 
     # Create a lexer and parser
@@ -33,7 +40,7 @@ def main():
     tree = parser.choreography()
 
     # Create and apply the visitor
-    visitor = MyChoreographyVisitor(motors)
+    visitor = MyChoreographyVisitor(motors, mock=True)
     visitor.visit(tree)
 
     check_motors_finished()
