@@ -80,27 +80,29 @@ class Stepper:
     def speed_rps(self, rps):
         self.speed(rps * self.steps_per_rev)
 
-    def speed_frps(self, rps):
-        self.speed(rps * self.maxsteps)    
+    def speed_frps(self, frps):
+        self.speed(frps * self.maxsteps)    
 
     def target(self, t):
         self.target_pos = t
 
-    def move(self, percentage, speed=None):
+    def move(self, percentage, frps=None):
         # Check if percentage is between 0 and 1 (inclusive)
-        if not 0 <= abs(percentage) <= 1:
-            return
+        if abs(percentage) > 1:
+            percentage = 1
+        elif percentage < 0:
+            percentage = 0
 
         #Rest of your function logic goes here
-        if speed is not None:
-            self.enqueue_item(self.max_deg*percentage, speed, percentage >= 0)
+        if frps is not None:
+            self.enqueue_item(self.max_deg*percentage, frps, percentage >= 0)
         else:
-            self.enqueue_item(self.max_deg*percentage, self.speed_frps, percentage >= 0)
+            self.enqueue_item(self.max_deg*percentage, (self.speed_sps / self.maxsteps), percentage >= 0)
 
 
     def move_deg(self,deg,speed=None):        
         if speed is not None:
-            self.enqueue_item(deg,speed, False)
+            self.enqueue_item(deg,speed , False)
         else:
             self.enqueue_item(deg, self.speed_sps, False)    
         

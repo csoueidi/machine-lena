@@ -4,11 +4,11 @@ choreography: command+;
 
 command: moveCommand | syncCommand | repeatCommand | setFrpsCommand | waitCommand;
 
-moveCommand: 'move' '(' ('all' | motor) ',' degree (',' speed)? ')';
-syncCommand: 'sync' '{' moveCommand+ '}';
-repeatCommand: 'repeat' times '{' command+ '}';
-setFrpsCommand: 'set_frps' speed;
-waitCommand: 'wait' '(' seconds ')';
+moveCommand: 'move' '(' ('all' | motor) ',' degree (',' speed)? ')' (';')? ;
+syncCommand: 'sync' '{' moveCommand+ '}' (';')?;
+repeatCommand: 'repeat' times '{' command+ '}' (';')?;
+setFrpsCommand: 'set_frps' speed (';')?;
+waitCommand: 'wait' '(' seconds ')' (';')?;
 
 motor: INTEGER;
 degree: DECIMAL | INTEGER;

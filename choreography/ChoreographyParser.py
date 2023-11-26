@@ -10,32 +10,37 @@ else:
 
 def serializedATN():
     return [
-        4,1,15,88,2,0,7,0,2,1,7,1,2,2,7,2,2,3,7,3,2,4,7,4,2,5,7,5,2,6,7,
+        4,1,16,98,2,0,7,0,2,1,7,1,2,2,7,2,2,3,7,3,2,4,7,4,2,5,7,5,2,6,7,
         6,2,7,7,7,2,8,7,8,2,9,7,9,2,10,7,10,2,11,7,11,1,0,4,0,26,8,0,11,
         0,12,0,27,1,1,1,1,1,1,1,1,1,1,3,1,35,8,1,1,2,1,2,1,2,1,2,3,2,41,
-        8,2,1,2,1,2,1,2,1,2,3,2,47,8,2,1,2,1,2,1,3,1,3,1,3,4,3,54,8,3,11,
-        3,12,3,55,1,3,1,3,1,4,1,4,1,4,1,4,4,4,64,8,4,11,4,12,4,65,1,4,1,
-        4,1,5,1,5,1,5,1,6,1,6,1,6,1,6,1,6,1,7,1,7,1,8,1,8,1,9,1,9,1,10,1,
-        10,1,11,1,11,1,11,0,0,12,0,2,4,6,8,10,12,14,16,18,20,22,0,1,1,0,
-        12,13,84,0,25,1,0,0,0,2,34,1,0,0,0,4,36,1,0,0,0,6,50,1,0,0,0,8,59,
-        1,0,0,0,10,69,1,0,0,0,12,72,1,0,0,0,14,77,1,0,0,0,16,79,1,0,0,0,
-        18,81,1,0,0,0,20,83,1,0,0,0,22,85,1,0,0,0,24,26,3,2,1,0,25,24,1,
-        0,0,0,26,27,1,0,0,0,27,25,1,0,0,0,27,28,1,0,0,0,28,1,1,0,0,0,29,
-        35,3,4,2,0,30,35,3,6,3,0,31,35,3,8,4,0,32,35,3,10,5,0,33,35,3,12,
-        6,0,34,29,1,0,0,0,34,30,1,0,0,0,34,31,1,0,0,0,34,32,1,0,0,0,34,33,
-        1,0,0,0,35,3,1,0,0,0,36,37,5,1,0,0,37,40,5,2,0,0,38,41,5,3,0,0,39,
-        41,3,14,7,0,40,38,1,0,0,0,40,39,1,0,0,0,41,42,1,0,0,0,42,43,5,4,
-        0,0,43,46,3,16,8,0,44,45,5,4,0,0,45,47,3,18,9,0,46,44,1,0,0,0,46,
-        47,1,0,0,0,47,48,1,0,0,0,48,49,5,5,0,0,49,5,1,0,0,0,50,51,5,6,0,
-        0,51,53,5,7,0,0,52,54,3,4,2,0,53,52,1,0,0,0,54,55,1,0,0,0,55,53,
-        1,0,0,0,55,56,1,0,0,0,56,57,1,0,0,0,57,58,5,8,0,0,58,7,1,0,0,0,59,
-        60,5,9,0,0,60,61,3,22,11,0,61,63,5,7,0,0,62,64,3,2,1,0,63,62,1,0,
-        0,0,64,65,1,0,0,0,65,63,1,0,0,0,65,66,1,0,0,0,66,67,1,0,0,0,67,68,
-        5,8,0,0,68,9,1,0,0,0,69,70,5,10,0,0,70,71,3,18,9,0,71,11,1,0,0,0,
-        72,73,5,11,0,0,73,74,5,2,0,0,74,75,3,20,10,0,75,76,5,5,0,0,76,13,
-        1,0,0,0,77,78,5,12,0,0,78,15,1,0,0,0,79,80,7,0,0,0,80,17,1,0,0,0,
-        81,82,7,0,0,0,82,19,1,0,0,0,83,84,7,0,0,0,84,21,1,0,0,0,85,86,5,
-        12,0,0,86,23,1,0,0,0,6,27,34,40,46,55,65
+        8,2,1,2,1,2,1,2,1,2,3,2,47,8,2,1,2,1,2,3,2,51,8,2,1,3,1,3,1,3,4,
+        3,56,8,3,11,3,12,3,57,1,3,1,3,3,3,62,8,3,1,4,1,4,1,4,1,4,4,4,68,
+        8,4,11,4,12,4,69,1,4,1,4,3,4,74,8,4,1,5,1,5,1,5,3,5,79,8,5,1,6,1,
+        6,1,6,1,6,1,6,3,6,86,8,6,1,7,1,7,1,8,1,8,1,9,1,9,1,10,1,10,1,11,
+        1,11,1,11,0,0,12,0,2,4,6,8,10,12,14,16,18,20,22,0,1,1,0,13,14,99,
+        0,25,1,0,0,0,2,34,1,0,0,0,4,36,1,0,0,0,6,52,1,0,0,0,8,63,1,0,0,0,
+        10,75,1,0,0,0,12,80,1,0,0,0,14,87,1,0,0,0,16,89,1,0,0,0,18,91,1,
+        0,0,0,20,93,1,0,0,0,22,95,1,0,0,0,24,26,3,2,1,0,25,24,1,0,0,0,26,
+        27,1,0,0,0,27,25,1,0,0,0,27,28,1,0,0,0,28,1,1,0,0,0,29,35,3,4,2,
+        0,30,35,3,6,3,0,31,35,3,8,4,0,32,35,3,10,5,0,33,35,3,12,6,0,34,29,
+        1,0,0,0,34,30,1,0,0,0,34,31,1,0,0,0,34,32,1,0,0,0,34,33,1,0,0,0,
+        35,3,1,0,0,0,36,37,5,1,0,0,37,40,5,2,0,0,38,41,5,3,0,0,39,41,3,14,
+        7,0,40,38,1,0,0,0,40,39,1,0,0,0,41,42,1,0,0,0,42,43,5,4,0,0,43,46,
+        3,16,8,0,44,45,5,4,0,0,45,47,3,18,9,0,46,44,1,0,0,0,46,47,1,0,0,
+        0,47,48,1,0,0,0,48,50,5,5,0,0,49,51,5,6,0,0,50,49,1,0,0,0,50,51,
+        1,0,0,0,51,5,1,0,0,0,52,53,5,7,0,0,53,55,5,8,0,0,54,56,3,4,2,0,55,
+        54,1,0,0,0,56,57,1,0,0,0,57,55,1,0,0,0,57,58,1,0,0,0,58,59,1,0,0,
+        0,59,61,5,9,0,0,60,62,5,6,0,0,61,60,1,0,0,0,61,62,1,0,0,0,62,7,1,
+        0,0,0,63,64,5,10,0,0,64,65,3,22,11,0,65,67,5,8,0,0,66,68,3,2,1,0,
+        67,66,1,0,0,0,68,69,1,0,0,0,69,67,1,0,0,0,69,70,1,0,0,0,70,71,1,
+        0,0,0,71,73,5,9,0,0,72,74,5,6,0,0,73,72,1,0,0,0,73,74,1,0,0,0,74,
+        9,1,0,0,0,75,76,5,11,0,0,76,78,3,18,9,0,77,79,5,6,0,0,78,77,1,0,
+        0,0,78,79,1,0,0,0,79,11,1,0,0,0,80,81,5,12,0,0,81,82,5,2,0,0,82,
+        83,3,20,10,0,83,85,5,5,0,0,84,86,5,6,0,0,85,84,1,0,0,0,85,86,1,0,
+        0,0,86,13,1,0,0,0,87,88,5,13,0,0,88,15,1,0,0,0,89,90,7,0,0,0,90,
+        17,1,0,0,0,91,92,7,0,0,0,92,19,1,0,0,0,93,94,7,0,0,0,94,21,1,0,0,
+        0,95,96,5,13,0,0,96,23,1,0,0,0,11,27,34,40,46,50,57,61,69,73,78,
+        85
     ]
 
 class ChoreographyParser ( Parser ):
@@ -49,12 +54,13 @@ class ChoreographyParser ( Parser ):
     sharedContextCache = PredictionContextCache()
 
     literalNames = [ "<INVALID>", "'move'", "'('", "'all'", "','", "')'", 
-                     "'sync'", "'{'", "'}'", "'repeat'", "'set_frps'", "'wait'" ]
+                     "';'", "'sync'", "'{'", "'}'", "'repeat'", "'set_frps'", 
+                     "'wait'" ]
 
     symbolicNames = [ "<INVALID>", "<INVALID>", "<INVALID>", "<INVALID>", 
                       "<INVALID>", "<INVALID>", "<INVALID>", "<INVALID>", 
                       "<INVALID>", "<INVALID>", "<INVALID>", "<INVALID>", 
-                      "INTEGER", "DECIMAL", "COMMENT", "WS" ]
+                      "<INVALID>", "INTEGER", "DECIMAL", "COMMENT", "WS" ]
 
     RULE_choreography = 0
     RULE_command = 1
@@ -85,10 +91,11 @@ class ChoreographyParser ( Parser ):
     T__8=9
     T__9=10
     T__10=11
-    INTEGER=12
-    DECIMAL=13
-    COMMENT=14
-    WS=15
+    T__11=12
+    INTEGER=13
+    DECIMAL=14
+    COMMENT=15
+    WS=16
 
     def __init__(self, input:TokenStream, output:TextIO = sys.stdout):
         super().__init__(input, output)
@@ -141,7 +148,7 @@ class ChoreographyParser ( Parser ):
                 self.state = 27 
                 self._errHandler.sync(self)
                 _la = self._input.LA(1)
-                if not ((((_la) & ~0x3f) == 0 and ((1 << _la) & 3650) != 0)):
+                if not ((((_la) & ~0x3f) == 0 and ((1 << _la) & 7298) != 0)):
                     break
 
         except RecognitionException as re:
@@ -205,22 +212,22 @@ class ChoreographyParser ( Parser ):
                 self.state = 29
                 self.moveCommand()
                 pass
-            elif token in [6]:
+            elif token in [7]:
                 self.enterOuterAlt(localctx, 2)
                 self.state = 30
                 self.syncCommand()
                 pass
-            elif token in [9]:
+            elif token in [10]:
                 self.enterOuterAlt(localctx, 3)
                 self.state = 31
                 self.repeatCommand()
                 pass
-            elif token in [10]:
+            elif token in [11]:
                 self.enterOuterAlt(localctx, 4)
                 self.state = 32
                 self.setFrpsCommand()
                 pass
-            elif token in [11]:
+            elif token in [12]:
                 self.enterOuterAlt(localctx, 5)
                 self.state = 33
                 self.waitCommand()
@@ -286,7 +293,7 @@ class ChoreographyParser ( Parser ):
                 self.state = 38
                 self.match(ChoreographyParser.T__2)
                 pass
-            elif token in [12]:
+            elif token in [13]:
                 self.state = 39
                 self.motor()
                 pass
@@ -309,6 +316,14 @@ class ChoreographyParser ( Parser ):
 
             self.state = 48
             self.match(ChoreographyParser.T__4)
+            self.state = 50
+            self._errHandler.sync(self)
+            _la = self._input.LA(1)
+            if _la==6:
+                self.state = 49
+                self.match(ChoreographyParser.T__5)
+
+
         except RecognitionException as re:
             localctx.exception = re
             self._errHandler.reportError(self, re)
@@ -351,24 +366,32 @@ class ChoreographyParser ( Parser ):
         self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 50
-            self.match(ChoreographyParser.T__5)
-            self.state = 51
+            self.state = 52
             self.match(ChoreographyParser.T__6)
-            self.state = 53 
+            self.state = 53
+            self.match(ChoreographyParser.T__7)
+            self.state = 55 
             self._errHandler.sync(self)
             _la = self._input.LA(1)
             while True:
-                self.state = 52
+                self.state = 54
                 self.moveCommand()
-                self.state = 55 
+                self.state = 57 
                 self._errHandler.sync(self)
                 _la = self._input.LA(1)
                 if not (_la==1):
                     break
 
-            self.state = 57
-            self.match(ChoreographyParser.T__7)
+            self.state = 59
+            self.match(ChoreographyParser.T__8)
+            self.state = 61
+            self._errHandler.sync(self)
+            _la = self._input.LA(1)
+            if _la==6:
+                self.state = 60
+                self.match(ChoreographyParser.T__5)
+
+
         except RecognitionException as re:
             localctx.exception = re
             self._errHandler.reportError(self, re)
@@ -415,26 +438,34 @@ class ChoreographyParser ( Parser ):
         self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 59
-            self.match(ChoreographyParser.T__8)
-            self.state = 60
+            self.state = 63
+            self.match(ChoreographyParser.T__9)
+            self.state = 64
             self.times()
-            self.state = 61
-            self.match(ChoreographyParser.T__6)
-            self.state = 63 
+            self.state = 65
+            self.match(ChoreographyParser.T__7)
+            self.state = 67 
             self._errHandler.sync(self)
             _la = self._input.LA(1)
             while True:
-                self.state = 62
+                self.state = 66
                 self.command()
-                self.state = 65 
+                self.state = 69 
                 self._errHandler.sync(self)
                 _la = self._input.LA(1)
-                if not ((((_la) & ~0x3f) == 0 and ((1 << _la) & 3650) != 0)):
+                if not ((((_la) & ~0x3f) == 0 and ((1 << _la) & 7298) != 0)):
                     break
 
-            self.state = 67
-            self.match(ChoreographyParser.T__7)
+            self.state = 71
+            self.match(ChoreographyParser.T__8)
+            self.state = 73
+            self._errHandler.sync(self)
+            _la = self._input.LA(1)
+            if _la==6:
+                self.state = 72
+                self.match(ChoreographyParser.T__5)
+
+
         except RecognitionException as re:
             localctx.exception = re
             self._errHandler.reportError(self, re)
@@ -471,12 +502,21 @@ class ChoreographyParser ( Parser ):
 
         localctx = ChoreographyParser.SetFrpsCommandContext(self, self._ctx, self.state)
         self.enterRule(localctx, 10, self.RULE_setFrpsCommand)
+        self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 69
-            self.match(ChoreographyParser.T__9)
-            self.state = 70
+            self.state = 75
+            self.match(ChoreographyParser.T__10)
+            self.state = 76
             self.speed()
+            self.state = 78
+            self._errHandler.sync(self)
+            _la = self._input.LA(1)
+            if _la==6:
+                self.state = 77
+                self.match(ChoreographyParser.T__5)
+
+
         except RecognitionException as re:
             localctx.exception = re
             self._errHandler.reportError(self, re)
@@ -513,16 +553,25 @@ class ChoreographyParser ( Parser ):
 
         localctx = ChoreographyParser.WaitCommandContext(self, self._ctx, self.state)
         self.enterRule(localctx, 12, self.RULE_waitCommand)
+        self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 72
-            self.match(ChoreographyParser.T__10)
-            self.state = 73
+            self.state = 80
+            self.match(ChoreographyParser.T__11)
+            self.state = 81
             self.match(ChoreographyParser.T__1)
-            self.state = 74
+            self.state = 82
             self.seconds()
-            self.state = 75
+            self.state = 83
             self.match(ChoreographyParser.T__4)
+            self.state = 85
+            self._errHandler.sync(self)
+            _la = self._input.LA(1)
+            if _la==6:
+                self.state = 84
+                self.match(ChoreographyParser.T__5)
+
+
         except RecognitionException as re:
             localctx.exception = re
             self._errHandler.reportError(self, re)
@@ -560,7 +609,7 @@ class ChoreographyParser ( Parser ):
         self.enterRule(localctx, 14, self.RULE_motor)
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 77
+            self.state = 87
             self.match(ChoreographyParser.INTEGER)
         except RecognitionException as re:
             localctx.exception = re
@@ -603,9 +652,9 @@ class ChoreographyParser ( Parser ):
         self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 79
+            self.state = 89
             _la = self._input.LA(1)
-            if not(_la==12 or _la==13):
+            if not(_la==13 or _la==14):
                 self._errHandler.recoverInline(self)
             else:
                 self._errHandler.reportMatch(self)
@@ -651,9 +700,9 @@ class ChoreographyParser ( Parser ):
         self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 81
+            self.state = 91
             _la = self._input.LA(1)
-            if not(_la==12 or _la==13):
+            if not(_la==13 or _la==14):
                 self._errHandler.recoverInline(self)
             else:
                 self._errHandler.reportMatch(self)
@@ -699,9 +748,9 @@ class ChoreographyParser ( Parser ):
         self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 83
+            self.state = 93
             _la = self._input.LA(1)
-            if not(_la==12 or _la==13):
+            if not(_la==13 or _la==14):
                 self._errHandler.recoverInline(self)
             else:
                 self._errHandler.reportMatch(self)
@@ -743,7 +792,7 @@ class ChoreographyParser ( Parser ):
         self.enterRule(localctx, 22, self.RULE_times)
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 85
+            self.state = 95
             self.match(ChoreographyParser.INTEGER)
         except RecognitionException as re:
             localctx.exception = re
