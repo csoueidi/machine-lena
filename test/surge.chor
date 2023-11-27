@@ -1,4 +1,4 @@
-set_frps 0.4;
+set_frps 0.1;
 repeat 2 {
     move(1, 0.3);
     move(2, 0.6);

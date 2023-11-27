@@ -40,7 +40,7 @@ def main():
     tree = parser.choreography()
 
     # Create and apply the visitor
-    visitor = MyChoreographyVisitor(motors, mock=True)
+    visitor = MyChoreographyVisitor(motors, mock=False)
     visitor.visit(tree)
 
     check_motors_finished()
