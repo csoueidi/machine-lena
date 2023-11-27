@@ -15,14 +15,14 @@ motors:
     max_deg: 1700   
     min_deg: 0
     inverted: true
-  3:
-    steps_per_second: 500
-    steps_per_rev: 3200
-    dir_pin: 17
-    step_pin: 27
-    max_deg: 900   
-    min_deg: 0
-    inverted: true
+  # 3:
+  #   steps_per_second: 500
+  #   steps_per_rev: 3200
+  #   dir_pin: 17
+  #   step_pin: 27
+  #   max_deg: 900   
+  #   min_deg: 0
+  #   inverted: true
   4:
     steps_per_second: 500
     steps_per_rev: 3200
