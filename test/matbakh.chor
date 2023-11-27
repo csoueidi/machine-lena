@@ -112,7 +112,21 @@ repeat 5{
  sync {move(3, 0.2,1000);
   move(3, 0,1000);}
   }
+
   repeat 9{
-sync {  move(3, 0.2,1000);
-  move(3, 0,1000);}
+    sync {  
+        move(3, 0.2,1000);
+        move(3, 0,1000);
+        }
+    }
+
+  repeat 5{
+ sync {
+    move(1, 0.1,1000);
+    move(1, 0,1000);}
+  }
+  repeat 9{
+sync {  
+    move(1, 0.1,1000);
+    move(1, 0,1000);}
   }

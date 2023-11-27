@@ -1,0 +1,13 @@
+
+repeat 1{
+    set_frps 50;
+    sync {
+        move(all, 1 );
+    }
+ 
+    sync {
+        move(all, 0);
+    }
+}
+
+ 

@@ -1,6 +1,7 @@
 import sys
 from pathlib import Path
 import os
+import time
  
 
 # Adding the parent directory to sys.path
@@ -41,7 +42,12 @@ def main():
 
     # Create and apply the visitor
     visitor = MyChoreographyVisitor(motors, mock=False)
+    # Start the timer
+    start_time = time.time()
+
     visitor.visit(tree)
+
+   
 
     check_motors_finished()
     for motor_id, motor in motors.items():
@@ -49,6 +55,9 @@ def main():
         print(f"Stopping motor {motor_id} pos {motor.get_pos()} angle {motor.get_pos_deg()}" )
         motor.stop()
 
+    end_time = time.time()
+    duration = end_time - start_time
+    print(f"Time taken for {file_name} : {duration} seconds")
  
     print("All motors have reached their target positions.")
 

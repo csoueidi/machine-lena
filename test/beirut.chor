@@ -1,0 +1,67 @@
+set_frps 0.5;
+repeat 1 {
+   sync {  
+    move(4, 1, 0.5);
+   }
+ 
+   sync { 
+    move(4, 0, 0.5);
+    move(3, 1, 0.5);
+   }
+
+   sync{ 
+    move(3, 0, 0.5);
+    move(2, 1, 0.5);
+    move(4, 0.4, 0.4);
+    
+   }
+   sync{ 
+     move(2, 0, 1);
+    move(1, 1, 0.5);
+     move(4, 0, 0.5);
+      move(3, 0.5, 0.6);
+   
+   }
+    
+   sync{
+     move(1, 0, 0.5);
+    move(4, 0, 0.5);
+     move(3, 0, 0.6);
+   }
+ 
+}
+repeat 1 {
+    // Motor 1 opens
+    sync {  
+        move(1, 1, 0.5);
+    }
+    
+    // Motor 1 closes, Motor 2 opens
+    sync { 
+        move(1, 0, 0.5);
+        move(2, 1, 0.5);
+    }
+
+    // Motor 2 closes, Motor 3 opens, Motor 1 reopens partially
+    sync{ 
+        move(2, 0, 0.5);
+        move(3, 1, 0.5);
+        move(1, 0.4, 0.4);
+    }
+
+    // Motor 3 closes, Motor 4 opens, Motor 1 closes, Motor 2 opens partially
+    sync{ 
+        move(3, 0, 1);
+        move(4, 1, 0.5);
+        move(1, 0, 0.5);
+        move(2, 0.5, 0.6);
+    }
+
+    // Motors 4, 1, and 2 close
+    sync{
+        move(4, 0, 0.5);
+        move(1, 0, 0.5);
+        move(2, 0, 0.6);
+    }
+}
+
