@@ -11,10 +11,13 @@ from choreography.ChoreographyParser import ChoreographyParser
 from choreography.ChoreographyVisitor import ChoreographyVisitor
 import time
 
+
+
 class MyChoreographyVisitor(ChoreographyVisitor):
     def __init__(self, motors, mock=False):
         self.motors = motors 
         self.mock = mock
+        self.frps = 0
 
     def visitMoveCommand(self, ctx: ChoreographyParser.MoveCommandContext):
         motor_id = ctx.motor().getText() if ctx.motor() else "all"
@@ -29,7 +32,7 @@ class MyChoreographyVisitor(ChoreographyVisitor):
                 if speed is not None:
                     motor.move(degree, speed)                    
                 else:
-                    motor.move(degree)
+                    motor.move(degree, self.frps)
         
         else:      
             motor = self.motors.get(int(motor_id))
@@ -38,7 +41,7 @@ class MyChoreographyVisitor(ChoreographyVisitor):
             else:
                 motor.move(degree)
  
-    def check_motors_finished(self):
+    def wait_motors_to_finish(self):
         all_motors_reached_target = False
         while not all_motors_reached_target:
             time.sleep(0.01)
@@ -46,13 +49,13 @@ class MyChoreographyVisitor(ChoreographyVisitor):
             for motor in self.motors.values():
                 if motor.isExecuting:
                     all_motors_reached_target = False
-                    break    
+                    break
  
     def visitSyncCommand(self, ctx:ChoreographyParser.SyncCommandContext):
-        self.check_motors_finished()
+        self.wait_motors_to_finish()
         for moveCmd in ctx.moveCommand():
             self.visit(moveCmd)
-        self.check_motors_finished()    
+        self.wait_motors_to_finish()    
 
         if self.mock:
             print("Synchronized move commands executed")
@@ -70,8 +73,9 @@ class MyChoreographyVisitor(ChoreographyVisitor):
  
     def visitSetFrpsCommand(self, ctx:ChoreographyParser.SetFrpsCommandContext):
         speed =  float(ctx.speed().getText())
-        for motor in self.motors.values():
-            motor.speed_frps(speed)
+        self.frps = speed
+        # for motor in self.motors.values():
+        #     motor.speed_frps(speed)
         if self.mock:
             print(f"Set FRPS to {speed}")    
         
@@ -79,6 +83,7 @@ class MyChoreographyVisitor(ChoreographyVisitor):
     def visitWaitCommand(self, ctx:ChoreographyParser.WaitCommandContext):
         seconds = float(ctx.seconds().getText())
         time.sleep(seconds)
+        self.wait_motors_to_finish()
         if self.mock:
             print(f"Waiting for {seconds} seconds")
     
