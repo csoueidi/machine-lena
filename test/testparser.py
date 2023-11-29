@@ -52,8 +52,9 @@ def main():
     check_motors_finished()
     for motor_id, motor in motors.items():
         # Call some method on each motor
-        print(f"Stopping motor {motor_id} pos {motor.get_pos()} angle {motor.get_pos_deg()}" )
+        # print(f"Stopping motor {motor_id} pos {motor.get_pos()} angle {motor.get_pos_deg()}" )
         motor.stop()
+        print("All motors stopped")
 
     end_time = time.time()
     duration = end_time - start_time

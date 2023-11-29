@@ -1,9 +1,7 @@
-
-repeat 3{
-
-    set_frps 0.1;
+repeat 1{
+    set_frps 0.15;
     sync {
-        move(all, 0.95);
+        move(all, 0.01);
     }
  
     sync {

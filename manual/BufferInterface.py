@@ -12,7 +12,7 @@ class BufferInterface:
         # Initialize GPIO ports
         print ("Initializing GPIOs:")
         for bit in self.pins:
-            print (self.pins[bit])
+            # print (self.pins[bit])
             GPIO.setup(self.pins[bit], GPIO.OUT)
             GPIO.output(self.pins[bit], 0)           
         print ("done.")

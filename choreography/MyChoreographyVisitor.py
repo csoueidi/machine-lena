@@ -74,8 +74,8 @@ class MyChoreographyVisitor(ChoreographyVisitor):
     def visitSetFrpsCommand(self, ctx:ChoreographyParser.SetFrpsCommandContext):
         speed =  float(ctx.speed().getText())
         self.frps = speed
-        # for motor in self.motors.values():
-        #     motor.speed_frps(speed)
+        for motor in self.motors.values():
+            motor.speed_frps(speed)
         if self.mock:
             print(f"Set FRPS to {speed}")    
         

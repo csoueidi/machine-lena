@@ -3,12 +3,27 @@ import threading
 import time
 import math
 import queue
+import sys
+from pathlib import Path
+import os
+
+parent_dir = str(Path(__file__).parent.parent)
+sys.path.append(parent_dir)
+
+import config.config as config
 
 class Stepper:
-    def __init__(self, step_pin, dir_pin, en_pin=None, steps_per_rev=200, speed_sps=10,  max_deg = 360, min_deg=0,invert_dir=False):
+    def __init__(self, step_pin, dir_pin, en_pin=None, steps_per_rev=200, speed_sps=10,  max_deg = 360, min_deg=0,invert_dir=False, motor_name=None, initial_position=0):
+        
         GPIO.setmode(GPIO.BCM)
+        # GPIO Configuration modes
+        GPIO.setwarnings(False)
         GPIO.setup(step_pin, GPIO.OUT)
         GPIO.setup(dir_pin, GPIO.OUT)
+
+        if motor_name is not None:
+            self.motor_name = motor_name
+            # print(f"Intiated motor {motor_name}")
 
         if en_pin is not None:
             GPIO.setup(en_pin, GPIO.OUT)
@@ -22,7 +37,7 @@ class Stepper:
         self.steps_per_rev = steps_per_rev
         self.speed_sps = speed_sps
         self.target_pos = 0
-        self.pos = 0
+        self.pos = initial_position
         self.update_rate = 1.0 / speed_sps
 
        
@@ -191,10 +206,14 @@ class Stepper:
         self.running = False
         if self.timer is not None and self.timer.is_alive():
             self.timer.join()
+
+        config.update_initial_position(self.motor_name, self.pos)
+
         GPIO.output(self.step_pin, GPIO.LOW)
         GPIO.output(self.dir_pin, GPIO.LOW)
         if self.en_pin is not None:
             GPIO.output(self.en_pin, GPIO.LOW)
+
 
     def reset_motor(motor):
         # Move to home position or set current position as home

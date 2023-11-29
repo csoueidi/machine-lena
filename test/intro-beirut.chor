@@ -2,11 +2,7 @@
 repeat 1{
     set_frps 0.01;
     sync {
-        move(all, 0.5);
-    }
- 
-    sync {
-        move(all, 0);
+        move(all, 0.9);
     }
 }
 
