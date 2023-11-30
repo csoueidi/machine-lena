@@ -27,7 +27,7 @@ class MockGPIO:
         x=1
 
 class Stepper:
-    def __init__(self, step_pin, dir_pin, en_pin=None, steps_per_rev=200, speed_sps=10,  max_deg = 360, min_deg=0,invert_dir=False):
+    def __init__(self, step_pin, dir_pin, en_pin=None, steps_per_rev=200, speed_sps=10,  max_deg = 360, min_deg=0,invert_dir=False, motor_name=None, initial_position=0):
         self.GPIO = MockGPIO
         self.GPIO.setmode(MockGPIO.BCM)
         self.GPIO.setup(step_pin, MockGPIO.OUT)
