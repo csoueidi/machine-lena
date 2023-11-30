@@ -15,6 +15,11 @@ pip install flask
 python3 -m http.server 8001
 
 
+pi@raspberrypi:~/demo/code/ui $ /usr/bin/python3 -m http.server 8003
+
+pi@raspberrypi:~/demo/code/service $ /usr/bin/python3 app.py
+
+
 
 # File management
 import os

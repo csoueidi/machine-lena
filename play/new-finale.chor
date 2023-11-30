@@ -1,0 +1,65 @@
+set_frps 2000;
+
+repeat 2{
+sync{
+move(all,0.1)
+move(all,0)
+move(all,0.05)
+move(all,0)
+}
+}
+repeat 3{
+sync{
+move(all,0.1)
+move(all,0)
+move(all,0.05)
+move(all,0)
+}
+}
+ 
+
+wait(6)
+repeat 4{
+sync{
+move(all,0.1)
+move(all,0)
+move(all,0.05)
+move(all,0)
+}
+} 
+
+
+
+repeat 5{
+sync{
+move(all,0.1)
+move(all,0)
+move(all,0.05)
+move(all,0)
+}
+}
+
+ 
+
+
+wait(6)
+
+repeat 3{
+sync{
+move(3,0.1)
+move(3,0)
+}
+}
+repeat 4{
+sync{
+move(all,0.1)
+move(all,0)
+}
+}
+repeat 5{
+sync{
+move(3,0.1)
+move(3,0)
+}
+}
+

@@ -1,4 +1,0 @@
-move(all, 1, 0.1)
-sync{
-  move(all,0, 0.1)
-}

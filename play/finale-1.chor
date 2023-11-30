@@ -1,0 +1,26 @@
+set_frps 2000;
+
+repeat 3{
+ sync{
+ move(3,0.1)
+ move(3,0)
+ }
+}
+
+sync{
+move(all,1)
+}
+
+wait(3)
+
+sync{
+move(all,0)
+}
+repeat 50{
+sync{
+ move(all,0.1)
+ move(all,0)
+}
+}
+
+

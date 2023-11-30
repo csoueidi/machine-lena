@@ -1,6 +1,7 @@
 repeat 1{
-    set_frps 0.1;
+    set_frps 0.5;
     sync {
         move(all, 0);
     }
+ 
 }
