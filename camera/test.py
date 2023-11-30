@@ -46,9 +46,9 @@ while True:
             print("No motion detected")
         else:
             # Classify motion speed
-            if motion_level > 20:
+            if motion_level >30:
                 motion_speed = 'Fast'
-            elif motion_level > 5:
+            elif motion_level > 15:
                 motion_speed = 'Medium'
             else:
                 motion_speed = 'Slow'
