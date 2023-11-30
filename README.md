@@ -7,6 +7,15 @@ pip3 install antlr4-python3-runtime
 
 
 
+pip install flask-cors
+
+pip install flask
+
+
+python3 -m http.server 8001
+
+
+
 # File management
 import os
 import config  # Assuming this is your custom module for loading configs

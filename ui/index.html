@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Choreographies Manager</title>
+    <style>
+        body { font-family: Arial, sans-serif; font-size: 18px; } /* Increased base font size */
+        .container { display: flex; }
+        #fileListContainer, #editorContainer { flex: 1; padding: 10px; }
+        #fileList { margin-bottom: 10px; }
+        .file-item {
+            cursor: pointer;
+            color: blue;
+            text-decoration: underline;
+            margin-bottom: 5px;
+            font-size: 18px; /* Increased font size */
+        }
+        .selected-file {
+            font-weight: bold;
+            color: green;
+        }
+        textarea {
+            width: 100%;
+            height: 565px;
+            font-size: 18px; /* Increased font size */
+            font-weight: bold;
+        }
+        .button-group {
+            display: flex;
+            flex-direction: column;
+            align-items: left;
+            margin: 5px;
+        }
+        .button-groups-container {
+            display: flex; /* Aligns children (button groups) in a row */
+            /* justify-content: space-around; */
+
+        }
+        .button {
+            margin: 5px;
+            font-size: 25px; /* Increased font size for buttons */
+        }
+    </style>
+</head>
+<body>
+    <h1>Choreographies Manager</h1>
+
+    <div class="container">
+        
+        <div id="fileListContainer">
+            <button class="button" type="button" onclick="getAllFiles()">Refresh File List</button>
+            <div id="fileList"></div>
+
+            <h3>Create New Choreography</h3>
+            <input type="text" id="newFileName" placeholder="Filename.chor" />
+            <button class="button" onclick="createFile(event)">Create Choreography</button>
+
+              <!-- Log Container -->
+            <div id="logContainer">
+                <h3>Log</h3>
+                <div id="logs" style="border: 1px solid #ccc; padding: 10px; height: 200px; overflow-y: auto;">
+                    <!-- Logs will appear here -->
+                </div>
+            </div>
+        </div>
+        
+        <div id="editorContainer">
+
+            <div class="button-groups-container">     <!-- Manage Group -->
+               <div class="button-group">
+               
+                <button class="button" type="button" onclick="saveFile(event)">Save</button>
+                <button class="button" type="button" onclick="deleteFile()">X</button>
+            </div>
+
+              
+
+            </div>
+            <h2 id="editFileTitle">Choreography</h2>
+            <textarea id="fileContent"></textarea>
+
+            <div class="button-group">
+      
+                <button class="button" id="executeButton" type="button" onclick="executeLoadedFile(event)">Execute</button>
+                <button class="button" type="button" onclick="stopExecution(event)">Stop</button> <!-- Stop button added -->
+            </div>
+
+        
+        </div>
+    </div>
+
+    <script>
+        const BASE_URL = 'http://172.20.10.2:5003';
+        let currentFilename = null; // Global variable to track the selected file
+        let isLoadingFiles = false;
+     
+ 
+        function getAllFiles() {
+            if (isLoadingFiles) return; // Prevent duplicate calls
+            isLoadingFiles = true;
+            console.log("Getting all files" + " current file: " + currentFilename);
+            fetch(`${BASE_URL}/getAll`)
+                .then(response => response.json())
+                .then(files => {
+                    let fileList = document.getElementById('fileList');
+                    fileList.innerHTML = '';
+                    files.forEach(file => {
+                        let fileElement = document.createElement('div');
+                        fileElement.innerText = file;
+                        fileElement.className = 'file-item';
+                        fileElement.onclick = () => loadFileIntoEditor(file);
+                        fileList.appendChild(fileElement);
+                    });
+                    if (currentFilename) {
+                        highlightSelectedFile(currentFilename);
+                    }else{
+                        console.log("No current file");
+                    }
+                }) .finally(() => {
+                         isLoadingFiles = false; // Reset the flag
+                     });
+        }
+
+        function getFile(filename) {
+            if (!filename) return;
+            fetch(`${BASE_URL}/get/` + filename)
+                .then(response => response.text())
+                .then(content => {
+                    document.getElementById('fileContent').value = content;
+                });
+        }
+
+        function loadFileIntoEditor(filename) {
+            currentFilename = filename;
+            highlightSelectedFile(filename);
+            getFile(filename);
+
+
+            // Update the title with the filename
+            const editFileTitle = document.getElementById("editFileTitle");
+            if (editFileTitle) {
+                editFileTitle.textContent = `Choreography: ${filename}`;
+            }
+        }
+
+        function highlightSelectedFile(filename) {
+            let fileList = document.getElementById('fileList').children;
+            for (let i = 0; i < fileList.length; i++) {
+                fileList[i].classList.remove('selected-file');
+                if (fileList[i].innerText === filename) {
+                    fileList[i].classList.add('selected-file');
+                }
+            }
+        }      
+
+        function createFile(event) {
+            event.preventDefault(); // Add this line
+            let filename = document.getElementById('newFileName').value;
+            fetch(`${BASE_URL}/new`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ filename: filename, content: '' })
+            }).then(response => {
+                console.log("File created!");
+                currentFilename = filename; // Set the current file
+                getAllFiles();
+                appendLog("Choreography " + currentFilename + " created ");
+
+                
+            });
+        }
+
+        function saveFile(event) {
+            event.preventDefault(); // Add this line
+            if (!currentFilename) {
+                alert("No file selected!");
+                return;
+            }
+            
+            let content = document.getElementById('fileContent').value;
+            fetch(`${BASE_URL}/edit/` + currentFilename, {
+                method: 'POST',
+                body: content
+            }).then(response => {
+             
+                getAllFiles();
+                appendLog("Choreography " + currentFilename + " edited ");
+            });
+        }
+
+        function updateButtonState() {
+            const executeButton = document.getElementById("executeButton");
+            if (executeButton) {
+                executeButton.disabled = is_executing; // Disable if is_executing is true
+            }
+        }
+
+        let is_executing = false;
+
+
+
+        function stopExecution(event) {
+            event.preventDefault(); 
+            fetch(`${BASE_URL}/stop/` + currentFilename, {
+                 method: 'POST',
+                  headers: {
+                'Content-Type': 'application/json'
+            },
+                body: JSON.stringify({ filename: currentFilename })
+            }).then(response => {
+                if (response.ok) {
+                    // appendLog("Execution stopped: " + currentFilename); // Log the action
+                    return response.json();
+                } else {
+                    console.log(response)
+                   
+ 
+                }
+            }).catch(error => {                
+              appendLog(error); // Log the action
+            }).finally(() => {
+                is_executing = false;
+                updateButtonState();
+            });
+           
+        }
+
+        function executeLoadedFile(event) {
+            event.preventDefault(); // Add this line
+            if (!currentFilename) {
+                alert("No file selected!");
+                return;
+            }
+
+            appendLog("Executing Choreography: " + currentFilename); // Log the action
+            
+            is_executing = true;
+            updateButtonState();
+            fetch(`${BASE_URL}/execute/` + currentFilename, {
+                 method: 'POST',
+                  headers: {
+                'Content-Type': 'application/json'
+            },
+                body: JSON.stringify({ filename: currentFilename })
+            }).then(response => {
+                if (response.ok) {
+                    return response.json();
+                } else {
+                    console.log(response)
+                    // appendLog(response); // Log the action
+                    // throw new Error('File not found or error in execution');
+                }
+            }).then(data => {
+                
+                // appendLog("Executed file: " + currentFilename); // Log the action
+            }).catch(error => {
+                
+              appendLog(error); // Log the action
+            }).finally(() => {
+                is_executing = false;
+                updateButtonState();
+            });
+        }
+
+        function deleteFile() {
+            if (!currentFilename) {
+                alert("No file selected!");
+                return;
+            }
+            const isConfirmed = confirm("Are you sure you want to delete this file?");
+            if (!isConfirmed) {
+                return; // Stop the function if the user did not confirm
+            }
+            fetch(`${BASE_URL}/delete/` + currentFilename, {
+                method: 'DELETE'
+            }).then(response => {
+                getAllFiles();
+                appendLog("Choreography " + currentFilename + " deleted ");
+
+            });
+        }
+        function updateExecutionStatus() {
+    fetch(`${BASE_URL}/check_execution_status`)
+        .then(response => response.json())
+        .then(data => {
+            if (data.is_executing) {
+                // Update the status to show which file is executing
+            //   appendLog(`Executing: ${data.file}`);
+               
+            } else if (data.message !== null) {
+                // Check if elapsed_time is not null before logging
+                appendLog(`${data.message}`);
+                 // Reset the file and elapsed_time in the status check to avoid duplicate logs
+                fetch(`${BASE_URL}/reset_status`, { method: 'POST' });
+            }
+        }).catch(error => {
+            console.error('Error:', error);
+        });
+}
+
+// Poll every second
+setInterval(updateExecutionStatus, 1500);
+
+function appendLog(message) {
+    const logElement = document.createElement("div");
+    logElement.textContent = `${new Date().toLocaleTimeString()}: ${message}`;
+    const logsContainer = document.getElementById("logs");
+    logsContainer.appendChild(logElement);
+
+    // Scroll to the bottom of the logs container
+    logsContainer.scrollTop = logsContainer.scrollHeight;
+}
+
+        
+
+
+        // Initial load of files
+        getAllFiles();
+    </script>
+</body>
+</html>
