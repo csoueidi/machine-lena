@@ -1,0 +1,5 @@
+move(all, 1, 100)
+sync{
+
+move(all,0,100)
+}

@@ -36,6 +36,7 @@ class MyParser:
 
     def execute(self, file_path, filename):
  
+        self.motors = config.get_motors_map()
         with open(file_path, "r") as file:
             input_stream = InputStream(file.read())
 

@@ -20,17 +20,19 @@ myParser = MyParser()
 @app.route('/getAll', methods=['GET'])
 def get_all_files():
     print("Current Directory:", os.getcwd())
-    files = [f for f in os.listdir('test') if f.endswith('.chor')]
-    print(files)
-    return jsonify(files)
+    files = [f for f in os.listdir('play') if f.endswith('.chor')]
+    sorted_files = sorted(files)
+    
+    print(sorted_files)
+    return jsonify(sorted_files)
 
 @app.route('/get/<filename>', methods=['GET'])
 def get_file(filename):
     if filename.endswith('.chor'):
-        file_path = os.path.join(os.getcwd(),'test', filename)
+        file_path = os.path.join(os.getcwd(),'play', filename)
         if os.path.exists(file_path):
             print("File path:", file_path)
-            return send_from_directory(os.path.join(os.getcwd(),'test'), filename)
+            return send_from_directory(os.path.join(os.getcwd(),'play'), filename)
     return abort(404, description="File not found")
 
 
@@ -42,7 +44,7 @@ def create_file():
     filename = request.json.get('filename')
     content = request.json.get('content', '')
     if filename and filename.endswith('.chor'):
-        file_path = os.path.join(os.getcwd(),'test', filename)
+        file_path = os.path.join(os.getcwd(),'play', filename)
         with open(file_path, 'w') as file:
             file.write(content)
         return jsonify({"success": "File created"})
@@ -54,7 +56,7 @@ def create_file():
 def edit_file(filename):
     if filename.endswith('.chor'):
         content = request.data.decode('utf-8')
-        file_path = os.path.join(os.getcwd(),'test', filename)
+        file_path = os.path.join(os.getcwd(),'play', filename)
         with open(file_path, 'w') as file:
             file.write(content)
         return jsonify({"success": "File updated"})
@@ -66,7 +68,7 @@ def execute_action(filename):
     if is_executing:
         return abort(400, description="Wait! Another file is currently executing.")
     
-    file_path = os.path.join(os.getcwd(), 'test', filename)
+    file_path = os.path.join(os.getcwd(), 'play', filename)
     if file_path.endswith('.chor') and os.path.exists(file_path):
         
         
@@ -107,7 +109,7 @@ def reset_status():
 
 @app.route('/delete/<filename>', methods=['DELETE'])
 def delete_file(filename):
-    file_path = os.path.join(os.getcwd(),'test', filename)
+    file_path = os.path.join(os.getcwd(),'play', filename)
     if file_path.endswith('.chor') and os.path.exists(file_path):
         os.remove(file_path)
         return jsonify({"success": "File deleted"})
@@ -116,4 +118,4 @@ def delete_file(filename):
 
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5003, debug=True)
+    app.run(host='0.0.0.0', port=5001, debug=True)

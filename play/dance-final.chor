@@ -1,0 +1,15 @@
+set_frps 0.6;
+repeat 4 {
+    move(1, 1);
+    wait(0.5);
+    move(1, 0);
+    move(2, 1); 
+    wait(0.5);
+    move(2, 0);
+    move(3, 1);
+    wait(0.5);
+    move(3, 0);
+    move(4, 1);
+    wait(0.5);
+    move(4, 0);
+}
