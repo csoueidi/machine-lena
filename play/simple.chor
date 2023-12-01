@@ -1,0 +1,4 @@
+sync{
+move(all,0.1,10)
+move(all,0,10)
+}

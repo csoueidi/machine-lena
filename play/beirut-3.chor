@@ -1,18 +1,78 @@
-repeat 9 {
-    move(1,0.03,100)
-    move(4,0.03,100)
-   
-     wait(1)
+set_frps 0.45;
 
-    move(1,0,10)
-    move(4,0,10)
-
-    move(1,0.01,100)
-    move(4,0.01,100)
-   
-     wait(2)
-
-    move(1,0,10)
-    move(4,0,10)
-
+sync {  
+    move(all, 0);
 }
+
+repeat 1 {
+   sync {  
+    move(4, 1, 0.45);
+   }
+ 
+   sync { 
+    move(4, 0, 0.45);
+    move(3, 1, 0.45);
+   }
+
+   sync{ 
+    move(3, 0, 0.45);
+    move(2, 1, 0.45);
+    move(4, 0.45, 0.45);
+    
+   }
+   sync{ 
+    move(2, 0, 0.45);
+    move(1, 1, 0.45);
+    move(4, 0, 0.45);
+    move(3, 0.5, 0.45);
+   
+   }
+    
+   sync{
+    
+    move(4, 0, 0.45);
+     move(3, 0, 0.45);
+   }
+ 
+}
+wait(1)
+ sync{
+      move(1, 0, 0.45);
+ }
+wait(15)
+repeat 1 {
+    # Motor 1 opens
+    sync {  
+        move(1, 1, 0.85);
+    }
+    wait(2)
+    
+    # Motor 1 closes, Motor 2 opens
+    sync { 
+        move(1, 0, 0.85);
+        move(2, 1, 0.85);
+    }
+    wait(1)
+    # Motor 2 closes, Motor 3 opens, Motor 1 reopens partially
+    sync{ 
+        move(2, 0, 0.85);
+        move(3, 1, 0.85);
+        move(1, 0.45, 0.85);
+    }
+   wait(1)
+    # Motor 3 closes, Motor 4 opens, Motor 1 closes, Motor 2 opens partially
+    sync{ 
+        move(3, 0, 1);
+        move(4, 1, 0.85);
+        move(1, 0, 0.85);
+        move(2, 0.5, 0.86);
+    }
+   wait(1)
+    # Motors 4, 1, and 2 close
+    sync{
+        move(4, 0, 0.85);
+        move(1, 0, 0.85);
+        move(2, 0, 0.86);
+    }
+}
+
