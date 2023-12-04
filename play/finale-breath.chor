@@ -1,0 +1,17 @@
+set_frps 0.05;
+sync {
+        move(all, 0.3);
+}
+
+repeat 2{
+    set_frps 0.025;
+    sync {
+        move(all, 0.35);
+    }
+
+    sync {
+        move(all, 0.2);
+    }
+
+   wait(2)
+}
