@@ -1,0 +1,18 @@
+
+set_frps 0.1;
+sync {
+        move(all, 0.3);
+}
+
+repeat 9{
+    set_frps 0.2;
+    sync {
+        move(all, 0.4);
+    }
+
+    sync {
+        move(all, 0.2);
+    }
+}
+
+
