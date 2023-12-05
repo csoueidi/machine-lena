@@ -1,5 +1,6 @@
+# when she enters to it
 set_frps 0.1;
-repeat 1{
+repeat 2{
     sync {  
         move(3, 0.2);
         move(3, 0);

@@ -1,4 +1,4 @@
 sync{
-move(all,0.1,10)
-move(all,0,10)
+move(all,1,1)
+move(all,0,1)
 }

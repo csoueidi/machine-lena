@@ -93,7 +93,12 @@
     </div>
 
     <script>
-        const BASE_URL = 'http://172.20.10.11:5001';
+        var url = window.location.hostname
+        // var parsedURL = new URL(url)
+        // var ipAddress = parsedURL.hostname;
+        // // alert(hostname)
+        const BASE_URL = 'http://' + url + ':5001';
+        // alert(BASE_URL)
         let currentFilename = null; // Global variable to track the selected file
         let isLoadingFiles = false;
      

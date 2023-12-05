@@ -1,4 +1,6 @@
-    repeat 1{
+# sahen el ma3karoune b lhame mafroume zgheer, enter with mila   
+
+ repeat 1{
         set_frps 0.05;
         sync {
             move(1, 0.8 );
