@@ -1,4 +1,4 @@
-# when she enters to it
+# after picon et maling, when she enters to it and lights a candle
 set_frps 0.1;
 repeat 2{
     sync {  
