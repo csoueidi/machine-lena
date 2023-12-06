@@ -7,7 +7,11 @@
     <meta http-equiv="Expires" content="0">
     <title>Choreographies Manager</title>
     <style>
-        body { font-family: Arial, sans-serif; font-size: 18px; } /* Increased base font size */
+        body { font-family: Arial, sans-serif; font-size: 18px;
+            background-color: #000;
+            filter: invert(100%);
+        
+        } /* Increased base font size */
         .container { display: flex; }
         #fileListContainer, #editorContainer { flex: 1; padding: 10px; }
         #fileList { margin-bottom: 10px; }
@@ -15,9 +19,13 @@
             cursor: pointer;
             color: blue;
             text-decoration: underline;
-            margin-bottom: 5px;
-            font-size: 18px; /* Increased font size */
+            margin: 10px;
+            font-size: 26px; /* Increased font size */
+
         }
+
+ 
+
         .selected-file {
             font-weight: bold;
             color: green;
