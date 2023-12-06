@@ -1,10 +1,10 @@
 
 # after she enters into it after she sings adeish kenna ya 3youni
 
-#set_frps 0.05;
-#sync {
-   #     move(all, 0.3);
-#}
+# set_frps 0.05;
+# sync {
+   #  move(all, 0.3);
+# }
 
 repeat 2 {
     set_frps 0.02;
