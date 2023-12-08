@@ -1,0 +1,10 @@
+ 
+set_frps 0.5;
+sync {
+        move(all, 0.3);
+ 
+
+}
+ 
+
+ 

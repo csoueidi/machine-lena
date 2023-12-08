@@ -1,0 +1,7 @@
+repeat 2 {
+ sync{
+move(all,1,1000)
+move(all,0,0.1)
+}
+ 
+}

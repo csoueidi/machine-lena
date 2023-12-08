@@ -1,0 +1,10 @@
+# beirut 3reftik, enter with mila
+set_frps 0.5;
+sync {
+        move(all, 0.1);
+ 
+
+}
+ 
+
+ 

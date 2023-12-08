@@ -1,0 +1,22 @@
+
+repeat 2{
+ sync{
+move(1,1,0.5)
+move(1,0,0.5)
+}
+
+sync{
+move(2,1,0.5)
+move(2,0,0.5)
+}
+
+sync{
+move(3,1,0.5)
+move(3,0,0.5)
+}
+
+sync{
+move(4,1,0.5)
+move(4,0,0.5)
+}
+}
