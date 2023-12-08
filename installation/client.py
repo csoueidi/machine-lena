@@ -3,7 +3,7 @@ import websockets
 import json
 
 # Global variable for the controller Pi's IP address
-CONTROLLER_PI_IP = "192.168.1.10"  # Replace with the actual IP address
+CONTROLLER_PI_IP = "172.20.10.2"  # Replace with the actual IP address
 CONTROLLER_PI_PORT = "8765"
 CONTROLLER_PI_URI = f"ws://{CONTROLLER_PI_IP}:{CONTROLLER_PI_PORT}"
 
