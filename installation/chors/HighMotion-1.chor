@@ -1,0 +1,20 @@
+# sahen el ma3karoune b lhame mafroume zgheer, enter with mila   
+ 
+ 
+    repeat 1{
+        set_frps 10.3
+        sync {
+            move(1, 0.8  );
+            move(2, 0.6 );
+            move(3, 0.6 );
+            move(4, 0.4 );
+        } 
+        set_frps 10.6
+        sync {
+            move(1, 0);
+            move(2, 0);
+            move(3, 0);
+            move(4, 0);
+        }
+    }
+  

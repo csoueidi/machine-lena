@@ -78,6 +78,14 @@ class Stepper:
     def target(self, t):
         self.target_pos = t
 
+    def get_position(self):
+        nofrevstoopen = self.max_deg / 360.0
+        maxpos = nofrevstoopen * self.steps_per_rev
+        currentdegree = self.pos / maxpos
+        return round(currentdegree, 2)
+
+
+
     def move(self, percentage, frps=None):
         
         # Check if percentage is between 0 and 1 (inclusive)

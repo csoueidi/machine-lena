@@ -1,0 +1,92 @@
+# after kholes sahnek wel skoon wel samet    
+
+repeat 1{
+        set_frps 0.05;
+        sync {
+            move(1, 0.8 );
+            move(2, 0.6 );
+            move(3, 0.6 );
+            move(4, 0.4 );
+        } 
+       wait(1) 
+        set_frps 0.1;
+        sync {
+            move(1, 0);
+            move(2, 0);
+            move(3, 0);
+            move(4, 0);
+        }
+    }
+
+     wait(2)
+
+    repeat 1{
+        set_frps 0.15;
+        sync {
+            move(1, 0.8 );
+            move(2, 0.6 );
+            move(3, 0.6 );
+            move(4, 0.4 );
+        } 
+        wait(1) 
+        set_frps 0.4;
+        sync {
+            move(1, 0);
+            move(2, 0);
+            move(3, 0);
+            move(4, 0);
+        }
+    }
+
+    wait(2) 
+    repeat 1{
+        set_frps 0.5
+        sync {
+            move(1, 0.8  );
+            move(2, 0.6 );
+            move(3, 0.6 );
+            move(4, 0.4 );
+        } 
+        set_frps 0.8
+        sync {
+            move(1, 0);
+            move(2, 0);
+            move(3, 0);
+            move(4, 0);
+        }
+    }
+ 
+   
+
+    repeat 1{
+        set_frps 10.3
+        sync {
+            move(1, 0.8  );
+            move(2, 0.6 );
+            move(3, 0.6 );
+            move(4, 0.4 );
+        } 
+        set_frps 10.6
+        sync {
+            move(1, 0);
+            move(2, 0);
+            move(3, 0);
+            move(4, 0);
+        }
+    }
+ 
+    wait(1) 
+
+    repeat 9{
+        sync {  
+            move(3, 0.1,1000);
+            move(3, 0,1000);
+            }
+    }
+    wait(2)
+    repeat 9{
+        sync {  
+                move(1, 0.1,1000);
+                move(1, 0,1000);
+            }
+    }
