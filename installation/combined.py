@@ -9,13 +9,10 @@ import json
 import random
 
 
-motion_ranges = [2, 3, 4, 5, 6, 8, 9]   
-
-# Motion Detection and State Machine Code
+ 
 class MotionStateMachine:
-    def __init__(self, motion_ranges):
-        self.state = 0
-        self.motion_ranges = motion_ranges
+    def __init__(self):
+        self.state = 0     
 
     def update(self, motion_level):
         if motion_level < 1:
@@ -133,7 +130,7 @@ model.setInputSwapRB(True)
 prev_frame = None
 motion_history = deque(maxlen=5)
 
-motion_state_machine = MotionStateMachine(motion_ranges)
+motion_state_machine = MotionStateMachine()
 
  
 
