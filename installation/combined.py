@@ -29,6 +29,7 @@ class MotionStateMachine:
             self.state = 5
         else:
             self.state = 6
+            
         return self.state
 
     def get_state(self):
