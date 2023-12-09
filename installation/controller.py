@@ -36,33 +36,47 @@ myParser = MyParser()
 # Define speed ranges based on motion levels
 def get_speed_for_motion_level(motion_level):
     # Define your logic here. Example:
-    if motion_level <= 1:
+    if motion_level == 1:
         return 0.01
-    elif motion_level <= 2:
+    elif motion_level == 2:
         return 0.05
-    elif motion_level <= 3:
+    elif motion_level == 3:
         return 0.1
-    elif motion_level <= 4:
+    elif motion_level == 4:
         return 0.5
-    elif motion_level <= 5:
+    elif motion_level == 5:
         return 0.9
-    elif motion_level <= 6:
+    elif motion_level == 6:
         return 1
-    elif motion_level <= 7:
-        return 5
     else:
         return 0
     
-def get_target_position(current_position):
-    min_movement = 0.05  # Minimum movement (5% of the full scale 0-1)
-    movement = min_movement
+motor_states = {motor_id: {'last_direction': None, 'accumulated_movement': 0} for motor_id in motors.keys()}
 
-    if random.choice([True, False]):  # Randomly decide to increase or decrease
-        target_position = min(current_position + movement, 1)
+def get_target_position(motor_id, current_position):
+    min_movement = 0.05
+    max_accumulated_movement = 0.3  # 30% movement
+    state = motor_states[motor_id]
+
+    # Decide whether to increase or decrease based on the motor's state
+    if state['last_direction'] == 'increase' and state['accumulated_movement'] < max_accumulated_movement:
+        target_position = min(current_position + min_movement, 1)
+        state['accumulated_movement'] += min_movement
+    elif state['last_direction'] == 'decrease' and state['accumulated_movement'] < max_accumulated_movement:
+        target_position = max(current_position - min_movement, 0)
+        state['accumulated_movement'] += min_movement
     else:
-        target_position = max(current_position - movement, 0)
+        # If the motor has moved 30% in one direction, allow changing direction
+        if random.choice([True, False]):
+            target_position = min(current_position + min_movement, 1)
+            state['last_direction'] = 'increase'
+            state['accumulated_movement'] = min_movement
+        else:
+            target_position = max(current_position - min_movement, 0)
+            state['last_direction'] = 'decrease'
+            state['accumulated_movement'] = min_movement
 
-    return target_position  
+    return target_position
 
 
 async def handler(websocket, path):
@@ -107,7 +121,7 @@ async def handler(websocket, path):
                 motor = motors.get(int(motor_id))
                 if motor:
                     current_position = motor.get_position()  # Assuming you have a method to get the current position
-                    target_position = get_target_position(current_position)
+                    target_position = get_target_position(motor_id, current_position)
                     motor.move(target_position, speed)
 
             await websocket.send(json.dumps({"status": "Motors moved"}))
