@@ -19,9 +19,9 @@ class MotionStateMachine:
             self.state = 0
         elif motion_level < 2:
             self.state = 1
-        elif motion_level < 5:
+        elif motion_level < 4:
             self.state = 2
-        elif motion_level < 10:
+        elif motion_level < 5:
             self.state = 3
         elif motion_level < 20:
             self.state = 4
@@ -36,7 +36,8 @@ class MotionStateMachine:
         return self.state
 
 # Choreography Handling Code
-CONTROLLER_PI_IP = "172.20.10.11"  # Replace with the actual IP address
+# CONTROLLER_PI_IP = "192.168.0.100"  # Replace with the actual IP address
+CONTROLLER_PI_IP = "raspberrypi.local"
 CONTROLLER_PI_PORT = "8768"
 CONTROLLER_PI_URI = f"ws://{CONTROLLER_PI_IP}:{CONTROLLER_PI_PORT}"
 
@@ -96,8 +97,8 @@ async def handle_move_async(state_machine):
     
 
     current_state = state_machine.get_state()
-    if current_state > 0 :
-        await execute_move(current_state)
+    # if current_state > 0 :
+    await execute_move(current_state)
  
        
 
