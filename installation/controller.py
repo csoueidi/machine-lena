@@ -8,6 +8,11 @@ import websockets
 import json
 
 import time
+from datetime import datetime
+ 
+ 
+
+ 
 
 
 # Adding the parent directory to sys.path
@@ -150,25 +155,30 @@ async def handler(websocket, path):
                     target_position = get_target_position(motor_id, current_position)
                     # target_position = get_target_position(motor_id, current_position)
                 
-                    if speed == 0 and not position_saved:
-                         # Save the position only if zero speed is observed for the last 5 minutes
-                        if last_zero_speed_time and (time.time() - last_zero_speed_time >= 10):
-                            # Save the current position here
-                            # For example: save_position(motor_id, current_position)
-                            for motor_id in motors.keys():
-                                motor = motors.get(int(motor_id))
-                                motor.save_position()
+                    # if speed == 0 and not position_saved:
+                    #      # Save the position only if zero speed is observed for the last 5 minutes
+                    #     if last_zero_speed_time and (time.time() - last_zero_speed_time >= 10):
+                    #         # Save the current position here
+                    #         # For example: save_position(motor_id, current_position)
+                    #         for motor_id in motors.keys():
+                    #             motor = motors.get(int(motor_id))
+                    #             motor.save_position()
 
-                            position_saved = True
-                    elif speed == 0 and position_saved:
-                        if last_zero_speed_time and (time.time() - last_zero_speed_time >= 200):
-                            for motor_id in motors.keys():
-                                motor = motors.get(int(motor_id))
-                                motor.move(0, 0.1)
-                            position_saved = False    
-                    elif speed != 0:    
+                    #         position_saved = True
+                    # elif speed == 0 and position_saved:                
+                    #     if last_zero_speed_time and (time.time() - last_zero_speed_time >= 20) and datetime.now().hour >= 20:
+                    #         for motor_id in motors.keys():
+                    #             motor = motors.get(int(motor_id))
+                    #             motor.move(0, 0.1)
+                            
+                    #         motor.save_position_zero()
+                             
+                    # elif speed != 0:    
+                    #     motor.move(target_position, speed)
+                    #     position_saved = False
+
+                    if speed > 0:
                         motor.move(target_position, speed)
-                        position_saved = False
 
             await websocket.send(json.dumps({"status": "Motors moved"}))
 
