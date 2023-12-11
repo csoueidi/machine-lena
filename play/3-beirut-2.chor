@@ -1,5 +1,5 @@
 # 2 seconds after she stands in the middle
-set_frps 0.01;
+set_frps 0.015;
 sync {
         move(all, 0);
 }

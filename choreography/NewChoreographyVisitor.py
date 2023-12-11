@@ -11,7 +11,7 @@ sys.path.append(parent_dir)
 from choreography.ChoreographyParser import ChoreographyParser
 from choreography.ChoreographyVisitor import ChoreographyVisitor
 from choreography.StopParsingException import StopParsingException
-import time
+import time 
 
 
 

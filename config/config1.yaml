@@ -3,36 +3,36 @@ application:
 motors:
   1:
     dir_pin: 20
-    initial_position: 0
+    initial_position: 1778
     inverted: true
-    max_deg: 1080
+    max_deg: 1000
     min_deg: 0
     step_pin: 21
     steps_per_rev: 3200
-    steps_per_second: 850
+    steps_per_second: 500
   2:
     dir_pin: 25
-    initial_position: 5
+    initial_position: 1778
     inverted: true
-    max_deg: 1500
+    max_deg: 1000
     min_deg: 0
     step_pin: 8
     steps_per_rev: 3200
-    steps_per_second: 850
+    steps_per_second: 500
   3:
     dir_pin: 17
-    initial_position: 0
+    initial_position: 1778
     inverted: true
-    max_deg: 900
+    max_deg: 1000
     min_deg: 0
     step_pin: 27
     steps_per_rev: 3200
     steps_per_second: 500
   4:
     dir_pin: 5
-    initial_position: 0
+    initial_position: 1778
     inverted: true
-    max_deg: 900
+    max_deg: 1000
     min_deg: 0
     step_pin: 6
     steps_per_rev: 3200
