@@ -143,7 +143,7 @@ try:
             output.condition.notify_all()
 
         # Show the frame
-        cv2.imshow('Frame', frame)
+        # cv2.imshow('Frame', frame)
 
         if cv2.waitKey(1) & 0xFF == ord('q'):
             break
