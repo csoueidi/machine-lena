@@ -224,6 +224,8 @@ class Stepper:
         if self.en_pin is not None:
             GPIO.output(self.en_pin, GPIO.LOW)
 
+    def save_position(self):
+        config.update_initial_position(self.motor_name, self.pos)
 
     def reset_motor(motor):
         # Move to home position or set current position as home
