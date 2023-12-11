@@ -8,27 +8,28 @@ import websockets
 import json
 import random
 
-# Motion Detection and State Machine Code
+
+ 
 class MotionStateMachine:
-    def __init__(self, motion_ranges):
-        self.state = 0
-        self.motion_ranges = motion_ranges
+    def __init__(self):
+        self.state = 0     
 
     def update(self, motion_level):
-        if motion_level < self.motion_ranges[0]:
+        if motion_level < 1:
             self.state = 0
-        elif motion_level < self.motion_ranges[1]:
+        elif motion_level < 2:
+            self.state = 1
+        elif motion_level < 5:
             self.state = 2
-        elif motion_level < self.motion_ranges[2]:
+        elif motion_level < 10:
             self.state = 3
-        elif motion_level < self.motion_ranges[3]:
+        elif motion_level < 20:
             self.state = 4
-        elif motion_level < self.motion_ranges[4]:
+        elif motion_level < 30:
             self.state = 5
-        elif motion_level < self.motion_ranges[5]:
-            self.state = 6
         else:
-            self.state = 7
+            self.state = 6
+            
         return self.state
 
     def get_state(self):
@@ -129,8 +130,8 @@ model.setInputSwapRB(True)
 
 prev_frame = None
 motion_history = deque(maxlen=5)
-motion_ranges = [2, 3, 4, 5, 6, 8, 9]  # Example values, adjust as needed
-motion_state_machine = MotionStateMachine(motion_ranges)
+
+motion_state_machine = MotionStateMachine()
 
  
 
