@@ -36,7 +36,7 @@ class Stepper:
 
         self.steps_per_rev = steps_per_rev
         self.speed_sps = speed_sps
-        self.target_pos = 0
+        self.target_pos = initial_position
         self.pos = initial_position
         self.update_rate = 1.0 / speed_sps
 
