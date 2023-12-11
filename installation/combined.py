@@ -145,6 +145,7 @@ try:
 
         classIds, confs, bbox = model.detect(frame, confThreshold=0.5)
         people_count = sum([1 for classId in classIds if classId == 1])
+        avg = 0
 
         if prev_frame is not None:
             frame_delta = cv2.absdiff(prev_frame, gray)
@@ -153,11 +154,12 @@ try:
             motion_history.append(motion_level)
 
             avg_motion_level = np.mean(motion_history)
+            avg = avg_motion_level
             state = motion_state_machine.update(avg_motion_level)
 
         prev_frame = gray
 
-        print(f" Machine state {motion_state_machine.get_state()}")
+        print(f" Machine state {motion_state_machine.get_state()} : Motion level: {avg}")
 
         # Handle choreographies based on the current state
         handle_move(motion_state_machine)
