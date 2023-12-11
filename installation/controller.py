@@ -51,6 +51,7 @@ def get_speed_for_motion_level(motion_level):
     else:
         return 0
     
+    
 motor_states = {motor_id: {'last_direction': None, 'accumulated_movement': 0} for motor_id in motors.keys()}
 
 def get_target_position(motor_id, current_position):
@@ -68,11 +69,25 @@ def get_target_position(motor_id, current_position):
         state['last_direction'] = 'decrease'
         state['accumulated_movement'] = min_movement
     else:
-        target_position = max(current_position - movement, 0)
+        # Continue in the same direction if the accumulated movement is less than x%
+        if state['last_direction'] == 'increase' and state['accumulated_movement'] < max_accumulated_movement:
+            target_position = min(current_position + min_movement, 1)
+            state['accumulated_movement'] += min_movement
+        elif state['last_direction'] == 'decrease' and state['accumulated_movement'] < max_accumulated_movement:
+            target_position = max(current_position - min_movement, 0)
+            state['accumulated_movement'] += min_movement
+        else:
+            # Allow changing direction if the motor has moved x% in one direction
+            if random.choice([True, False]):
+                target_position = min(current_position + min_movement, 1)
+                state['last_direction'] = 'increase'
+                state['accumulated_movement'] = min_movement
+            else:
+                target_position = max(current_position - min_movement, 0)
+                state['last_direction'] = 'decrease'
+                state['accumulated_movement'] = min_movement
 
     return target_position
-    return target_position
-
 
 
 async def handler(websocket, path):
