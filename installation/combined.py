@@ -9,7 +9,6 @@ import json
 import random
 
 
- 
 class MotionStateMachine:
     def __init__(self):
         self.state = 0     
@@ -162,8 +161,13 @@ try:
 
         print(f" Machine state {motion_state_machine.get_state()} : Motion level: {avg}")
 
-        # Handle choreographies based on the current state
-        handle_move(motion_state_machine)
+        try:
+            handle_move(motion_state_machine)
+        except Exception as e:
+            time.sleep(1)     
+            print("An error occurred:", e)
+ 
+      
 
         if cv2.waitKey(1) & 0xFF == ord('q'):
             break
