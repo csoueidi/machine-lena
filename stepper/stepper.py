@@ -36,7 +36,7 @@ class Stepper:
 
         self.steps_per_rev = steps_per_rev
         self.speed_sps = speed_sps
-        self.target_pos = 0
+        self.target_pos = initial_position
         self.pos = initial_position
         self.update_rate = 1.0 / speed_sps
 
@@ -224,6 +224,8 @@ class Stepper:
         if self.en_pin is not None:
             GPIO.output(self.en_pin, GPIO.LOW)
 
+    def save_position(self):
+        config.update_initial_position(self.motor_name, self.pos)
 
     def reset_motor(motor):
         # Move to home position or set current position as home
