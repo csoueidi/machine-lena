@@ -1,0 +1,67 @@
+# SCENE 13: Romantic Sway
+# Slow, gentle swaying like a tender slow dance
+# Soft back and forth movements
+# Motors 1, 2, and 4
+# ~50 seconds total
+
+# Gentle sway right
+set_frps 0.08
+sync {
+    move(1, 0.45)
+    move(2, 0.5)
+    move(4, 0.42)
+}
+wait(1.5)
+
+# Sway left
+set_frps 0.08
+sync {
+    move(1, 0.35)
+    move(2, 0.3)
+    move(4, 0.38)
+}
+wait(1.5)
+
+# Sway right again
+set_frps 0.08
+sync {
+    move(1, 0.5)
+    move(2, 0.55)
+    move(4, 0.47)
+}
+wait(1.5)
+
+# Sway left
+set_frps 0.08
+sync {
+    move(1, 0.3)
+    move(2, 0.25)
+    move(4, 0.33)
+}
+wait(1.5)
+
+# Center - gentle rise
+set_frps 0.07
+sync {
+    move(1, 0.42)
+    move(2, 0.4)
+    move(4, 0.4)
+}
+wait(1.5)
+
+# Final sway - settling
+set_frps 0.06
+sync {
+    move(1, 0.38)
+    move(2, 0.35)
+    move(4, 0.37)
+}
+wait(2)
+
+# Reset to zero for next scene
+set_frps 0.1
+sync {
+    move(1, 0)
+    move(2, 0)
+    move(4, 0)
+}

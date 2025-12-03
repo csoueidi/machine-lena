@@ -1,0 +1,188 @@
+# SCENE 12: Lebanese Dabke
+# Authentic Lebanese folk dance - the line dance with lawweeh (leader)
+# Heavy stomps, synchronized line, THEN motor 4 as the lawweeh showing off
+# Motors 1, 2, and 4
+# ~35 seconds total
+
+# Opening - All three motors stomping together (the line forms)
+set_frps 0.5
+
+# Basic dabke step: STOMP-step-STOMP-step
+sync {
+    move(1, 0.4)
+    move(2, 0.35)
+    move(4, 0.37)
+}
+wait(0.2)
+sync {
+    move(1, 0.2)
+    move(2, 0.15)
+    move(4, 0.17)
+}
+wait(0.4)
+
+sync {
+    move(1, 0.45)
+    move(2, 0.4)
+    move(4, 0.42)
+}
+wait(0.2)
+sync {
+    move(1, 0.2)
+    move(2, 0.15)
+    move(4, 0.17)
+}
+wait(0.4)
+
+sync {
+    move(1, 0.4)
+    move(2, 0.35)
+    move(4, 0.37)
+}
+wait(0.2)
+sync {
+    move(1, 0.2)
+    move(2, 0.15)
+    move(4, 0.17)
+}
+wait(0.4)
+
+# Continue line dancing - building energy
+set_frps 0.55
+sync {
+    move(1, 0.5)
+    move(2, 0.45)
+    move(4, 0.47)
+}
+wait(0.2)
+sync {
+    move(1, 0.25)
+    move(2, 0.2)
+    move(4, 0.22)
+}
+wait(0.4)
+
+sync {
+    move(1, 0.5)
+    move(2, 0.45)
+    move(4, 0.47)
+}
+wait(0.2)
+sync {
+    move(1, 0.25)
+    move(2, 0.2)
+    move(4, 0.22)
+}
+wait(0.4)
+
+sync {
+    move(1, 0.55)
+    move(2, 0.5)
+    move(4, 0.52)
+}
+wait(0.2)
+sync {
+    move(1, 0.25)
+    move(2, 0.2)
+    move(4, 0.22)
+}
+wait(0.6)
+
+# NOW - Motor 4 breaks away as lawweeh to show off!
+# Motors 1 & 2 hold the line
+
+set_frps 0.55
+sync {
+    move(1, 0.45)
+    move(2, 0.4)
+}
+wait(0.1)
+sync {
+    move(1, 0.2)
+    move(2, 0.15)
+}
+
+# Lawweeh (motor 4) does rapid shuffle-taps to zero!
+set_frps 1.2
+move(4, 0.08)
+wait(0.05)
+move(4, 0)
+wait(0.05)
+move(4, 0.1)
+wait(0.05)
+move(4, 0)
+wait(0.05)
+move(4, 0.08)
+wait(0.05)
+move(4, 0)
+wait(0.05)
+move(4, 0.12)
+wait(0.05)
+move(4, 0)
+wait(0.05)
+move(4, 0.08)
+wait(0.05)
+move(4, 0)
+wait(0.05)
+move(4, 0.1)
+wait(0.05)
+move(4, 0)
+
+wait(0.2)
+
+# Line continues
+set_frps 0.55
+sync {
+    move(1, 0.5)
+    move(2, 0.45)
+}
+wait(0.1)
+sync {
+    move(1, 0.2)
+    move(2, 0.15)
+}
+
+# Lawweeh does more rapid taps!
+set_frps 1.2
+move(4, 0.1)
+wait(0.05)
+move(4, 0)
+wait(0.05)
+move(4, 0.12)
+wait(0.05)
+move(4, 0)
+wait(0.05)
+move(4, 0.08)
+wait(0.05)
+move(4, 0)
+wait(0.05)
+move(4, 0.1)
+wait(0.05)
+move(4, 0)
+wait(0.05)
+move(4, 0.12)
+wait(0.05)
+move(4, 0)
+wait(0.05)
+move(4, 0.08)
+wait(0.05)
+move(4, 0)
+
+wait(0.3)
+
+# Final emphatic stomp - الله! All together
+set_frps 0.7
+sync {
+    move(1, 0.5)
+    move(2, 0.45)
+    move(4, 0.47)
+}
+wait(1.0)
+
+# Reset to zero for next scene
+set_frps 0.15
+sync {
+    move(1, 0)
+    move(2, 0)
+    move(4, 0)
+}

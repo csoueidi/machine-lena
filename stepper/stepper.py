@@ -49,6 +49,7 @@ class Stepper:
         self.tasks = queue.Queue()
         self.running = False
         self.isExecuting = False
+        self.pending_target_deg = self.get_pos_deg()  # Track the target after all queued moves
         self.timer = None
         self.track_target()
     
@@ -94,12 +95,20 @@ class Stepper:
         elif percentage < 0:
             percentage = 0
 
+        # Calculate absolute target degree
+        target_degree = self.max_deg * percentage
+        
+        # Calculate relative movement from pending target (not current position)
+        relative_degree = target_degree - self.pending_target_deg
+        self.pending_target_deg = target_degree
+        
+        print(f"Motor {self.motor_name}: move({percentage}) -> target={target_degree}°, relative={relative_degree}°, pending={self.pending_target_deg}°")
 
         # Rest of your function logic goes here
         if frps is not None:
-            self.enqueue_item(self.max_deg*percentage, frps, percentage >= 0)
+            self.enqueue_item(relative_degree, frps, False)
         else:
-            self.enqueue_item(self.max_deg*percentage, (self.speed_sps / self.maxsteps), percentage >= 0)
+            self.enqueue_item(relative_degree, (self.speed_sps / self.maxsteps), False)
 
 
     def move_deg(self,deg,speed=None):        
@@ -182,10 +191,8 @@ class Stepper:
                 item = self.dequeue_item()
                 if item is not None:
                     degree, vel, is_move = item
-                    if is_move:
-                        degree = degree - self.get_pos_deg()
-                    if degree < 0:
-                        self.set_direction(True)
+                    # degree is already relative movement, no need to recalculate
+                    print(f"Motor {self.motor_name}: Dequeued degree={degree}°, current_pos={self.get_pos_deg()}°")
                     velocity = vel * self.maxsteps    
                     self.speed(velocity)
                     self.target_deg(degree)

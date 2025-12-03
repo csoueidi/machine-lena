@@ -1,0 +1,22 @@
+# SCENE 11: Recoil - All Motors
+# A sudden pull back, like flinching from something
+# One sharp recoil movement on motors 1, 2, and 4
+# ~10 seconds total
+
+# Sharp recoil backwards
+set_frps 20
+sync {
+    move(1, 0.2)
+    move(2, 0.15)
+    move(4, 0.17)
+}
+
+
+
+# Reset to zero for next scene
+set_frps 2
+sync {
+    move(1, 0)
+    move(2, 0)
+    move(4, 0)
+}

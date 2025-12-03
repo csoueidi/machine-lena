@@ -3,6 +3,8 @@ from flask_cors import CORS
 import os
 import time
 import sys
+import logging
+from datetime import datetime
 from myparser import MyParser
 
 
@@ -14,6 +16,47 @@ is_executing = False
 executing_file = None
 execution_message = None
 myParser = MyParser()
+
+# Debug mode variables
+debug_mode = False
+debug_log_file = None
+debug_logger = None
+
+def setup_debug_logging():
+    """Set up debug logging to file"""
+    global debug_log_file, debug_logger
+    timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+    log_dir = os.path.join(os.getcwd(), 'logs')
+    os.makedirs(log_dir, exist_ok=True)
+    debug_log_file = os.path.join(log_dir, f'choreography_debug_{timestamp}.log')
+    
+    # Create a separate logger for choreography debugging
+    debug_logger = logging.getLogger('choreography_debug')
+    debug_logger.setLevel(logging.DEBUG)
+    debug_logger.handlers = []  # Clear any existing handlers
+    
+    # File handler
+    file_handler = logging.FileHandler(debug_log_file)
+    file_handler.setLevel(logging.DEBUG)
+    formatter = logging.Formatter('%(asctime)s - %(message)s')
+    file_handler.setFormatter(formatter)
+    debug_logger.addHandler(file_handler)
+    
+    # Console handler (optional)
+    console_handler = logging.StreamHandler(sys.stdout)
+    console_handler.setLevel(logging.INFO)
+    console_handler.setFormatter(formatter)
+    debug_logger.addHandler(console_handler)
+    
+    debug_logger.info("=== Choreography Debug Mode Enabled ===")
+    debug_logger.info(f"Logging to: {debug_log_file}")
+    return debug_log_file
+
+def log_choreography_debug(message):
+    """Log choreography debug messages"""
+    if debug_mode and debug_logger:
+        debug_logger.info(message)
+    print(message)  # Always print to console
 
 @app.after_request
 def add_header(response):
@@ -28,7 +71,7 @@ def get_all_files():
     files = [f for f in os.listdir('play') if f.endswith('.chor')]
     sorted_files = sorted(files)
     
-    print(sorted_files)
+    print(f"Files found: {sorted_files}")
     return jsonify(sorted_files)
 
 @app.route('/get/<filename>', methods=['GET'])
@@ -36,10 +79,13 @@ def get_file(filename):
     if filename.endswith('.chor'):
         file_path = os.path.join(os.getcwd(),'play', filename)
         if os.path.exists(file_path):
-            print("File path:", file_path)
+            print(f"Fetching file: {file_path}")
             return send_from_directory(os.path.join(os.getcwd(),'play'), filename)
     return abort(404, description="File not found")
 
+@app.route('/')
+def index():
+    return send_from_directory('../ui', 'index.html')
 
 
 
@@ -52,6 +98,7 @@ def create_file():
         file_path = os.path.join(os.getcwd(),'play', filename)
         with open(file_path, 'w') as file:
             file.write(content)
+        print(f"Created file: {filename}")
         return jsonify({"success": "File created"})
     return abort(400, description="Invalid filename")
 
@@ -64,6 +111,7 @@ def edit_file(filename):
         file_path = os.path.join(os.getcwd(),'play', filename)
         with open(file_path, 'w') as file:
             file.write(content)
+        log_choreography_debug(f"Edited choreography file: {filename} ({len(content)} chars)")
         return jsonify({"success": "File updated"})
     return abort(404, description="File not found")
 
@@ -76,10 +124,24 @@ def execute_action(filename):
     file_path = os.path.join(os.getcwd(), 'play', filename)
     if file_path.endswith('.chor') and os.path.exists(file_path):
         
+        log_choreography_debug(f"========== STARTING EXECUTION: {filename} ==========")
+        if debug_mode:
+            # Read and log the choreography content
+            with open(file_path, 'r') as f:
+                content = f.read()
+            log_choreography_debug(f"Choreography content:\n{content}")
+            log_choreography_debug("=" * 60)
+        
+        # Set debug logger on parser if debug mode is enabled
+        if debug_mode:
+            myParser.set_debug_logger(debug_logger)
+        else:
+            myParser.set_debug_logger(None)
         
         is_executing = True    
         execution_message = myParser.execute(file_path, filename)
         is_executing = False
+        log_choreography_debug(f"========== FINISHED EXECUTION: {filename} ==========\n")
 
         return jsonify({"success": f"File {filename} executed"})
 
@@ -91,6 +153,7 @@ def stop_action(filename):
     if not is_executing:
          return jsonify({"success": f"File {filename} is not executing"})   
    
+    log_choreography_debug(f"STOPPING execution: {filename}")
     myParser.stop()
     return jsonify({"success": f"File {filename} stopped"})
 
@@ -99,7 +162,20 @@ def stop_action(filename):
 
 @app.route('/check_execution_status')
 def check_execution_status():
-   return jsonify({"is_executing": is_executing, "message": execution_message})
+    current_line = None
+    current_command = None
+    execution_logs = []
+    if myParser.visitor is not None:
+        current_line = myParser.visitor.current_line
+        current_command = myParser.visitor.current_command
+        execution_logs = myParser.visitor.execution_logs.copy()
+    return jsonify({
+        "is_executing": is_executing, 
+        "message": execution_message,
+        "current_line": current_line,
+        "current_command": current_command,
+        "execution_logs": execution_logs
+    })
    
     
 @app.route('/reset_status', methods=['POST'])
@@ -117,8 +193,33 @@ def delete_file(filename):
     file_path = os.path.join(os.getcwd(),'play', filename)
     if file_path.endswith('.chor') and os.path.exists(file_path):
         os.remove(file_path)
+        print(f"Deleted file: {filename}")
         return jsonify({"success": "File deleted"})
     return abort(404, description="File not found")
+
+@app.route('/debug/toggle', methods=['POST'])
+def toggle_debug():
+    global debug_mode, debug_log_file, debug_logger
+    debug_mode = not debug_mode
+    
+    if debug_mode:
+        debug_log_file = setup_debug_logging()
+        return jsonify({"debug_mode": True, "log_file": debug_log_file, "message": "Choreography debug mode enabled"})
+    else:
+        if debug_logger:
+            debug_logger.info("=== Choreography Debug Mode Disabled ===")
+            # Close handlers
+            for handler in debug_logger.handlers[:]:
+                handler.close()
+                debug_logger.removeHandler(handler)
+        return jsonify({"debug_mode": False, "log_file": debug_log_file, "message": "Choreography debug mode disabled"})
+
+@app.route('/debug/status', methods=['GET'])
+def debug_status():
+    return jsonify({
+        "debug_mode": debug_mode,
+        "log_file": debug_log_file
+    })
 
 
 

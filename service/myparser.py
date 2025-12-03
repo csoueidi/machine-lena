@@ -21,6 +21,11 @@ class MyParser:
     def __init__(self):
             self.motors = config.get_motors_map()
             self.visitor = None
+            self.debug_logger = None
+    
+    def set_debug_logger(self, logger):
+        """Set the debug logger for choreography logging"""
+        self.debug_logger = logger
 
     def stop(self):
         if self.visitor is not None:
@@ -50,7 +55,7 @@ class MyParser:
         start_time = time.time()
         try:
             tree = parser.choreography()
-            self.visitor = NewChoreographyVisitor(self.motors, mock=False)
+            self.visitor = NewChoreographyVisitor(self.motors, mock=False, filename=filename, debug_logger=self.debug_logger)
             self.visitor.visit(tree)
         except StopParsingException:
             print("Execution was stopped.")

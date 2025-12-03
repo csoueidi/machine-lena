@@ -7,50 +7,314 @@
     <meta http-equiv="Expires" content="0">
     <title>Choreographies Manager</title>
     <style>
-        body { font-family: Arial, sans-serif; font-size: 18px;
-            /* background-color: #000;
-            filter: invert(100%); */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
         
-        } /* Increased base font size */
-        .container { display: flex; }
-        #fileListContainer, #editorContainer { flex: 1; padding: 10px; }
-        #fileList { margin-bottom: 10px; }
+        body { 
+            font-family: Arial, sans-serif; 
+            font-size: 16px;
+            padding: 10px;
+        }
+        
+        h1 {
+            font-size: 22px;
+            margin-bottom: 8px;
+        }
+        
+        .refresh-button {
+            padding: 4px 8px;
+            font-size: 12px;
+            margin-bottom: 8px;
+        }
+        
+        h2 {
+            font-size: 18px;
+            margin-bottom: 6px;
+        }
+        
+        h3 {
+            font-size: 14px;
+            margin-bottom: 3px;
+            margin-top: 4px;
+        }
+        
+        .container { 
+            display: grid;
+            grid-template-columns: auto 1fr;
+            grid-template-rows: 1fr 150px;
+            gap: 15px;
+            height: calc(100vh - 60px);
+        }
+        
+        .main-content {
+            display: contents;
+        }
+        
+        #fileListContainer { 
+            display: flex;
+            flex-direction: column;
+            min-width: 300px;
+            overflow-y: auto;
+        }
+        
+        #editorContainer { 
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            min-height: 0;
+        }
+        
+        #fileList { 
+            border: 1px solid #ccc;
+            padding: 4px;
+            margin-bottom: 8px;
+        }
+        
         .file-item {
             cursor: pointer;
             color: blue;
             text-decoration: underline;
-            margin: 10px;
-            font-size: 26px; /* Increased font size */
-
+            padding: 5px 6px;
+            font-size: 18px;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
-
- 
+        
+        .file-item:hover {
+            background-color: #f0f0f0;
+        }
 
         .selected-file {
             font-weight: bold;
             color: green;
+            background-color: #e8f5e9;
         }
+        
+        .file-name {
+            flex: 1;
+        }
+        
+        .textarea-wrapper {
+            flex: 1;
+            display: flex;
+            min-height: 0;
+            margin-bottom: 6px;
+        }
+        
         textarea {
             width: 100%;
-            height: 565px;
-            font-size: 20px; /* Increased font size */
+            height: 100%;
+            font-size: 14px;
             font-weight: bold;
-            letter-spacing: 1.5px;
+            letter-spacing: 1px;
+            padding: 8px;
+            border: 2px solid #ccc;
+            resize: none;
+            line-height: 1.5;
         }
+        
+        /* Make selection visible even when textarea doesn't have focus */
+        textarea::selection {
+            background-color: #ffeb3b;
+            color: #000;
+        }
+        
+        textarea::-moz-selection {
+            background-color: #ffeb3b;
+            color: #000;
+        }
+        
+        textarea.executing {
+            background: linear-gradient(to right, #ffeb3b 0%, #ffeb3b 100%);
+            background-size: 100% 1.5em;
+            background-repeat: no-repeat;
+            animation: pulse 1s ease-in-out infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+        
+        .highlight-line {
+            background-color: #ffeb3b !important;
+            display: block;
+        }
+        
         .button-group {
             display: flex;
-            flex-direction: column;
-            align-items: left;
-            margin: 5px;
+            gap: 8px;
+            flex-wrap: wrap;
         }
+        
         .button-groups-container {
-            display: flex; /* Aligns children (button groups) in a row */
-            /* justify-content: space-around; */
-
+            display: flex;
+            gap: 10px;
+            margin-bottom: 8px;
         }
+        
         .button {
-            margin: 5px;
-            font-size: 25px; /* Increased font size for buttons */
+            padding: 8px 16px;
+            font-size: 16px;
+            cursor: pointer;
+            border: 1px solid #333;
+            background-color: #f0f0f0;
+            border-radius: 4px;
+        }
+        
+        .button:hover {
+            background-color: #e0e0e0;
+        }
+        
+        .button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+        
+        #newFileName {
+            padding: 6px;
+            font-size: 16px;
+            width: 100%;
+            margin-bottom: 6px;
+        }
+        
+        #logContainer {
+            grid-column: 1 / -1;
+            border-top: 2px solid #ccc;
+            padding-top: 3px;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+        
+        #logs {
+            border: 1px solid #ccc;
+            padding: 4px;
+            flex: 1;
+            overflow-y: auto;
+            font-size: 11px;
+            background-color: #fafafa;
+            line-height: 1.3;
+        }
+        
+        #logs div {
+            padding: 2px 0;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .create-section {
+            padding: 8px;
+            background-color: #f5f5f5;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            margin-bottom: 8px;
+        }
+        
+        .editor-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 6px;
+            flex-shrink: 0;
+        }
+        
+        .editor-controls {
+            display: flex;
+            gap: 8px;
+            flex-shrink: 0;
+        }
+        
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+        }
+        
+        .modal-content {
+            background-color: #fff;
+            margin: 2% auto;
+            padding: 20px;
+            border: 2px solid #888;
+            border-radius: 8px;
+            width: 90%;
+            height: 90%;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #ccc;
+        }
+        
+        .modal-header h2 {
+            margin: 0;
+            font-size: 20px;
+        }
+        
+        .close-modal {
+            font-size: 32px;
+            font-weight: bold;
+            cursor: pointer;
+            color: #666;
+            line-height: 1;
+            padding: 0 10px;
+        }
+        
+        .close-modal:hover {
+            color: #000;
+        }
+        
+        .modal-textarea {
+            flex: 1;
+            width: 100%;
+            font-size: 16px;
+            font-weight: bold;
+            letter-spacing: 1px;
+            padding: 12px;
+            border: 2px solid #ccc;
+            resize: none;
+            line-height: 1.6;
+            font-family: monospace;
+        }
+        
+        .modal-footer {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+            padding-top: 10px;
+            border-top: 2px solid #ccc;
+        }
+        
+        .modal-footer button {
+            flex: 1;
+            padding: 12px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+        
+        .edit-mode-indicator {
+            background-color: #fff3cd;
+            border: 2px solid #ffc107;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: bold;
         }
     </style>
 </head>
@@ -60,44 +324,64 @@
     <div class="container">
         
         <div id="fileListContainer">
-            <button class="button" type="button" onclick="getAllFiles()">Refresh File List</button>
+            <div style="display: flex; gap: 8px; margin-bottom: 8px;">
+                <button class="button refresh-button" type="button" onclick="getAllFiles()" style="flex: 1;">🔄 Refresh</button>
+                <button class="button refresh-button" type="button" onclick="toggleDebugMode()" id="debugButton" style="flex: 1;">🐛 Debug</button>
+            </div>
+            
+            <h3>Files</h3>
             <div id="fileList"></div>
 
-            <h3>Create New Choreography</h3>
-            <input type="text" id="newFileName" placeholder="Filename.chor" />
-            <button class="button" onclick="createFile(event)">Create Choreography</button>
-
-              <!-- Log Container -->
-            <div id="logContainer">
-                <h3>Log</h3>
-                <div id="logs" style="border: 1px solid #ccc; padding: 10px; height: 200px; overflow-y: auto;">
-                    <!-- Logs will appear here -->
-                </div>
+            <div class="create-section">
+                <h3>Create New</h3>
+                <input type="text" id="newFileName" placeholder="filename.chor" />
+                <button class="button" onclick="createFile(event)" style="width: 100%; margin-top: 6px;">➕ Create</button>
             </div>
         </div>
         
         <div id="editorContainer">
-
-            <div class="button-groups-container">     <!-- Manage Group -->
-               <div class="button-group">
-               
-                <button class="button" type="button" onclick="saveFile(event)">Save</button>
-                <button class="button" type="button" onclick="deleteFile()">X</button>
+            <div class="editor-header">
+                <h2 id="editFileTitle">Choreography</h2>
+                <div class="button-group">
+                    <button class="button" type="button" onclick="openEditModal()">✏️ Edit</button>
+                    <button class="button" type="button" onclick="deleteFile()" style="color: red;">🗑️ Delete</button>
+                </div>
+            </div>
+            
+            <div class="textarea-wrapper">
+                <textarea id="fileContent" placeholder="Select a file to view..."></textarea>
             </div>
 
-              
-
+            <div class="editor-controls">
+                <button class="button" id="executeButton" type="button" onclick="executeLoadedFile(event)">▶️ Execute</button>
+                <button class="button" type="button" onclick="stopExecution(event)" style="background-color: #ffebee;">⏹️ Stop</button>
             </div>
-            <h2 id="editFileTitle">Choreography</h2>
-            <textarea id="fileContent"></textarea>
+        </div>
 
-            <div class="button-group">
-      
-                <button class="button" id="executeButton" type="button" onclick="executeLoadedFile(event)">Execute</button>
-                <button class="button" type="button" onclick="stopExecution(event)">Stop</button> <!-- Stop button added -->
+        <!-- Log Container - Full Width at Bottom -->
+        <div id="logContainer">
+            <h3>Log</h3>
+            <div id="logs">
+                <!-- Logs will appear here -->
             </div>
+        </div>
+    </div>
 
-        
+    <!-- Edit Modal -->
+    <div id="editModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modalFileTitle">Edit Choreography</h2>
+                <div style="display: flex; gap: 10px; align-items: center;">
+                    <button class="button" onclick="renameFileFromModal()" style="padding: 6px 12px; font-size: 14px;">✏️ Rename</button>
+                    <span class="close-modal" onclick="closeEditModal()">&times;</span>
+                </div>
+            </div>
+            <textarea id="modalTextarea" class="modal-textarea" placeholder="Edit your choreography here..."></textarea>
+            <div class="modal-footer">
+                <button class="button" onclick="saveModalContent()" style="background-color: #4CAF50; color: white;">💾 Save & Close</button>
+                <button class="button" onclick="closeEditModal()" style="background-color: #f44336; color: white;">❌ Cancel</button>
+            </div>
         </div>
     </div>
 
@@ -106,10 +390,13 @@
         // var parsedURL = new URL(url)
         // var ipAddress = parsedURL.hostname;
         // // alert(hostname)
-        const BASE_URL = 'http://' + url + ':5001';
+        // const BASE_URL = 'http://' + url + ':5001';
+        const BASE_URL = '';
         // alert(BASE_URL)
         let currentFilename = null; // Global variable to track the selected file
         let isLoadingFiles = false;
+        let debugMode = false;
+        let debugLogFile = null;
      
  
         function getAllFiles() {
@@ -123,9 +410,14 @@
                     fileList.innerHTML = '';
                     files.forEach(file => {
                         let fileElement = document.createElement('div');
-                        fileElement.innerText = file;
                         fileElement.className = 'file-item';
-                        fileElement.onclick = () => loadFileIntoEditor(file);
+                        
+                        let fileName = document.createElement('span');
+                        fileName.className = 'file-name';
+                        fileName.innerText = file;
+                        fileName.onclick = () => loadFileIntoEditor(file);
+                        
+                        fileElement.appendChild(fileName);
                         fileList.appendChild(fileElement);
                     });
                     if (currentFilename) {
@@ -152,6 +444,8 @@
             highlightSelectedFile(filename);
             getFile(filename);
 
+            // Make textarea read-only to prevent accidental edits
+            document.getElementById('fileContent').readOnly = true;
 
             // Update the title with the filename
             const editFileTitle = document.getElementById("editFileTitle");
@@ -164,7 +458,8 @@
             let fileList = document.getElementById('fileList').children;
             for (let i = 0; i < fileList.length; i++) {
                 fileList[i].classList.remove('selected-file');
-                if (fileList[i].innerText === filename) {
+                let fileNameSpan = fileList[i].querySelector('.file-name');
+                if (fileNameSpan && fileNameSpan.innerText === filename) {
                     fileList[i].classList.add('selected-file');
                 }
             }
@@ -205,6 +500,59 @@
                 getAllFiles();
                 appendLog("Choreography " + currentFilename + " edited ");
             });
+        }
+        
+        function openEditModal() {
+            if (!currentFilename) {
+                alert("No file selected!");
+                return;
+            }
+            
+            const modal = document.getElementById('editModal');
+            const modalTextarea = document.getElementById('modalTextarea');
+            const modalTitle = document.getElementById('modalFileTitle');
+            const currentContent = document.getElementById('fileContent').value;
+            
+            modalTextarea.value = currentContent;
+            modalTitle.textContent = `Edit: ${currentFilename}`;
+            modal.style.display = 'block';
+            
+            // Focus on textarea after a short delay to ensure modal is visible
+            setTimeout(() => modalTextarea.focus(), 100);
+        }
+        
+        function closeEditModal() {
+            const modal = document.getElementById('editModal');
+            modal.style.display = 'none';
+        }
+        
+        function saveModalContent() {
+            if (!currentFilename) {
+                alert("No file selected!");
+                return;
+            }
+            
+            const modalTextarea = document.getElementById('modalTextarea');
+            const content = modalTextarea.value;
+            
+            fetch(`${BASE_URL}/edit/` + currentFilename, {
+                method: 'POST',
+                body: content
+            }).then(response => {
+                // Update the read-only view
+                document.getElementById('fileContent').value = content;
+                getAllFiles();
+                appendLog("Choreography " + currentFilename + " saved");
+                closeEditModal();
+            });
+        }
+        
+        // Close modal when clicking outside of it
+        window.onclick = function(event) {
+            const modal = document.getElementById('editModal');
+            if (event.target === modal) {
+                closeEditModal();
+            }
         }
 
         function updateButtonState() {
@@ -286,39 +634,240 @@
                 alert("No file selected!");
                 return;
             }
-            const isConfirmed = confirm("Are you sure you want to delete this file?");
+            const isConfirmed = confirm(`Are you sure you want to delete "${currentFilename}"?\n\nThis action cannot be undone.`);
             if (!isConfirmed) {
                 return; // Stop the function if the user did not confirm
             }
             fetch(`${BASE_URL}/delete/` + currentFilename, {
                 method: 'DELETE'
             }).then(response => {
+                currentFilename = null; // Clear selection after delete
+                document.getElementById('fileContent').value = '';
+                document.getElementById('editFileTitle').textContent = 'Choreography';
                 getAllFiles();
-                appendLog("Choreography " + currentFilename + " deleted ");
-
+                appendLog("Choreography deleted");
             });
         }
+        
+        function renameFile(oldFilename) {
+            const newFilename = prompt("Enter new filename:", oldFilename);
+            if (!newFilename || newFilename === oldFilename) {
+                return; // User cancelled or didn't change the name
+            }
+            
+            // Get the file content first
+            fetch(`${BASE_URL}/get/` + oldFilename)
+                .then(response => response.text())
+                .then(content => {
+                    // Create new file with the new name
+                    return fetch(`${BASE_URL}/new`, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({ filename: newFilename, content: content })
+                    });
+                })
+                .then(() => {
+                    // Delete the old file
+                    return fetch(`${BASE_URL}/delete/` + oldFilename, {
+                        method: 'DELETE'
+                    });
+                })
+                .then(() => {
+                    // Update current filename if it was the one being renamed
+                    if (currentFilename === oldFilename) {
+                        currentFilename = newFilename;
+                        loadFileIntoEditor(newFilename);
+                    }
+                    getAllFiles();
+                    appendLog(`Choreography renamed: ${oldFilename} → ${newFilename}`);
+                })
+                .catch(error => {
+                    console.error('Error renaming file:', error);
+                    appendLog(`Error renaming file: ${error}`);
+                });
+        }
+        
+        function renameFileFromModal() {
+            if (!currentFilename) {
+                alert("No file selected!");
+                return;
+            }
+            
+            const newFilename = prompt("Enter new filename:", currentFilename);
+            if (!newFilename || newFilename === currentFilename) {
+                return; // User cancelled or didn't change the name
+            }
+            
+            const modalTextarea = document.getElementById('modalTextarea');
+            const content = modalTextarea.value;
+            
+            // Create new file with the new name and current content
+            fetch(`${BASE_URL}/new`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ filename: newFilename, content: content })
+            })
+            .then(() => {
+                // Delete the old file
+                return fetch(`${BASE_URL}/delete/` + currentFilename, {
+                    method: 'DELETE'
+                });
+            })
+            .then(() => {
+                const oldFilename = currentFilename;
+                currentFilename = newFilename;
+                
+                // Update modal title
+                document.getElementById('modalFileTitle').textContent = `Edit: ${newFilename}`;
+                
+                // Update main view
+                loadFileIntoEditor(newFilename);
+                getAllFiles();
+                appendLog(`Choreography renamed: ${oldFilename} → ${newFilename}`);
+            })
+            .catch(error => {
+                console.error('Error renaming file:', error);
+                appendLog(`Error renaming file: ${error}`);
+            });
+        }
+        
         function updateExecutionStatus() {
     fetch(`${BASE_URL}/check_execution_status`)
         .then(response => response.json())
         .then(data => {
             if (data.is_executing) {
-                // Update the status to show which file is executing
-            //   appendLog(`Executing: ${data.file}`);
+                // Highlight the current line being executed
+                if (data.current_line !== null) {
+                    highlightExecutingLine(data.current_line);
+                }
+                
+                // Display execution logs in real-time
+                if (data.execution_logs && data.execution_logs.length > 0) {
+                    displayExecutionLogs(data.execution_logs);
+                }
                
-            } else if (data.message !== null) {
-                // Check if elapsed_time is not null before logging
-                appendLog(`${data.message}`);
-                 // Reset the file and elapsed_time in the status check to avoid duplicate logs
-                fetch(`${BASE_URL}/reset_status`, { method: 'POST' });
+            } else {
+                // Clear highlighting when not executing
+                clearHighlight();
+                
+                if (data.message !== null) {
+                    // Check if elapsed_time is not null before logging
+                    appendLog(`${data.message}`);
+                     // Reset the file and elapsed_time in the status check to avoid duplicate logs
+                    fetch(`${BASE_URL}/reset_status`, { method: 'POST' });
+                }
             }
         }).catch(error => {
             console.error('Error:', error);
         });
 }
 
+let lastLogCount = 0;
+
+function displayExecutionLogs(logs) {
+    // Only display new logs that haven't been shown yet
+    if (logs.length > lastLogCount) {
+        for (let i = lastLogCount; i < logs.length; i++) {
+            appendLog(logs[i]);
+        }
+        lastLogCount = logs.length;
+    }
+}
+
+function highlightExecutingLine(lineNumber) {
+    const textarea = document.getElementById('fileContent');
+    const lines = textarea.value.split('\n');
+    
+    if (lineNumber > 0 && lineNumber <= lines.length) {
+        // Calculate the start and end position of the line
+        let startPos = 0;
+        for (let i = 0; i < lineNumber - 1; i++) {
+            startPos += lines[i].length + 1; // +1 for newline character
+        }
+        const endPos = startPos + lines[lineNumber - 1].length;
+        
+        // Temporarily remove readonly to allow selection highlighting
+        textarea.readOnly = false;
+        
+        // Focus the textarea first to make selection visible
+        textarea.focus();
+        
+        // Select the line - this shows the highlight
+        textarea.setSelectionRange(startPos, endPos);
+        
+        // Scroll to the line with more context
+        const lineHeight = parseInt(window.getComputedStyle(textarea).lineHeight) || 21;
+        const contextLines = 3; // Lines to show before current line
+        textarea.scrollTop = Math.max(0, (lineNumber - contextLines - 1) * lineHeight);
+        
+        // Immediately make readonly again to prevent editing
+        setTimeout(() => {
+            textarea.readOnly = true;
+        }, 100);
+    }
+}
+
+function clearHighlight() {
+    const textarea = document.getElementById('fileContent');
+    if (textarea) {
+        textarea.setSelectionRange(0, 0);
+    }
+    lastLogCount = 0; // Reset log counter for next execution
+}
+
 // Poll every second
 setInterval(updateExecutionStatus, 1500);
+
+function toggleDebugMode() {
+    fetch(`${BASE_URL}/debug/toggle`, {
+        method: 'POST'
+    })
+    .then(response => response.json())
+    .then(data => {
+        debugMode = data.debug_mode;
+        debugLogFile = data.log_file;
+        
+        const debugButton = document.getElementById('debugButton');
+        if (debugMode) {
+            debugButton.style.backgroundColor = '#4CAF50';
+            debugButton.style.color = 'white';
+            debugButton.textContent = '🐛 Debug ON';
+            appendLog(`Debug mode ENABLED - Logging to: ${debugLogFile}`);
+        } else {
+            debugButton.style.backgroundColor = '#f0f0f0';
+            debugButton.style.color = '#000';
+            debugButton.textContent = '🐛 Debug';
+            appendLog(`Debug mode DISABLED - Log saved to: ${debugLogFile}`);
+        }
+    })
+    .catch(error => {
+        console.error('Error toggling debug mode:', error);
+        appendLog(`Error toggling debug mode: ${error}`);
+    });
+}
+
+function checkDebugStatus() {
+    fetch(`${BASE_URL}/debug/status`)
+    .then(response => response.json())
+    .then(data => {
+        debugMode = data.debug_mode;
+        debugLogFile = data.log_file;
+        
+        const debugButton = document.getElementById('debugButton');
+        if (debugMode) {
+            debugButton.style.backgroundColor = '#4CAF50';
+            debugButton.style.color = 'white';
+            debugButton.textContent = '🐛 Debug ON';
+        }
+    })
+    .catch(error => {
+        console.error('Error checking debug status:', error);
+    });
+}
 
 function appendLog(message) {
     const logElement = document.createElement("div");
@@ -335,6 +884,7 @@ function appendLog(message) {
 
         // Initial load of files
         getAllFiles();
+        checkDebugStatus();
     </script>
 </body>
 </html>

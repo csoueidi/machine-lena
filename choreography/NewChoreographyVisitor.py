@@ -16,12 +16,22 @@ import time
 
 
 class NewChoreographyVisitor(ChoreographyVisitor):
-    def __init__(self, motors, mock=False):
+    def __init__(self, motors, mock=False, filename=None, debug_logger=None):
         self.motors = motors 
         self.mock = mock
         self.frps = 0
         self.pause_flag = threading.Event()
         self.stop_flag = False
+        self.current_line = None
+        self.current_command = None
+        self.filename = filename
+        self.execution_logs = []
+        self.debug_logger = debug_logger
+    
+    def log_debug(self, message):
+        """Log to debug file if logger is available"""
+        if self.debug_logger:
+            self.debug_logger.info(message)
 
     def check_control_flags(self):
         # Check if the process should be paused
@@ -35,6 +45,11 @@ class NewChoreographyVisitor(ChoreographyVisitor):
 
     def visitMoveCommand(self, ctx: ChoreographyParser.MoveCommandContext):
         self.check_control_flags()
+        self.current_line = ctx.start.line
+        self.current_command = ctx.getText()
+        
+        start_time = time.time()
+        
         motor_id = ctx.motor().getText() if ctx.motor() else "all"
         degree = float(ctx.degree().getText())
         speed = float(ctx.speed().getText()) if ctx.speed() else None
@@ -55,6 +70,12 @@ class NewChoreographyVisitor(ChoreographyVisitor):
                 motor.move(degree, speed)
             else:
                 motor.move(degree)
+        
+        elapsed = round(time.time() - start_time, 3)
+        log_entry = f"[{self.filename}] Line {self.current_line}: move motor {motor_id} {degree}% ({elapsed}s)"
+        self.execution_logs.append(log_entry)
+        print(log_entry)
+        self.log_debug(log_entry)
  
     def wait_motors_to_finish(self):
         all_motors_reached_target = False
@@ -68,10 +89,21 @@ class NewChoreographyVisitor(ChoreographyVisitor):
  
     def visitSyncCommand(self, ctx:ChoreographyParser.SyncCommandContext):
         self.check_control_flags()
+        self.current_line = ctx.start.line
+        self.current_command = "sync"
+        
+        start_time = time.time()
+        
         self.wait_motors_to_finish()
         for moveCmd in ctx.moveCommand():
             self.visit(moveCmd)
         self.wait_motors_to_finish()    
+
+        elapsed = round(time.time() - start_time, 3)
+        log_entry = f"[{self.filename}] Line {self.current_line}: sync command ({elapsed}s)"
+        self.execution_logs.append(log_entry)
+        print(log_entry)
+        self.log_debug(log_entry)
 
         if self.mock:
             print("Synchronized move commands executed")
@@ -79,6 +111,9 @@ class NewChoreographyVisitor(ChoreographyVisitor):
     
     def visitRepeatCommand(self, ctx:ChoreographyParser.RepeatCommandContext):
         self.check_control_flags()
+        self.current_line = ctx.start.line
+        self.current_command = ctx.getText()
+        
         times = int(ctx.times().getText())
         for _ in range(times):
             for cmd in ctx.command():
@@ -90,19 +125,41 @@ class NewChoreographyVisitor(ChoreographyVisitor):
  
     def visitSetFrpsCommand(self, ctx:ChoreographyParser.SetFrpsCommandContext):
         self.check_control_flags()
+        self.current_line = ctx.start.line
+        self.current_command = ctx.getText()
+        
+        start_time = time.time()
         speed =  float(ctx.speed().getText())
         self.frps = speed
         for motor in self.motors.values():
             motor.speed_frps(speed)
+        
+        elapsed = round(time.time() - start_time, 3)
+        log_entry = f"[{self.filename}] Line {self.current_line}: set speed {speed} frps ({elapsed}s)"
+        self.execution_logs.append(log_entry)
+        print(log_entry)
+        self.log_debug(log_entry)
+        
         if self.mock:
             print(f"Set FRPS to {speed}")    
         
  
     def visitWaitCommand(self, ctx:ChoreographyParser.WaitCommandContext):
         self.check_control_flags()
+        self.current_line = ctx.start.line
+        self.current_command = ctx.getText()
+        
+        start_time = time.time()
         seconds = float(ctx.seconds().getText())
         time.sleep(seconds)
         self.wait_motors_to_finish()
+        
+        elapsed = round(time.time() - start_time, 3)
+        log_entry = f"[{self.filename}] Line {self.current_line}: wait {seconds}s ({elapsed}s)"
+        self.execution_logs.append(log_entry)
+        print(log_entry)
+        self.log_debug(log_entry)
+        
         if self.mock:
             print(f"Waiting for {seconds} seconds")
     

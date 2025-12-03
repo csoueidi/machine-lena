@@ -1,0 +1,13 @@
+# Cue on samak
+
+set_frps 0.15
+sync {
+    move(1, 0.5)
+   move(2, 0.5)
+
+}
+
+sync {
+    move(1, 0)
+move(2, 0)
+}

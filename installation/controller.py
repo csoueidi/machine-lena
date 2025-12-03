@@ -45,17 +45,17 @@ myParser = MyParser()
 def get_speed_for_motion_level(motion_level):
     # Define your logic here. Example:
     if motion_level == 1:
-        return random.uniform(0.03, 0.05 ) #0.05
+        return random.uniform(0.01, 0.02 ) #0.05
     elif motion_level == 2:
-        return random.uniform(0.1, 0.2 ) #0.1
+        return random.uniform(0.02, 0.04 ) #0.1
     elif motion_level == 3:
-        return random.uniform(0.3, 0.6 ) #0.4
+        return random.uniform(0.04, 0.06 ) #0.4
     elif motion_level == 4:
-        return random.uniform(0.7, 1.3 ) #0.9
+        return random.uniform(0.06, 0.08 ) #0.9
     elif motion_level == 5:
-        return  random.uniform(1.7, 2.3 ) #2
+        return  random.uniform(0.1, 0.18 ) #2
     elif motion_level == 6:
-        return  random.uniform(5, 10 ) #50
+        return  random.uniform(0.2, 0.35 ) #50
     else:
         return 0
     
@@ -63,7 +63,7 @@ def get_speed_for_motion_level(motion_level):
 motor_states = {motor_id: {'last_direction': None, 'accumulated_movement': 0} for motor_id in motors.keys()}
 
 def get_target_position(motor_id, current_position):
-    min_movement = 0.04
+    min_movement = 0.05
     max_accumulated_movement = 0.8  # 30% movement
     state = motor_states[motor_id]
 

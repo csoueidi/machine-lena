@@ -1,6 +1,0 @@
-repeat 20 {
- 
-move(all,0.1,0.001)
-move(all,0,0.01)
- 
-}

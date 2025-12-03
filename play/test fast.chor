@@ -1,0 +1,7 @@
+
+# Reset to zero
+wait(2)
+set_frps 0.08
+sync {
+    move(all,0)
+}

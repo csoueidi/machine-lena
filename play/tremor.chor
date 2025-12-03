@@ -1,0 +1,48 @@
+# TREMOR - Small jitter, nervousness
+# The body remembers
+# Quick, anxious oscillations
+# Motors 1, 2, and 4
+
+set_frps 0.5
+
+# Rapid nervous trembling
+repeat 8 {
+    sync {
+        move(1, 0.25)
+        move(2, 0.22)
+        move(4, 0.23)
+    }
+    wait(0.15)
+    
+    sync {
+        move(1, 0.18)
+        move(2, 0.15)
+        move(4, 0.16)
+    }
+    wait(0.15)
+}
+
+# Slightly larger tremor
+repeat 5 {
+    sync {
+        move(1, 0.35)
+        move(2, 0.3)
+        move(4, 0.32)
+    }
+    wait(0.2)
+    
+    sync {
+        move(1, 0.15)
+        move(2, 0.12)
+        move(4, 0.13)
+    }
+    wait(0.2)
+}
+
+# Settling down
+set_frps 0.2
+sync {
+    move(1, 0.2)
+    move(2, 0.18)
+    move(4, 0.19)
+}

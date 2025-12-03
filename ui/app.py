@@ -29,7 +29,7 @@ def execute_file():
     print("Executing the .chor file...")  # Placeholder for execution logic
 
 # Set the path to your folder containing .chor files
-folder_path = '/Users/chukrisoueidi/Src/lena/machine/machine-lena/test'
+folder_path = '/home/pi/demo/code/test'
 
 # Create the main window
 root = tk.Tk()

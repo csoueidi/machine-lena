@@ -1,0 +1,13 @@
+set_frps 0.15
+
+repeat 3 {
+
+sync{
+  move (4,0.2)
+ }
+
+sync{
+  move(4,0)
+ }
+
+}

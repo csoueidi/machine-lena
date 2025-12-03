@@ -1,0 +1,31 @@
+# THE WEDDING - "يا مْدينة فيقي استقبلي حبابِك"
+# Joy, ceremony, hope despite everything
+# The Machine witnesses their union
+# Motors 1, 2, and 4
+ 
+# Wedding vows - solemn and beautiful
+set_frps 0.05
+
+    sync {
+        move(1, 0.4)
+        move(2, 0.5)
+        move(4, 0.5)
+    }
+    wait(3)
+    
+    sync {
+        move(1, 0.5)
+        move(2, 0.5)
+        move(4, 0.5)
+    }
+    wait(1.2)
+
+
+
+# Reset to zero
+set_frps 0.06
+sync {
+    move(1, 0)
+    move(2, 0)
+    move(4, 0)
+}

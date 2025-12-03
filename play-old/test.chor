@@ -1,0 +1,7 @@
+set_frps 0.2;
+repeat 4 {
+    move(all, 1, 0.1);
+    wait(1);
+    move(all, 0, 0.1);
+    wait(1);
+}

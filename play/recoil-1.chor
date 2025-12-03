@@ -1,0 +1,8 @@
+set_frps 0.05
+sync{
+move (all,0.2)
+}
+sync{
+move(all,0)
+
+}
