@@ -18,3 +18,6 @@ websockets
 
 # YAML configuration
 pyyaml
+
+# Keyboard input control
+pynput

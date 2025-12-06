@@ -1,0 +1,670 @@
+2025-12-06 17:06:59,440 - === Choreography Debug Mode Enabled ===
+2025-12-06 17:06:59,441 - Logging to: /home/pi/Code/logs/choreography_debug_20251206_170659.log
+2025-12-06 17:07:05,623 - ========== STARTING EXECUTION: 101-kish-ya-mot.chor ==========
+2025-12-06 17:07:05,625 - Choreography content:
+# sahen el ma3karoune b lhame mafroume zgheer, enter with mila   
+
+repeat 1{
+        set_frps 1.3
+        sync {
+            move(1, 0.8  );
+            move(2, 0.6 );
+            move(3, 0.6 );
+            move(4, 0.4 );
+        } 
+        set_frps 1.6
+        sync {
+            move(1, 0);
+            move(2, 0);
+            move(3, 0);
+            move(4, 0);
+        }
+    }
+
+    repeat 1{
+        set_frps 10.3
+        sync {
+            move(1, 0.8  );
+            move(2, 0.6 );
+            move(3, 0.6 );
+            move(4, 0.4 );
+        } 
+        set_frps 10.6
+        sync {
+            move(1, 0);
+            move(2, 0);
+            move(3, 0);
+            move(4, 0);
+        }
+    }
+ 
+# HERE
+# Shake up/down with crescendo at 4 FRPS
+
+repeat 3
+{
+set_frps 4.0
+
+# Crescendo shakes — increasing amplitude
+sync { move(1, 0.50) move(2, 0.48) move(4, 0.49) }   # baseline
+
+# Small shake
+sync { move(1, 0.52) move(2, 0.46) move(4, 0.51) }
+sync { move(1, 0.48) move(2, 0.50) move(4, 0.47) }
+
+# Medium shake
+sync { move(1, 0.54) move(2, 0.44) move(4, 0.53) }
+sync { move(1, 0.46) move(2, 0.52) move(4, 0.45) }
+
+# Large shake (crescendo peak)
+sync { move(1, 0.56) move(2, 0.42) move(4, 0.55) }
+sync { move(1, 0.44) move(2, 0.54) move(4, 0.43) }
+
+wait(0.5)
+
+# Settle center
+set_frps 0.06
+sync {
+    move(1, 0.5)
+    move(2, 0.48)
+    move(4, 0.49)
+}
+}
+   
+
+# after she enters into it after she sings adeish kenna ya 3youni
+
+# set_frps 0.05;
+# sync {
+   #  move(all, 0.3);
+# }
+
+repeat 2 {
+    set_frps 0.02;
+    sync {
+        move(all, 0.25);
+    }
+
+    sync {
+        move(all, 0.2);
+    }
+
+}
+
+   wait(1)
+
+repeat 2 {
+    set_frps 0.025;
+    sync {
+        move(all, 0.25);
+    }
+
+    sync {
+        move(all, 0.2);
+    }
+
+
+}
+
+sync {
+        move(all, 0);
+    }
+
+
+    wait(2)
+    repeat 9{
+        sync {  
+                move(all, 0.1,1000);
+                move(all, 0,1000);
+            }
+    }
+    repeat 9{
+        sync {  
+                move(all, 0.1,1000);
+                move(all, 0,1000);
+            }
+    }
+2025-12-06 17:07:05,633 - ============================================================
+2025-12-06 17:07:05,908 - [101-kish-ya-mot.chor] Line 4: set speed 1.3 frps (0.0s)
+2025-12-06 17:07:05,920 - [101-kish-ya-mot.chor] Line 6: move motor 1 0.8% (0.0s)
+2025-12-06 17:07:05,923 - [101-kish-ya-mot.chor] Line 7: move motor 2 0.6% (0.001s)
+2025-12-06 17:07:05,925 - [101-kish-ya-mot.chor] Line 8: move motor 3 0.6% (0.0s)
+2025-12-06 17:07:05,928 - [101-kish-ya-mot.chor] Line 9: move motor 4 0.4% (0.001s)
+2025-12-06 17:07:09,338 - [101-kish-ya-mot.chor] Line 9: sync command (3.429s)
+2025-12-06 17:07:09,340 - [101-kish-ya-mot.chor] Line 11: set speed 1.6 frps (0.0s)
+2025-12-06 17:07:09,353 - [101-kish-ya-mot.chor] Line 13: move motor 1 0.0% (0.001s)
+2025-12-06 17:07:09,355 - [101-kish-ya-mot.chor] Line 14: move motor 2 0.0% (0.0s)
+2025-12-06 17:07:09,358 - [101-kish-ya-mot.chor] Line 15: move motor 3 0.0% (0.001s)
+2025-12-06 17:07:09,361 - [101-kish-ya-mot.chor] Line 16: move motor 4 0.0% (0.001s)
+2025-12-06 17:07:12,808 - [101-kish-ya-mot.chor] Line 16: sync command (3.466s)
+2025-12-06 17:07:12,812 - [101-kish-ya-mot.chor] Line 21: set speed 10.3 frps (0.0s)
+2025-12-06 17:07:12,825 - [101-kish-ya-mot.chor] Line 23: move motor 1 0.8% (0.001s)
+2025-12-06 17:07:12,828 - [101-kish-ya-mot.chor] Line 24: move motor 2 0.6% (0.001s)
+2025-12-06 17:07:12,831 - [101-kish-ya-mot.chor] Line 25: move motor 3 0.6% (0.001s)
+2025-12-06 17:07:12,834 - [101-kish-ya-mot.chor] Line 26: move motor 4 0.4% (0.001s)
+2025-12-06 17:07:15,871 - [101-kish-ya-mot.chor] Line 26: sync command (3.057s)
+2025-12-06 17:07:15,874 - [101-kish-ya-mot.chor] Line 28: set speed 10.6 frps (0.0s)
+2025-12-06 17:07:15,887 - [101-kish-ya-mot.chor] Line 30: move motor 1 0.0% (0.001s)
+2025-12-06 17:07:15,889 - [101-kish-ya-mot.chor] Line 31: move motor 2 0.0% (0.001s)
+2025-12-06 17:07:15,892 - [101-kish-ya-mot.chor] Line 32: move motor 3 0.0% (0.001s)
+2025-12-06 17:07:15,895 - [101-kish-ya-mot.chor] Line 33: move motor 4 0.0% (0.001s)
+2025-12-06 17:07:18,963 - [101-kish-ya-mot.chor] Line 33: sync command (3.088s)
+2025-12-06 17:07:18,970 - [101-kish-ya-mot.chor] Line 42: set speed 4.0 frps (0.0s)
+2025-12-06 17:07:18,983 - [101-kish-ya-mot.chor] Line 45: move motor 1 0.5% (0.0s)
+2025-12-06 17:07:18,985 - [101-kish-ya-mot.chor] Line 45: move motor 2 0.48% (0.001s)
+2025-12-06 17:07:18,988 - [101-kish-ya-mot.chor] Line 45: move motor 4 0.49% (0.001s)
+2025-12-06 17:07:20,900 - [101-kish-ya-mot.chor] Line 45: sync command (1.929s)
+2025-12-06 17:07:20,913 - [101-kish-ya-mot.chor] Line 48: move motor 1 0.52% (0.001s)
+2025-12-06 17:07:20,915 - [101-kish-ya-mot.chor] Line 48: move motor 2 0.46% (0.0s)
+2025-12-06 17:07:20,918 - [101-kish-ya-mot.chor] Line 48: move motor 4 0.51% (0.001s)
+2025-12-06 17:07:21,000 - [101-kish-ya-mot.chor] Line 48: sync command (0.098s)
+2025-12-06 17:07:21,014 - [101-kish-ya-mot.chor] Line 49: move motor 1 0.48% (0.001s)
+2025-12-06 17:07:21,017 - [101-kish-ya-mot.chor] Line 49: move motor 2 0.5% (0.0s)
+2025-12-06 17:07:21,022 - [101-kish-ya-mot.chor] Line 49: move motor 4 0.47% (0.001s)
+2025-12-06 17:07:21,208 - [101-kish-ya-mot.chor] Line 49: sync command (0.206s)
+2025-12-06 17:07:21,221 - [101-kish-ya-mot.chor] Line 52: move motor 1 0.54% (0.001s)
+2025-12-06 17:07:21,225 - [101-kish-ya-mot.chor] Line 52: move motor 2 0.44% (0.001s)
+2025-12-06 17:07:21,230 - [101-kish-ya-mot.chor] Line 52: move motor 4 0.53% (0.001s)
+2025-12-06 17:07:21,454 - [101-kish-ya-mot.chor] Line 52: sync command (0.244s)
+2025-12-06 17:07:21,467 - [101-kish-ya-mot.chor] Line 53: move motor 1 0.46% (0.001s)
+2025-12-06 17:07:21,470 - [101-kish-ya-mot.chor] Line 53: move motor 2 0.52% (0.001s)
+2025-12-06 17:07:21,472 - [101-kish-ya-mot.chor] Line 53: move motor 4 0.45% (0.001s)
+2025-12-06 17:07:21,809 - [101-kish-ya-mot.chor] Line 53: sync command (0.353s)
+2025-12-06 17:07:21,821 - [101-kish-ya-mot.chor] Line 56: move motor 1 0.56% (0.0s)
+2025-12-06 17:07:21,824 - [101-kish-ya-mot.chor] Line 56: move motor 2 0.42% (0.001s)
+2025-12-06 17:07:21,830 - [101-kish-ya-mot.chor] Line 56: move motor 4 0.55% (0.002s)
+2025-12-06 17:07:22,227 - [101-kish-ya-mot.chor] Line 56: sync command (0.418s)
+2025-12-06 17:07:22,240 - [101-kish-ya-mot.chor] Line 57: move motor 1 0.44% (0.001s)
+2025-12-06 17:07:22,243 - [101-kish-ya-mot.chor] Line 57: move motor 2 0.54% (0.001s)
+2025-12-06 17:07:22,246 - [101-kish-ya-mot.chor] Line 57: move motor 4 0.43% (0.001s)
+2025-12-06 17:07:22,775 - [101-kish-ya-mot.chor] Line 57: sync command (0.546s)
+2025-12-06 17:07:23,287 - [101-kish-ya-mot.chor] Line 59: wait 0.5s (0.511s)
+2025-12-06 17:07:23,289 - [101-kish-ya-mot.chor] Line 62: set speed 0.06 frps (0.0s)
+2025-12-06 17:07:23,300 - [101-kish-ya-mot.chor] Line 64: move motor 1 0.5% (0.001s)
+2025-12-06 17:07:23,303 - [101-kish-ya-mot.chor] Line 65: move motor 2 0.48% (0.001s)
+2025-12-06 17:07:23,304 - [101-kish-ya-mot.chor] Line 66: move motor 4 0.49% (0.0s)
+2025-12-06 17:07:24,532 - [101-kish-ya-mot.chor] Line 66: sync command (1.242s)
+2025-12-06 17:07:24,535 - [101-kish-ya-mot.chor] Line 42: set speed 4.0 frps (0.0s)
+2025-12-06 17:07:24,549 - [101-kish-ya-mot.chor] Line 45: move motor 1 0.5% (0.001s)
+2025-12-06 17:07:24,555 - [101-kish-ya-mot.chor] Line 45: move motor 2 0.48% (0.002s)
+2025-12-06 17:07:24,560 - [101-kish-ya-mot.chor] Line 45: move motor 4 0.49% (0.002s)
+2025-12-06 17:07:24,573 - [101-kish-ya-mot.chor] Line 45: sync command (0.037s)
+2025-12-06 17:07:24,588 - [101-kish-ya-mot.chor] Line 48: move motor 1 0.52% (0.001s)
+2025-12-06 17:07:24,593 - [101-kish-ya-mot.chor] Line 48: move motor 2 0.46% (0.001s)
+2025-12-06 17:07:24,597 - [101-kish-ya-mot.chor] Line 48: move motor 4 0.51% (0.001s)
+2025-12-06 17:07:24,690 - [101-kish-ya-mot.chor] Line 48: sync command (0.116s)
+2025-12-06 17:07:24,703 - [101-kish-ya-mot.chor] Line 49: move motor 1 0.48% (0.001s)
+2025-12-06 17:07:24,706 - [101-kish-ya-mot.chor] Line 49: move motor 2 0.5% (0.001s)
+2025-12-06 17:07:24,710 - [101-kish-ya-mot.chor] Line 49: move motor 4 0.47% (0.001s)
+2025-12-06 17:07:24,905 - [101-kish-ya-mot.chor] Line 49: sync command (0.213s)
+2025-12-06 17:07:24,918 - [101-kish-ya-mot.chor] Line 52: move motor 1 0.54% (0.001s)
+2025-12-06 17:07:24,921 - [101-kish-ya-mot.chor] Line 52: move motor 2 0.44% (0.001s)
+2025-12-06 17:07:24,924 - [101-kish-ya-mot.chor] Line 52: move motor 4 0.53% (0.002s)
+2025-12-06 17:07:25,149 - [101-kish-ya-mot.chor] Line 52: sync command (0.242s)
+2025-12-06 17:07:25,162 - [101-kish-ya-mot.chor] Line 53: move motor 1 0.46% (0.001s)
+2025-12-06 17:07:25,166 - [101-kish-ya-mot.chor] Line 53: move motor 2 0.52% (0.001s)
+2025-12-06 17:07:25,169 - [101-kish-ya-mot.chor] Line 53: move motor 4 0.45% (0.0s)
+2025-12-06 17:07:25,463 - [101-kish-ya-mot.chor] Line 53: sync command (0.313s)
+2025-12-06 17:07:25,477 - [101-kish-ya-mot.chor] Line 56: move motor 1 0.56% (0.001s)
+2025-12-06 17:07:25,481 - [101-kish-ya-mot.chor] Line 56: move motor 2 0.42% (0.001s)
+2025-12-06 17:07:25,484 - [101-kish-ya-mot.chor] Line 56: move motor 4 0.55% (0.001s)
+2025-12-06 17:07:25,870 - [101-kish-ya-mot.chor] Line 56: sync command (0.404s)
+2025-12-06 17:07:25,882 - [101-kish-ya-mot.chor] Line 57: move motor 1 0.44% (0.0s)
+2025-12-06 17:07:25,885 - [101-kish-ya-mot.chor] Line 57: move motor 2 0.54% (0.001s)
+2025-12-06 17:07:25,887 - [101-kish-ya-mot.chor] Line 57: move motor 4 0.43% (0.001s)
+2025-12-06 17:07:26,365 - [101-kish-ya-mot.chor] Line 57: sync command (0.494s)
+2025-12-06 17:07:26,878 - [101-kish-ya-mot.chor] Line 59: wait 0.5s (0.511s)
+2025-12-06 17:07:26,880 - [101-kish-ya-mot.chor] Line 62: set speed 0.06 frps (0.0s)
+2025-12-06 17:07:26,891 - [101-kish-ya-mot.chor] Line 64: move motor 1 0.5% (0.0s)
+2025-12-06 17:07:26,894 - [101-kish-ya-mot.chor] Line 65: move motor 2 0.48% (0.001s)
+2025-12-06 17:07:26,897 - [101-kish-ya-mot.chor] Line 66: move motor 4 0.49% (0.0s)
+2025-12-06 17:07:28,154 - [101-kish-ya-mot.chor] Line 66: sync command (1.273s)
+2025-12-06 17:07:28,157 - [101-kish-ya-mot.chor] Line 42: set speed 4.0 frps (0.0s)
+2025-12-06 17:07:28,174 - [101-kish-ya-mot.chor] Line 45: move motor 1 0.5% (0.003s)
+2025-12-06 17:07:28,180 - [101-kish-ya-mot.chor] Line 45: move motor 2 0.48% (0.002s)
+2025-12-06 17:07:28,190 - [101-kish-ya-mot.chor] Line 45: move motor 4 0.49% (0.001s)
+2025-12-06 17:07:28,207 - [101-kish-ya-mot.chor] Line 45: sync command (0.045s)
+2025-12-06 17:07:28,222 - [101-kish-ya-mot.chor] Line 48: move motor 1 0.52% (0.001s)
+2025-12-06 17:07:28,225 - [101-kish-ya-mot.chor] Line 48: move motor 2 0.46% (0.001s)
+2025-12-06 17:07:28,231 - [101-kish-ya-mot.chor] Line 48: move motor 4 0.51% (0.002s)
+2025-12-06 17:07:28,327 - [101-kish-ya-mot.chor] Line 48: sync command (0.118s)
+2025-12-06 17:07:28,340 - [101-kish-ya-mot.chor] Line 49: move motor 1 0.48% (0.0s)
+2025-12-06 17:07:28,343 - [101-kish-ya-mot.chor] Line 49: move motor 2 0.5% (0.0s)
+2025-12-06 17:07:28,348 - [101-kish-ya-mot.chor] Line 49: move motor 4 0.47% (0.001s)
+2025-12-06 17:07:28,500 - [101-kish-ya-mot.chor] Line 49: sync command (0.172s)
+2025-12-06 17:07:28,513 - [101-kish-ya-mot.chor] Line 52: move motor 1 0.54% (0.0s)
+2025-12-06 17:07:28,516 - [101-kish-ya-mot.chor] Line 52: move motor 2 0.44% (0.001s)
+2025-12-06 17:07:28,519 - [101-kish-ya-mot.chor] Line 52: move motor 4 0.53% (0.001s)
+2025-12-06 17:07:28,744 - [101-kish-ya-mot.chor] Line 52: sync command (0.243s)
+2025-12-06 17:07:28,756 - [101-kish-ya-mot.chor] Line 53: move motor 1 0.46% (0.0s)
+2025-12-06 17:07:28,760 - [101-kish-ya-mot.chor] Line 53: move motor 2 0.52% (0.0s)
+2025-12-06 17:07:28,762 - [101-kish-ya-mot.chor] Line 53: move motor 4 0.45% (0.0s)
+2025-12-06 17:07:29,069 - [101-kish-ya-mot.chor] Line 53: sync command (0.324s)
+2025-12-06 17:07:29,082 - [101-kish-ya-mot.chor] Line 56: move motor 1 0.56% (0.0s)
+2025-12-06 17:07:29,084 - [101-kish-ya-mot.chor] Line 56: move motor 2 0.42% (0.001s)
+2025-12-06 17:07:29,087 - [101-kish-ya-mot.chor] Line 56: move motor 4 0.55% (0.0s)
+2025-12-06 17:07:29,493 - [101-kish-ya-mot.chor] Line 56: sync command (0.422s)
+2025-12-06 17:07:29,505 - [101-kish-ya-mot.chor] Line 57: move motor 1 0.44% (0.0s)
+2025-12-06 17:07:29,508 - [101-kish-ya-mot.chor] Line 57: move motor 2 0.54% (0.001s)
+2025-12-06 17:07:29,511 - [101-kish-ya-mot.chor] Line 57: move motor 4 0.43% (0.001s)
+2025-12-06 17:07:29,958 - [101-kish-ya-mot.chor] Line 57: sync command (0.464s)
+2025-12-06 17:07:30,470 - [101-kish-ya-mot.chor] Line 59: wait 0.5s (0.511s)
+2025-12-06 17:07:30,471 - [101-kish-ya-mot.chor] Line 62: set speed 0.06 frps (0.0s)
+2025-12-06 17:07:30,485 - [101-kish-ya-mot.chor] Line 64: move motor 1 0.5% (0.001s)
+2025-12-06 17:07:30,487 - [101-kish-ya-mot.chor] Line 65: move motor 2 0.48% (0.001s)
+2025-12-06 17:07:30,488 - [101-kish-ya-mot.chor] Line 66: move motor 4 0.49% (0.0s)
+2025-12-06 17:07:31,726 - [101-kish-ya-mot.chor] Line 66: sync command (1.253s)
+2025-12-06 17:07:31,730 - [101-kish-ya-mot.chor] Line 79: set speed 0.02 frps (0.0s)
+2025-12-06 17:07:31,744 - [101-kish-ya-mot.chor] Line 81: move motor all 0.25% (0.002s)
+2025-12-06 17:07:45,318 - [101-kish-ya-mot.chor] Line 81: sync command (13.586s)
+2025-12-06 17:07:45,331 - [101-kish-ya-mot.chor] Line 85: move motor all 0.2% (0.002s)
+2025-12-06 17:07:48,036 - [101-kish-ya-mot.chor] Line 85: sync command (2.717s)
+2025-12-06 17:07:48,039 - [101-kish-ya-mot.chor] Line 79: set speed 0.02 frps (0.0s)
+2025-12-06 17:07:48,054 - [101-kish-ya-mot.chor] Line 81: move motor all 0.25% (0.002s)
+2025-12-06 17:07:50,771 - [101-kish-ya-mot.chor] Line 81: sync command (2.73s)
+2025-12-06 17:07:50,786 - [101-kish-ya-mot.chor] Line 85: move motor all 0.2% (0.003s)
+2025-12-06 17:07:53,513 - [101-kish-ya-mot.chor] Line 85: sync command (2.741s)
+2025-12-06 17:07:54,526 - [101-kish-ya-mot.chor] Line 90: wait 1.0s (1.011s)
+2025-12-06 17:07:54,530 - [101-kish-ya-mot.chor] Line 93: set speed 0.025 frps (0.0s)
+2025-12-06 17:07:54,542 - [101-kish-ya-mot.chor] Line 95: move motor all 0.25% (0.001s)
+2025-12-06 17:07:56,765 - [101-kish-ya-mot.chor] Line 95: sync command (2.233s)
+2025-12-06 17:07:56,780 - [101-kish-ya-mot.chor] Line 99: move motor all 0.2% (0.003s)
+2025-12-06 17:07:59,010 - [101-kish-ya-mot.chor] Line 99: sync command (2.243s)
+2025-12-06 17:07:59,011 - [101-kish-ya-mot.chor] Line 93: set speed 0.025 frps (0.0s)
+2025-12-06 17:07:59,024 - [101-kish-ya-mot.chor] Line 95: move motor all 0.25% (0.002s)
+2025-12-06 17:08:01,228 - [101-kish-ya-mot.chor] Line 95: sync command (2.216s)
+2025-12-06 17:08:01,241 - [101-kish-ya-mot.chor] Line 99: move motor all 0.2% (0.001s)
+2025-12-06 17:08:03,453 - [101-kish-ya-mot.chor] Line 99: sync command (2.224s)
+2025-12-06 17:08:03,468 - [101-kish-ya-mot.chor] Line 106: move motor all 0.0% (0.002s)
+2025-12-06 17:08:12,306 - [101-kish-ya-mot.chor] Line 106: sync command (8.851s)
+2025-12-06 17:08:14,320 - [101-kish-ya-mot.chor] Line 110: wait 2.0s (2.012s)
+2025-12-06 17:08:14,340 - [101-kish-ya-mot.chor] Line 113: move motor all 0.1% (0.005s)
+2025-12-06 17:08:14,346 - [101-kish-ya-mot.chor] Line 114: move motor all 0.0% (0.003s)
+2025-12-06 17:08:15,108 - [101-kish-ya-mot.chor] Line 114: sync command (0.785s)
+2025-12-06 17:08:15,134 - [101-kish-ya-mot.chor] Line 113: move motor all 0.1% (0.011s)
+2025-12-06 17:08:15,138 - [101-kish-ya-mot.chor] Line 114: move motor all 0.0% (0.002s)
+2025-12-06 17:08:15,856 - [101-kish-ya-mot.chor] Line 114: sync command (0.746s)
+2025-12-06 17:08:15,873 - [101-kish-ya-mot.chor] Line 113: move motor all 0.1% (0.003s)
+2025-12-06 17:08:15,877 - [101-kish-ya-mot.chor] Line 114: move motor all 0.0% (0.002s)
+2025-12-06 17:08:16,618 - [101-kish-ya-mot.chor] Line 114: sync command (0.76s)
+2025-12-06 17:08:16,640 - [101-kish-ya-mot.chor] Line 113: move motor all 0.1% (0.007s)
+2025-12-06 17:08:16,646 - [101-kish-ya-mot.chor] Line 114: move motor all 0.0% (0.003s)
+2025-12-06 17:08:17,376 - [101-kish-ya-mot.chor] Line 114: sync command (0.756s)
+2025-12-06 17:08:17,394 - [101-kish-ya-mot.chor] Line 113: move motor all 0.1% (0.002s)
+2025-12-06 17:08:17,399 - [101-kish-ya-mot.chor] Line 114: move motor all 0.0% (0.002s)
+2025-12-06 17:08:18,129 - [101-kish-ya-mot.chor] Line 114: sync command (0.747s)
+2025-12-06 17:08:18,152 - [101-kish-ya-mot.chor] Line 113: move motor all 0.1% (0.007s)
+2025-12-06 17:08:18,158 - [101-kish-ya-mot.chor] Line 114: move motor all 0.0% (0.003s)
+2025-12-06 17:08:18,887 - [101-kish-ya-mot.chor] Line 114: sync command (0.754s)
+2025-12-06 17:08:18,903 - [101-kish-ya-mot.chor] Line 113: move motor all 0.1% (0.003s)
+2025-12-06 17:08:18,906 - [101-kish-ya-mot.chor] Line 114: move motor all 0.0% (0.002s)
+2025-12-06 17:08:19,639 - [101-kish-ya-mot.chor] Line 114: sync command (0.748s)
+2025-12-06 17:08:19,655 - [101-kish-ya-mot.chor] Line 113: move motor all 0.1% (0.003s)
+2025-12-06 17:08:19,659 - [101-kish-ya-mot.chor] Line 114: move motor all 0.0% (0.002s)
+2025-12-06 17:08:20,430 - [101-kish-ya-mot.chor] Line 114: sync command (0.789s)
+2025-12-06 17:08:20,445 - [101-kish-ya-mot.chor] Line 113: move motor all 0.1% (0.003s)
+2025-12-06 17:08:20,449 - [101-kish-ya-mot.chor] Line 114: move motor all 0.0% (0.002s)
+2025-12-06 17:08:21,178 - [101-kish-ya-mot.chor] Line 114: sync command (0.747s)
+2025-12-06 17:08:21,195 - [101-kish-ya-mot.chor] Line 119: move motor all 0.1% (0.003s)
+2025-12-06 17:08:21,200 - [101-kish-ya-mot.chor] Line 120: move motor all 0.0% (0.002s)
+2025-12-06 17:08:21,929 - [101-kish-ya-mot.chor] Line 120: sync command (0.748s)
+2025-12-06 17:08:21,943 - [101-kish-ya-mot.chor] Line 119: move motor all 0.1% (0.002s)
+2025-12-06 17:08:21,948 - [101-kish-ya-mot.chor] Line 120: move motor all 0.0% (0.002s)
+2025-12-06 17:08:22,689 - [101-kish-ya-mot.chor] Line 120: sync command (0.759s)
+2025-12-06 17:08:22,707 - [101-kish-ya-mot.chor] Line 119: move motor all 0.1% (0.003s)
+2025-12-06 17:08:22,712 - [101-kish-ya-mot.chor] Line 120: move motor all 0.0% (0.002s)
+2025-12-06 17:08:23,483 - [101-kish-ya-mot.chor] Line 120: sync command (0.79s)
+2025-12-06 17:08:23,499 - [101-kish-ya-mot.chor] Line 119: move motor all 0.1% (0.003s)
+2025-12-06 17:08:23,503 - [101-kish-ya-mot.chor] Line 120: move motor all 0.0% (0.002s)
+2025-12-06 17:08:24,217 - [101-kish-ya-mot.chor] Line 120: sync command (0.731s)
+2025-12-06 17:08:24,233 - [101-kish-ya-mot.chor] Line 119: move motor all 0.1% (0.003s)
+2025-12-06 17:08:24,239 - [101-kish-ya-mot.chor] Line 120: move motor all 0.0% (0.003s)
+2025-12-06 17:08:24,962 - [101-kish-ya-mot.chor] Line 120: sync command (0.742s)
+2025-12-06 17:08:24,977 - [101-kish-ya-mot.chor] Line 119: move motor all 0.1% (0.003s)
+2025-12-06 17:08:24,981 - [101-kish-ya-mot.chor] Line 120: move motor all 0.0% (0.002s)
+2025-12-06 17:08:25,742 - [101-kish-ya-mot.chor] Line 120: sync command (0.779s)
+2025-12-06 17:08:25,760 - [101-kish-ya-mot.chor] Line 119: move motor all 0.1% (0.004s)
+2025-12-06 17:08:25,766 - [101-kish-ya-mot.chor] Line 120: move motor all 0.0% (0.002s)
+2025-12-06 17:08:26,485 - [101-kish-ya-mot.chor] Line 120: sync command (0.741s)
+2025-12-06 17:08:26,500 - [101-kish-ya-mot.chor] Line 119: move motor all 0.1% (0.002s)
+2025-12-06 17:08:26,503 - [101-kish-ya-mot.chor] Line 120: move motor all 0.0% (0.002s)
+2025-12-06 17:08:27,281 - [101-kish-ya-mot.chor] Line 120: sync command (0.794s)
+2025-12-06 17:08:27,296 - [101-kish-ya-mot.chor] Line 119: move motor all 0.1% (0.002s)
+2025-12-06 17:08:27,300 - [101-kish-ya-mot.chor] Line 120: move motor all 0.0% (0.002s)
+2025-12-06 17:08:28,061 - [101-kish-ya-mot.chor] Line 120: sync command (0.777s)
+2025-12-06 17:08:28,316 - ========== FINISHED EXECUTION: 101-kish-ya-mot.chor ==========
+
+2025-12-06 17:11:03,799 - ========== STARTING EXECUTION: 102-PreFinal.chor ==========
+2025-12-06 17:11:03,802 - Choreography content:
+# 0.005 102
+
+set_frps 0.03
+
+
+move(1, 0.25)
+
+ 
+sync{
+move(1, 0.4)
+move(2, 0.15)
+ 
+}
+ 
+
+sync{
+move(1, 0.6)
+move(2, 0.48)
+move(4, 0.49)
+}
+
+2025-12-06 17:11:03,815 - ============================================================
+2025-12-06 17:11:03,912 - [102-PreFinal.chor] Line 3: set speed 0.03 frps (0.0s)
+2025-12-06 17:11:03,914 - [102-PreFinal.chor] Line 6: move motor 1 0.25% (0.001s)
+2025-12-06 17:11:13,189 - [102-PreFinal.chor] Line 10: move motor 1 0.4% (0.0s)
+2025-12-06 17:11:13,192 - [102-PreFinal.chor] Line 11: move motor 2 0.15% (0.001s)
+2025-12-06 17:11:18,832 - [102-PreFinal.chor] Line 11: sync command (14.916s)
+2025-12-06 17:11:18,848 - [102-PreFinal.chor] Line 17: move motor 1 0.6% (0.001s)
+2025-12-06 17:11:18,852 - [102-PreFinal.chor] Line 18: move motor 2 0.48% (0.002s)
+2025-12-06 17:11:18,857 - [102-PreFinal.chor] Line 19: move motor 4 0.49% (0.001s)
+2025-12-06 17:11:37,153 - [102-PreFinal.chor] Line 19: sync command (18.317s)
+2025-12-06 17:11:37,449 - ========== FINISHED EXECUTION: 102-PreFinal.chor ==========
+
+2025-12-06 17:15:08,712 - Edited choreography file: 11-Final-10sec.chor (127 chars)
+2025-12-06 17:15:10,222 - ========== STARTING EXECUTION: 11-Final-10sec.chor ==========
+2025-12-06 17:15:10,224 - Choreography content:
+# 0.005 102
+
+set_frps 0.03
+
+
+move(1, 0.25)
+
+ 
+sync{
+move(1, 0.4)
+move(2, 0.15)
+ 
+}
+ 
+
+sync{
+move(1, 0)
+move(2, 0)
+move(4, 0)
+}
+
+2025-12-06 17:15:10,225 - ============================================================
+2025-12-06 17:15:10,339 - [11-Final-10sec.chor] Line 3: set speed 0.03 frps (0.0s)
+2025-12-06 17:15:10,342 - [11-Final-10sec.chor] Line 6: move motor 1 0.25% (0.001s)
+2025-12-06 17:15:13,620 - STOPPING execution: 11-Final-10sec.chor
+2025-12-06 17:15:23,812 - ========== FINISHED EXECUTION: 11-Final-10sec.chor ==========
+
+2025-12-06 17:15:26,623 - ========== STARTING RESET SEQUENCE ==========
+2025-12-06 17:15:26,629 - Reset choreography content:
+set_frps 0.5
+sync {
+    move(1, 0)
+    move(2, 0)
+    move(3, 0)
+    move(4, 0)
+}
+2025-12-06 17:15:26,718 - [reset] Line 1: set speed 0.5 frps (0.0s)
+2025-12-06 17:15:26,731 - [reset] Line 3: move motor 1 0.0% (0.001s)
+2025-12-06 17:15:26,733 - [reset] Line 4: move motor 2 0.0% (0.001s)
+2025-12-06 17:15:26,736 - [reset] Line 5: move motor 3 0.0% (0.001s)
+2025-12-06 17:15:26,739 - [reset] Line 6: move motor 4 0.0% (0.0s)
+2025-12-06 17:15:29,536 - [reset] Line 6: sync command (2.817s)
+2025-12-06 17:15:29,812 - ========== FINISHED RESET SEQUENCE ==========
+
+2025-12-06 17:15:30,796 - ========== STARTING EXECUTION: 11-Final-10sec.chor ==========
+2025-12-06 17:15:30,800 - Choreography content:
+# 0.005 102
+
+set_frps 0.03
+
+
+move(1, 0.25)
+
+ 
+sync{
+move(1, 0.4)
+move(2, 0.15)
+ 
+}
+ 
+
+sync{
+move(1, 0)
+move(2, 0)
+move(4, 0)
+}
+
+2025-12-06 17:15:30,816 - ============================================================
+2025-12-06 17:15:30,912 - [11-Final-10sec.chor] Line 3: set speed 0.03 frps (0.0s)
+2025-12-06 17:15:30,915 - [11-Final-10sec.chor] Line 6: move motor 1 0.25% (0.001s)
+2025-12-06 17:15:40,333 - [11-Final-10sec.chor] Line 10: move motor 1 0.4% (0.001s)
+2025-12-06 17:15:40,335 - [11-Final-10sec.chor] Line 11: move motor 2 0.15% (0.0s)
+2025-12-06 17:15:45,985 - [11-Final-10sec.chor] Line 11: sync command (15.068s)
+2025-12-06 17:15:45,998 - [11-Final-10sec.chor] Line 17: move motor 1 0.0% (0.001s)
+2025-12-06 17:15:46,002 - [11-Final-10sec.chor] Line 18: move motor 2 0.0% (0.002s)
+2025-12-06 17:15:46,007 - [11-Final-10sec.chor] Line 19: move motor 4 0.0% (0.001s)
+2025-12-06 17:16:00,981 - [11-Final-10sec.chor] Line 19: sync command (14.995s)
+2025-12-06 17:16:01,291 - ========== FINISHED EXECUTION: 11-Final-10sec.chor ==========
+
+2025-12-06 17:16:18,612 - Edited choreography file: 11-Final-10sec.chor (127 chars)
+2025-12-06 17:16:19,866 - ========== STARTING EXECUTION: 11-Final-10sec.chor ==========
+2025-12-06 17:16:19,869 - Choreography content:
+# 0.005 102
+
+set_frps 0.06
+
+
+move(1, 0.25)
+
+ 
+sync{
+move(1, 0.4)
+move(2, 0.15)
+ 
+}
+ 
+
+sync{
+move(1, 0)
+move(2, 0)
+move(4, 0)
+}
+
+2025-12-06 17:16:19,890 - ============================================================
+2025-12-06 17:16:19,983 - [11-Final-10sec.chor] Line 3: set speed 0.06 frps (0.0s)
+2025-12-06 17:16:19,985 - [11-Final-10sec.chor] Line 6: move motor 1 0.25% (0.001s)
+2025-12-06 17:16:25,118 - [11-Final-10sec.chor] Line 10: move motor 1 0.4% (0.001s)
+2025-12-06 17:16:25,120 - [11-Final-10sec.chor] Line 11: move motor 2 0.15% (0.0s)
+2025-12-06 17:16:28,197 - [11-Final-10sec.chor] Line 11: sync command (8.211s)
+2025-12-06 17:16:28,209 - [11-Final-10sec.chor] Line 17: move motor 1 0.0% (0.0s)
+2025-12-06 17:16:28,211 - [11-Final-10sec.chor] Line 18: move motor 2 0.0% (0.0s)
+2025-12-06 17:16:28,213 - [11-Final-10sec.chor] Line 19: move motor 4 0.0% (0.001s)
+2025-12-06 17:16:36,490 - [11-Final-10sec.chor] Line 19: sync command (8.291s)
+2025-12-06 17:16:36,741 - ========== FINISHED EXECUTION: 11-Final-10sec.chor ==========
+
+2025-12-06 17:16:51,506 - ========== STARTING EXECUTION: 11-Final-10sec.chor ==========
+2025-12-06 17:16:51,507 - Choreography content:
+# 0.005 102
+
+set_frps 0.06
+
+
+move(1, 0.25)
+
+ 
+sync{
+move(1, 0.4)
+move(2, 0.15)
+ 
+}
+ 
+
+sync{
+move(1, 0)
+move(2, 0)
+move(4, 0)
+}
+
+2025-12-06 17:16:51,510 - ============================================================
+2025-12-06 17:16:51,590 - [11-Final-10sec.chor] Line 3: set speed 0.06 frps (0.0s)
+2025-12-06 17:16:51,592 - [11-Final-10sec.chor] Line 6: move motor 1 0.25% (0.0s)
+2025-12-06 17:16:56,734 - [11-Final-10sec.chor] Line 10: move motor 1 0.4% (0.001s)
+2025-12-06 17:16:56,738 - [11-Final-10sec.chor] Line 11: move motor 2 0.15% (0.001s)
+2025-12-06 17:16:59,822 - [11-Final-10sec.chor] Line 11: sync command (8.228s)
+2025-12-06 17:16:59,836 - [11-Final-10sec.chor] Line 17: move motor 1 0.0% (0.001s)
+2025-12-06 17:16:59,839 - [11-Final-10sec.chor] Line 18: move motor 2 0.0% (0.001s)
+2025-12-06 17:16:59,843 - [11-Final-10sec.chor] Line 19: move motor 4 0.0% (0.001s)
+2025-12-06 17:17:08,063 - [11-Final-10sec.chor] Line 19: sync command (8.239s)
+2025-12-06 17:17:08,354 - ========== FINISHED EXECUTION: 11-Final-10sec.chor ==========
+
+2025-12-06 17:17:24,578 - Edited choreography file: 11-Final-10sec.chor (127 chars)
+2025-12-06 17:17:26,045 - ========== STARTING EXECUTION: 11-Final-10sec.chor ==========
+2025-12-06 17:17:26,046 - Choreography content:
+# 0.005 102
+
+set_frps 0.07
+
+
+move(1, 0.25)
+
+ 
+sync{
+move(1, 0.4)
+move(2, 0.15)
+ 
+}
+ 
+
+sync{
+move(1, 0)
+move(2, 0)
+move(4, 0)
+}
+
+2025-12-06 17:17:26,049 - ============================================================
+2025-12-06 17:17:26,144 - [11-Final-10sec.chor] Line 3: set speed 0.07 frps (0.0s)
+2025-12-06 17:17:26,147 - [11-Final-10sec.chor] Line 6: move motor 1 0.25% (0.001s)
+2025-12-06 17:17:30,716 - [11-Final-10sec.chor] Line 10: move motor 1 0.4% (0.001s)
+2025-12-06 17:17:30,722 - [11-Final-10sec.chor] Line 11: move motor 2 0.15% (0.001s)
+2025-12-06 17:17:33,455 - [11-Final-10sec.chor] Line 11: sync command (7.305s)
+2025-12-06 17:17:33,470 - [11-Final-10sec.chor] Line 17: move motor 1 0.0% (0.002s)
+2025-12-06 17:17:33,473 - [11-Final-10sec.chor] Line 18: move motor 2 0.0% (0.001s)
+2025-12-06 17:17:33,477 - [11-Final-10sec.chor] Line 19: move motor 4 0.0% (0.001s)
+2025-12-06 17:17:40,865 - [11-Final-10sec.chor] Line 19: sync command (7.407s)
+2025-12-06 17:17:41,164 - ========== FINISHED EXECUTION: 11-Final-10sec.chor ==========
+
+2025-12-06 17:17:48,564 - Edited choreography file: 11-Final-10sec.chor (127 chars)
+2025-12-06 17:17:49,976 - ========== STARTING EXECUTION: 11-Final-10sec.chor ==========
+2025-12-06 17:17:49,978 - Choreography content:
+# 0.005 102
+
+set_frps 0.08
+
+
+move(1, 0.25)
+
+ 
+sync{
+move(1, 0.4)
+move(2, 0.15)
+ 
+}
+ 
+
+sync{
+move(1, 0)
+move(2, 0)
+move(4, 0)
+}
+
+2025-12-06 17:17:49,980 - ============================================================
+2025-12-06 17:17:50,075 - [11-Final-10sec.chor] Line 3: set speed 0.08 frps (0.0s)
+2025-12-06 17:17:50,078 - [11-Final-10sec.chor] Line 6: move motor 1 0.25% (0.0s)
+2025-12-06 17:17:54,180 - [11-Final-10sec.chor] Line 10: move motor 1 0.4% (0.001s)
+2025-12-06 17:17:54,182 - [11-Final-10sec.chor] Line 11: move motor 2 0.15% (0.001s)
+2025-12-06 17:17:56,671 - [11-Final-10sec.chor] Line 11: sync command (6.59s)
+2025-12-06 17:17:56,684 - [11-Final-10sec.chor] Line 17: move motor 1 0.0% (0.001s)
+2025-12-06 17:17:56,685 - [11-Final-10sec.chor] Line 18: move motor 2 0.0% (0.0s)
+2025-12-06 17:17:56,687 - [11-Final-10sec.chor] Line 19: move motor 4 0.0% (0.001s)
+2025-12-06 17:18:03,208 - [11-Final-10sec.chor] Line 19: sync command (6.535s)
+2025-12-06 17:18:03,524 - ========== FINISHED EXECUTION: 11-Final-10sec.chor ==========
+
+2025-12-06 17:18:14,803 - Edited choreography file: 11-Final-10sec.chor (127 chars)
+2025-12-06 17:18:48,890 - Edited choreography file: 101-kish-ya-mot.chor (1454 chars)
+2025-12-06 17:19:40,719 - ========== STARTING EXECUTION: 1011-deyma-bta3tina-forsa-tenye.chor ==========
+2025-12-06 17:19:40,721 - Choreography content:
+  
+    repeat 9{
+        sync {  
+                move(all, 0.1,1000);
+                move(all, 0,1000);
+            }
+    }
+    repeat 9{
+        sync {  
+                move(all, 0.1,1000);
+                move(all, 0,1000);
+            }
+    }
+2025-12-06 17:19:40,723 - ============================================================
+2025-12-06 17:19:40,818 - [1011-deyma-bta3tina-forsa-tenye.chor] Line 4: move motor all 0.1% (0.001s)
+2025-12-06 17:19:40,822 - [1011-deyma-bta3tina-forsa-tenye.chor] Line 5: move motor all 0.0% (0.002s)
+2025-12-06 17:19:41,562 - [1011-deyma-bta3tina-forsa-tenye.chor] Line 5: sync command (0.756s)
+2025-12-06 17:19:41,575 - [1011-deyma-bta3tina-forsa-tenye.chor] Line 4: move motor all 0.1% (0.001s)
+2025-12-06 17:19:41,579 - [1011-deyma-bta3tina-forsa-tenye.chor] Line 5: move motor all 0.0% (0.002s)
+2025-12-06 17:19:42,276 - [1011-deyma-bta3tina-forsa-tenye.chor] Line 5: sync command (0.713s)
+2025-12-06 17:19:42,292 - [1011-deyma-bta3tina-forsa-tenye.chor] Line 4: move motor all 0.1% (0.003s)
+2025-12-06 17:19:42,296 - [1011-deyma-bta3tina-forsa-tenye.chor] Line 5: move motor all 0.0% (0.002s)
+2025-12-06 17:19:43,028 - [1011-deyma-bta3tina-forsa-tenye.chor] Line 5: sync command (0.75s)
+2025-12-06 17:19:43,042 - [1011-deyma-bta3tina-forsa-tenye.chor] Line 4: move motor all 0.1% (0.002s)
+2025-12-06 17:19:43,045 - [1011-deyma-bta3tina-forsa-tenye.chor] Line 5: move motor all 0.0% (0.001s)
+2025-12-06 17:19:43,805 - [1011-deyma-bta3tina-forsa-tenye.chor] Line 5: sync command (0.775s)
+2025-12-06 17:19:43,819 - [1011-deyma-bta3tina-forsa-tenye.chor] Line 4: move motor all 0.1% (0.001s)
+2025-12-06 17:19:43,824 - [1011-deyma-bta3tina-forsa-tenye.chor] Line 5: move motor all 0.0% (0.001s)
+2025-12-06 17:19:44,528 - [1011-deyma-bta3tina-forsa-tenye.chor] Line 5: sync command (0.72s)
+2025-12-06 17:19:44,541 - [1011-deyma-bta3tina-forsa-tenye.chor] Line 4: move motor all 0.1% (0.001s)
+2025-12-06 17:19:44,544 - [1011-deyma-bta3tina-forsa-tenye.chor] Line 5: move motor all 0.0% (0.001s)
+2025-12-06 17:19:45,264 - [1011-deyma-bta3tina-forsa-tenye.chor] Line 5: sync command (0.735s)
+2025-12-06 17:19:45,278 - [1011-deyma-bta3tina-forsa-tenye.chor] Line 4: move motor all 0.1% (0.002s)
+2025-12-06 17:19:45,282 - [1011-deyma-bta3tina-forsa-tenye.chor] Line 5: move motor all 0.0% (0.001s)
+2025-12-06 17:19:46,012 - [1011-deyma-bta3tina-forsa-tenye.chor] Line 5: sync command (0.746s)
+2025-12-06 17:19:46,026 - [1011-deyma-bta3tina-forsa-tenye.chor] Line 4: move motor all 0.1% (0.001s)
+2025-12-06 17:19:46,030 - [1011-deyma-bta3tina-forsa-tenye.chor] Line 5: move motor all 0.0% (0.002s)
+2025-12-06 17:19:46,799 - [1011-deyma-bta3tina-forsa-tenye.chor] Line 5: sync command (0.785s)
+2025-12-06 17:19:46,813 - [1011-deyma-bta3tina-forsa-tenye.chor] Line 4: move motor all 0.1% (0.002s)
+2025-12-06 17:19:46,816 - [1011-deyma-bta3tina-forsa-tenye.chor] Line 5: move motor all 0.0% (0.002s)
+2025-12-06 17:19:47,554 - [1011-deyma-bta3tina-forsa-tenye.chor] Line 5: sync command (0.754s)
+2025-12-06 17:19:47,568 - [1011-deyma-bta3tina-forsa-tenye.chor] Line 10: move motor all 0.1% (0.002s)
+2025-12-06 17:19:47,571 - [1011-deyma-bta3tina-forsa-tenye.chor] Line 11: move motor all 0.0% (0.001s)
+2025-12-06 17:19:48,293 - [1011-deyma-bta3tina-forsa-tenye.chor] Line 11: sync command (0.737s)
+2025-12-06 17:19:48,309 - [1011-deyma-bta3tina-forsa-tenye.chor] Line 10: move motor all 0.1% (0.003s)
+2025-12-06 17:19:48,311 - [1011-deyma-bta3tina-forsa-tenye.chor] Line 11: move motor all 0.0% (0.001s)
+2025-12-06 17:19:49,047 - [1011-deyma-bta3tina-forsa-tenye.chor] Line 11: sync command (0.752s)
+2025-12-06 17:19:49,063 - [1011-deyma-bta3tina-forsa-tenye.chor] Line 10: move motor all 0.1% (0.004s)
+2025-12-06 17:19:49,067 - [1011-deyma-bta3tina-forsa-tenye.chor] Line 11: move motor all 0.0% (0.001s)
+2025-12-06 17:19:49,807 - [1011-deyma-bta3tina-forsa-tenye.chor] Line 11: sync command (0.758s)
+2025-12-06 17:19:49,822 - [1011-deyma-bta3tina-forsa-tenye.chor] Line 10: move motor all 0.1% (0.003s)
+2025-12-06 17:19:49,825 - [1011-deyma-bta3tina-forsa-tenye.chor] Line 11: move motor all 0.0% (0.001s)
+2025-12-06 17:19:50,616 - [1011-deyma-bta3tina-forsa-tenye.chor] Line 11: sync command (0.807s)
+2025-12-06 17:19:50,632 - [1011-deyma-bta3tina-forsa-tenye.chor] Line 10: move motor all 0.1% (0.003s)
+2025-12-06 17:19:50,635 - [1011-deyma-bta3tina-forsa-tenye.chor] Line 11: move motor all 0.0% (0.002s)
+2025-12-06 17:19:51,367 - [1011-deyma-bta3tina-forsa-tenye.chor] Line 11: sync command (0.749s)
+2025-12-06 17:19:51,380 - [1011-deyma-bta3tina-forsa-tenye.chor] Line 10: move motor all 0.1% (0.002s)
+2025-12-06 17:19:51,384 - [1011-deyma-bta3tina-forsa-tenye.chor] Line 11: move motor all 0.0% (0.001s)
+2025-12-06 17:19:52,137 - [1011-deyma-bta3tina-forsa-tenye.chor] Line 11: sync command (0.769s)
+2025-12-06 17:19:52,153 - [1011-deyma-bta3tina-forsa-tenye.chor] Line 10: move motor all 0.1% (0.004s)
+2025-12-06 17:19:52,157 - [1011-deyma-bta3tina-forsa-tenye.chor] Line 11: move motor all 0.0% (0.001s)
+2025-12-06 17:19:52,845 - [1011-deyma-bta3tina-forsa-tenye.chor] Line 11: sync command (0.707s)
+2025-12-06 17:19:52,860 - [1011-deyma-bta3tina-forsa-tenye.chor] Line 10: move motor all 0.1% (0.002s)
+2025-12-06 17:19:52,863 - [1011-deyma-bta3tina-forsa-tenye.chor] Line 11: move motor all 0.0% (0.001s)
+2025-12-06 17:19:53,606 - [1011-deyma-bta3tina-forsa-tenye.chor] Line 11: sync command (0.759s)
+2025-12-06 17:19:53,622 - [1011-deyma-bta3tina-forsa-tenye.chor] Line 10: move motor all 0.1% (0.003s)
+2025-12-06 17:19:53,625 - [1011-deyma-bta3tina-forsa-tenye.chor] Line 11: move motor all 0.0% (0.002s)
+2025-12-06 17:19:54,357 - [1011-deyma-bta3tina-forsa-tenye.chor] Line 11: sync command (0.749s)
+2025-12-06 17:19:54,614 - ========== FINISHED EXECUTION: 1011-deyma-bta3tina-forsa-tenye.chor ==========
+

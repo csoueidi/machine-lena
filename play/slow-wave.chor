@@ -1,0 +1,74 @@
+# Total time: ~20 seconds
+# Stadium wave - sequential up and down motion traveling through motors
+
+# Set moderate speed for stadium wave effect
+set_frps 0.3
+
+# Wave cycle 1 - motor 1 up and down
+move(1, 0.6)
+wait(0.3)
+move(1, 0)
+wait(0.1)
+
+# Wave to motor 2
+move(2, 0.6)
+wait(0.3)
+move(2, 0)
+wait(0.1)
+
+# Wave to motor 4
+move(4, 0.6)
+wait(0.3)
+move(4, 0)
+wait(0.5)
+
+# Wave cycle 2 - faster
+set_frps 0.4
+move(1, 0.6)
+wait(0.3)
+move(1, 0)
+wait(0.1)
+
+move(2, 0.6)
+wait(0.3)
+move(2, 0)
+wait(0.1)
+
+move(4, 0.6)
+wait(0.3)
+move(4, 0)
+wait(0.5)
+
+# Wave cycle 3 - even faster
+set_frps 0.5
+move(1, 0.6)
+wait(0.2)
+move(1, 0)
+wait(0.05)
+
+move(2, 0.6)
+wait(0.2)
+move(2, 0)
+wait(0.05)
+
+move(4, 0.6)
+wait(0.2)
+move(4, 0)
+wait(0.5)
+
+# Final wave - all together
+set_frps 0.4
+sync {
+    move(1, 0.6)
+    move(2, 0.6)
+    move(4, 0.6)
+}
+wait(0.4)
+
+# Reset to zero
+set_frps 0.3
+sync {
+    move(1, 0)
+    move(2, 0)
+    move(4, 0)
+}

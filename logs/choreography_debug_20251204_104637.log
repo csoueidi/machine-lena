@@ -1,0 +1,1793 @@
+2025-12-04 10:46:37,883 - === Choreography Debug Mode Enabled ===
+2025-12-04 10:46:37,884 - Logging to: /home/pi/Code/machine/logs/choreography_debug_20251204_104637.log
+2025-12-04 10:48:39,417 - ========== STARTING EXECUTION: 00-awakening.chor ==========
+2025-12-04 10:48:39,418 - Choreography content:
+# PROLOGUE - She appears frozen, The Machine awakens with her
+# Very slow materialization as the Writer's voice begins
+# The city's first breath with her presence
+# Motors 1, 2, and 4 hey
+
+# First micro-movement - barely perceptible awakening (7 seconds)
+set_frps 0.02
+move(1, 0.02)
+wait(1.5)
+move(2, 0.015)
+wait(1.5)
+move(4, 0.018)
+wait(2)
+
+# Slow materialization - the Machine becomes aware (7 seconds)
+set_frps 0.03
+move(1, 0.12)
+wait(2)
+move(2, 0.10)
+wait(2.5)
+move(4, 0.11)
+wait(2.5)
+
+# First real breath (7 seconds)
+set_frps 0.023
+sync {
+    move(1, 0.25)
+    move(2, 0.2)
+    move(4, 0.22)
+}
+wait(5)
+
+# The Machine is now present, breathing with her (7 seconds)
+set_frps 0.04
+sync {
+    move(1, 0.22)
+    move(2, 0.18)
+    move(4, 0.2)
+}
+
+# Reset to zero for next scene
+wait(3)
+set_frps 0.025
+sync {
+    move(1, 0)
+    move(2, 0)
+    move(4, 0)
+}
+
+2025-12-04 10:48:39,419 - ============================================================
+2025-12-04 10:48:39,467 - [00-awakening.chor] Line 7: set speed 0.02 frps (0.0s)
+2025-12-04 10:48:39,468 - [00-awakening.chor] Line 8: move motor 1 0.02% (0.0s)
+2025-12-04 10:48:40,979 - [00-awakening.chor] Line 9: wait 1.5s (1.51s)
+2025-12-04 10:48:40,981 - [00-awakening.chor] Line 10: move motor 2 0.015% (0.001s)
+2025-12-04 10:48:42,492 - [00-awakening.chor] Line 11: wait 1.5s (1.51s)
+2025-12-04 10:48:42,494 - [00-awakening.chor] Line 12: move motor 4 0.018% (0.0s)
+2025-12-04 10:48:44,505 - [00-awakening.chor] Line 13: wait 2.0s (2.01s)
+2025-12-04 10:48:44,506 - [00-awakening.chor] Line 16: set speed 0.03 frps (0.0s)
+2025-12-04 10:48:44,509 - [00-awakening.chor] Line 17: move motor 1 0.12% (0.0s)
+2025-12-04 10:48:48,111 - [00-awakening.chor] Line 18: wait 2.0s (3.602s)
+2025-12-04 10:48:48,112 - [00-awakening.chor] Line 19: move motor 2 0.1% (0.0s)
+2025-12-04 10:48:51,087 - [00-awakening.chor] Line 20: wait 2.5s (2.975s)
+2025-12-04 10:48:51,089 - [00-awakening.chor] Line 21: move motor 4 0.11% (0.0s)
+2025-12-04 10:48:54,447 - [00-awakening.chor] Line 22: wait 2.5s (3.357s)
+2025-12-04 10:48:54,448 - [00-awakening.chor] Line 25: set speed 0.023 frps (0.0s)
+2025-12-04 10:48:54,460 - [00-awakening.chor] Line 27: move motor 1 0.25% (0.001s)
+2025-12-04 10:48:54,461 - [00-awakening.chor] Line 28: move motor 2 0.2% (0.0s)
+2025-12-04 10:48:54,462 - [00-awakening.chor] Line 29: move motor 4 0.22% (0.0s)
+2025-12-04 10:49:00,464 - [00-awakening.chor] Line 29: sync command (6.015s)
+2025-12-04 10:49:05,475 - [00-awakening.chor] Line 31: wait 5.0s (5.01s)
+2025-12-04 10:49:05,476 - [00-awakening.chor] Line 34: set speed 0.04 frps (0.0s)
+2025-12-04 10:49:05,488 - [00-awakening.chor] Line 36: move motor 1 0.22% (0.0s)
+2025-12-04 10:49:05,489 - [00-awakening.chor] Line 37: move motor 2 0.18% (0.0s)
+2025-12-04 10:49:05,489 - [00-awakening.chor] Line 38: move motor 4 0.2% (0.0s)
+2025-12-04 10:49:06,315 - [00-awakening.chor] Line 38: sync command (0.838s)
+2025-12-04 10:49:09,326 - [00-awakening.chor] Line 42: wait 3.0s (3.01s)
+2025-12-04 10:49:09,327 - [00-awakening.chor] Line 43: set speed 0.025 frps (0.0s)
+2025-12-04 10:49:09,338 - [00-awakening.chor] Line 45: move motor 1 0.0% (0.0s)
+2025-12-04 10:49:09,339 - [00-awakening.chor] Line 46: move motor 2 0.0% (0.0s)
+2025-12-04 10:49:09,340 - [00-awakening.chor] Line 47: move motor 4 0.0% (0.0s)
+2025-12-04 10:49:18,753 - [00-awakening.chor] Line 47: sync command (9.426s)
+2025-12-04 10:49:18,834 - ========== FINISHED EXECUTION: 00-awakening.chor ==========
+
+2025-12-04 10:50:46,489 - Edited choreography file: 00-awakening.chor (855 chars)
+2025-12-04 10:56:54,174 - Edited choreography file: 03-dabke.chor (1796 chars)
+2025-12-04 11:00:14,785 - ========== STARTING EXECUTION: 02-ightirab-makani.chor ==========
+2025-12-04 11:00:14,786 - Choreography content:
+# SCENE 11: Recoil - All Motors
+# A sudden pull back, like flinching from something
+# One sharp recoil movement on motors 1, 2, and 4
+# ~10 seconds total
+
+# Sharp recoil backwards
+set_frps 20
+sync {
+    move(1, 0.2)
+    move(2, 0.15)
+    move(4, 0.17)
+}
+
+
+
+# Reset to zero for next scene
+set_frps 2
+sync {
+    move(1, 0)
+    move(2, 0)
+    move(4, 0)
+}
+
+2025-12-04 11:00:14,786 - ============================================================
+2025-12-04 11:00:14,822 - [02-ightirab-makani.chor] Line 7: set speed 20.0 frps (0.0s)
+2025-12-04 11:00:14,834 - [02-ightirab-makani.chor] Line 9: move motor 1 0.2% (0.001s)
+2025-12-04 11:00:14,838 - [02-ightirab-makani.chor] Line 10: move motor 2 0.15% (0.001s)
+2025-12-04 11:00:14,842 - [02-ightirab-makani.chor] Line 11: move motor 4 0.17% (0.001s)
+2025-12-04 11:00:15,388 - [02-ightirab-makani.chor] Line 11: sync command (0.565s)
+2025-12-04 11:00:15,389 - [02-ightirab-makani.chor] Line 17: set speed 2.0 frps (0.0s)
+2025-12-04 11:00:15,400 - [02-ightirab-makani.chor] Line 19: move motor 1 0.0% (0.0s)
+2025-12-04 11:00:15,402 - [02-ightirab-makani.chor] Line 20: move motor 2 0.0% (0.0s)
+2025-12-04 11:00:15,403 - [02-ightirab-makani.chor] Line 21: move motor 4 0.0% (0.0s)
+2025-12-04 11:00:16,018 - [02-ightirab-makani.chor] Line 21: sync command (0.628s)
+2025-12-04 11:00:16,080 - ========== FINISHED EXECUTION: 02-ightirab-makani.chor ==========
+
+2025-12-04 11:04:46,369 - ========== STARTING EXECUTION: 03-dabke.chor ==========
+2025-12-04 11:04:46,370 - Choreography content:
+# Opening - All three motors stomping together (the line forms)
+set_frps 0.5
+
+# Basic dabke step: STOMP-step-STOMP-step
+sync {
+    move(1, 0.4)
+    move(2, 0.35)
+    move(4, 0.37)
+}
+wait(0.1)
+sync {
+    move(1, 0.2)
+    move(2, 0.15)
+    move(4, 0.17)
+}
+wait(0.2)
+
+sync {
+    move(1, 0.45)
+    move(2, 0.4)
+    move(4, 0.42)
+}
+wait(0.1)
+sync {
+    move(1, 0.2)
+    move(2, 0.15)
+    move(4, 0.17)
+}
+wait(0.2)
+
+# Continue line dancing - building energy
+set_frps 0.55
+sync {
+    move(1, 0.5)
+    move(2, 0.45)
+    move(4, 0.47)
+}
+wait(0.1)
+sync {
+    move(1, 0.25)
+    move(2, 0.2)
+    move(4, 0.22)
+}
+wait(0.2)
+
+sync {
+    move(1, 0.55)
+    move(2, 0.5)
+    move(4, 0.52)
+}
+wait(0.1)
+sync {
+    move(1, 0.25)
+    move(2, 0.2)
+    move(4, 0.22)
+}
+wait(0.3)
+
+# NOW - Motor 4 breaks away as lawweeh to show off!
+# Motors 1 & 2 hold the line
+
+set_frps 0.55
+sync {
+    move(1, 0.45)
+    move(2, 0.4)
+}
+wait(0.1)
+sync {
+    move(1, 0.2)
+    move(2, 0.15)
+}
+
+# Lawweeh (motor 4) does rapid shuffle-taps to zero!
+set_frps 1.2
+move(4, 0.08)
+wait(0.04)
+move(4, 0)
+wait(0.04)
+move(4, 0.1)
+wait(0.04)
+move(4, 0)
+wait(0.04)
+move(4, 0.12)
+wait(0.04)
+move(4, 0)
+wait(0.04)
+move(4, 0.08)
+wait(0.04)
+move(4, 0)
+
+wait(0.1)
+
+# Line continues
+set_frps 0.55
+sync {
+    move(1, 0.5)
+    move(2, 0.45)
+}
+wait(0.1)
+sync {
+    move(1, 0.2)
+    move(2, 0.15)
+}
+
+# Lawweeh does more rapid taps!
+set_frps 1.2
+move(4, 0.1)
+wait(0.04)
+move(4, 0)
+wait(0.04)
+move(4, 0.12)
+wait(0.04)
+move(4, 0)
+wait(0.04)
+move(4, 0.08)
+wait(0.04)
+move(4, 0)
+wait(0.04)
+move(4, 0.1)
+wait(0.04)
+move(4, 0)
+
+wait(0.2)
+
+# Final emphatic stomp - الله! All together
+set_frps 0.7
+sync {
+    move(1, 0.5)
+    move(2, 0.45)
+    move(4, 0.47)
+}
+wait(0.5)
+
+# Reset to zero for next scene
+set_frps 0.15
+sync {
+    move(1, 0)
+    move(2, 0)
+    move(4, 0)
+}
+
+2025-12-04 11:04:46,371 - ============================================================
+2025-12-04 11:04:46,455 - [03-dabke.chor] Line 2: set speed 0.5 frps (0.0s)
+2025-12-04 11:04:46,466 - [03-dabke.chor] Line 6: move motor 1 0.4% (0.0s)
+2025-12-04 11:04:46,467 - [03-dabke.chor] Line 7: move motor 2 0.35% (0.0s)
+2025-12-04 11:04:46,468 - [03-dabke.chor] Line 8: move motor 4 0.37% (0.0s)
+2025-12-04 11:04:48,312 - [03-dabke.chor] Line 8: sync command (1.857s)
+2025-12-04 11:04:48,423 - [03-dabke.chor] Line 10: wait 0.1s (0.11s)
+2025-12-04 11:04:48,434 - [03-dabke.chor] Line 12: move motor 1 0.2% (0.0s)
+2025-12-04 11:04:48,436 - [03-dabke.chor] Line 13: move motor 2 0.15% (0.0s)
+2025-12-04 11:04:48,437 - [03-dabke.chor] Line 14: move motor 4 0.17% (0.0s)
+2025-12-04 11:04:49,333 - [03-dabke.chor] Line 14: sync command (0.909s)
+2025-12-04 11:04:49,545 - [03-dabke.chor] Line 16: wait 0.2s (0.21s)
+2025-12-04 11:04:49,557 - [03-dabke.chor] Line 19: move motor 1 0.45% (0.001s)
+2025-12-04 11:04:49,558 - [03-dabke.chor] Line 20: move motor 2 0.4% (0.0s)
+2025-12-04 11:04:49,559 - [03-dabke.chor] Line 21: move motor 4 0.42% (0.0s)
+2025-12-04 11:04:50,676 - [03-dabke.chor] Line 21: sync command (1.131s)
+2025-12-04 11:04:50,787 - [03-dabke.chor] Line 23: wait 0.1s (0.11s)
+2025-12-04 11:04:50,798 - [03-dabke.chor] Line 25: move motor 1 0.2% (0.0s)
+2025-12-04 11:04:50,799 - [03-dabke.chor] Line 26: move motor 2 0.15% (0.0s)
+2025-12-04 11:04:50,800 - [03-dabke.chor] Line 27: move motor 4 0.17% (0.0s)
+2025-12-04 11:04:51,937 - [03-dabke.chor] Line 27: sync command (1.149s)
+2025-12-04 11:04:52,148 - [03-dabke.chor] Line 29: wait 0.2s (0.21s)
+2025-12-04 11:04:52,149 - [03-dabke.chor] Line 32: set speed 0.55 frps (0.0s)
+2025-12-04 11:04:52,160 - [03-dabke.chor] Line 34: move motor 1 0.5% (0.0s)
+2025-12-04 11:04:52,162 - [03-dabke.chor] Line 35: move motor 2 0.45% (0.0s)
+2025-12-04 11:04:52,164 - [03-dabke.chor] Line 36: move motor 4 0.47% (0.0s)
+2025-12-04 11:04:53,535 - [03-dabke.chor] Line 36: sync command (1.385s)
+2025-12-04 11:04:53,647 - [03-dabke.chor] Line 38: wait 0.1s (0.11s)
+2025-12-04 11:04:53,658 - [03-dabke.chor] Line 40: move motor 1 0.25% (0.0s)
+2025-12-04 11:04:53,659 - [03-dabke.chor] Line 41: move motor 2 0.2% (0.0s)
+2025-12-04 11:04:53,660 - [03-dabke.chor] Line 42: move motor 4 0.22% (0.0s)
+2025-12-04 11:04:54,728 - [03-dabke.chor] Line 42: sync command (1.08s)
+2025-12-04 11:04:54,939 - [03-dabke.chor] Line 44: wait 0.2s (0.21s)
+2025-12-04 11:04:54,950 - [03-dabke.chor] Line 47: move motor 1 0.55% (0.0s)
+2025-12-04 11:04:54,951 - [03-dabke.chor] Line 48: move motor 2 0.5% (0.0s)
+2025-12-04 11:04:54,952 - [03-dabke.chor] Line 49: move motor 4 0.52% (0.0s)
+2025-12-04 11:04:56,252 - [03-dabke.chor] Line 49: sync command (1.312s)
+2025-12-04 11:04:56,363 - [03-dabke.chor] Line 51: wait 0.1s (0.11s)
+2025-12-04 11:04:56,374 - [03-dabke.chor] Line 53: move motor 1 0.25% (0.0s)
+2025-12-04 11:04:56,375 - [03-dabke.chor] Line 54: move motor 2 0.2% (0.0s)
+2025-12-04 11:04:56,376 - [03-dabke.chor] Line 55: move motor 4 0.22% (0.0s)
+2025-12-04 11:04:57,684 - [03-dabke.chor] Line 55: sync command (1.321s)
+2025-12-04 11:04:57,995 - [03-dabke.chor] Line 57: wait 0.3s (0.31s)
+2025-12-04 11:04:57,997 - [03-dabke.chor] Line 62: set speed 0.55 frps (0.0s)
+2025-12-04 11:04:58,008 - [03-dabke.chor] Line 64: move motor 1 0.45% (0.0s)
+2025-12-04 11:04:58,010 - [03-dabke.chor] Line 65: move motor 2 0.4% (0.0s)
+2025-12-04 11:04:58,908 - [03-dabke.chor] Line 65: sync command (0.91s)
+2025-12-04 11:04:59,019 - [03-dabke.chor] Line 67: wait 0.1s (0.11s)
+2025-12-04 11:04:59,031 - [03-dabke.chor] Line 69: move motor 1 0.2% (0.0s)
+2025-12-04 11:04:59,032 - [03-dabke.chor] Line 70: move motor 2 0.15% (0.0s)
+2025-12-04 11:05:00,119 - [03-dabke.chor] Line 70: sync command (1.099s)
+2025-12-04 11:05:00,120 - [03-dabke.chor] Line 74: set speed 1.2 frps (0.0s)
+2025-12-04 11:05:00,120 - [03-dabke.chor] Line 75: move motor 4 0.08% (0.0s)
+2025-12-04 11:05:00,595 - [03-dabke.chor] Line 76: wait 0.04s (0.474s)
+2025-12-04 11:05:00,596 - [03-dabke.chor] Line 77: move motor 4 0.0% (0.0s)
+2025-12-04 11:05:00,868 - [03-dabke.chor] Line 78: wait 0.04s (0.271s)
+2025-12-04 11:05:00,869 - [03-dabke.chor] Line 79: move motor 4 0.1% (0.0s)
+2025-12-04 11:05:01,212 - [03-dabke.chor] Line 80: wait 0.04s (0.342s)
+2025-12-04 11:05:01,213 - [03-dabke.chor] Line 81: move motor 4 0.0% (0.0s)
+2025-12-04 11:05:01,556 - [03-dabke.chor] Line 82: wait 0.04s (0.342s)
+2025-12-04 11:05:01,557 - [03-dabke.chor] Line 83: move motor 4 0.12% (0.0s)
+2025-12-04 11:05:01,961 - [03-dabke.chor] Line 84: wait 0.04s (0.402s)
+2025-12-04 11:05:01,962 - [03-dabke.chor] Line 85: move motor 4 0.0% (0.0s)
+2025-12-04 11:05:02,375 - [03-dabke.chor] Line 86: wait 0.04s (0.412s)
+2025-12-04 11:05:02,376 - [03-dabke.chor] Line 87: move motor 4 0.08% (0.0s)
+2025-12-04 11:05:02,648 - [03-dabke.chor] Line 88: wait 0.04s (0.272s)
+2025-12-04 11:05:02,649 - [03-dabke.chor] Line 89: move motor 4 0.0% (0.0s)
+2025-12-04 11:05:02,923 - [03-dabke.chor] Line 91: wait 0.1s (0.273s)
+2025-12-04 11:05:02,924 - [03-dabke.chor] Line 94: set speed 0.55 frps (0.0s)
+2025-12-04 11:05:02,935 - [03-dabke.chor] Line 96: move motor 1 0.5% (0.0s)
+2025-12-04 11:05:02,936 - [03-dabke.chor] Line 97: move motor 2 0.45% (0.0s)
+2025-12-04 11:05:04,338 - [03-dabke.chor] Line 97: sync command (1.413s)
+2025-12-04 11:05:04,449 - [03-dabke.chor] Line 99: wait 0.1s (0.11s)
+2025-12-04 11:05:04,461 - [03-dabke.chor] Line 101: move motor 1 0.2% (0.0s)
+2025-12-04 11:05:04,462 - [03-dabke.chor] Line 102: move motor 2 0.15% (0.0s)
+2025-12-04 11:05:04,466 - STOPPING execution: 03-dabke.chor
+2025-12-04 11:05:05,864 - [03-dabke.chor] Line 102: sync command (1.414s)
+2025-12-04 11:05:05,915 - ========== FINISHED EXECUTION: 03-dabke.chor ==========
+
+2025-12-04 11:05:53,104 - Edited choreography file: 03-dabke.chor (784 chars)
+2025-12-04 11:15:25,734 - ========== STARTING EXECUTION: 035-ya shourafa2 hazihi l ard.chor ==========
+2025-12-04 11:15:25,735 - Choreography content:
+# SCENE 13: Romantic Sway
+# Slow, gentle swaying like a tender slow dance
+# Soft back and forth movements
+# Motors 1, 2, and 4
+# ~50 seconds total
+
+# Gentle sway right
+set_frps 0.02
+sync {
+    move(1, 0.45)
+    move(2, 0.5)
+    move(4, 0.42)
+}
+wait(1.5)
+
+# Sway left
+set_frps 0.02
+sync {
+    move(1, 0.35)
+    move(2, 0.3)
+    move(4, 0.38)
+}
+wait(1.5)
+
+# Sway right again
+set_frps 0.02
+sync {
+    move(1, 0.5)
+    move(2, 0.55)
+    move(4, 0.47)
+}
+wait(1.5)
+
+# Reset to zero for next scene
+set_frps 0.1
+sync {
+    move(1, 0)
+    move(2, 0)
+    move(4, 0)
+}
+
+2025-12-04 11:15:25,735 - ============================================================
+2025-12-04 11:15:25,779 - [035-ya shourafa2 hazihi l ard.chor] Line 8: set speed 0.02 frps (0.0s)
+2025-12-04 11:15:25,790 - [035-ya shourafa2 hazihi l ard.chor] Line 10: move motor 1 0.45% (0.0s)
+2025-12-04 11:15:25,791 - [035-ya shourafa2 hazihi l ard.chor] Line 11: move motor 2 0.5% (0.0s)
+2025-12-04 11:15:25,792 - [035-ya shourafa2 hazihi l ard.chor] Line 12: move motor 4 0.42% (0.0s)
+2025-12-04 11:15:47,999 - [035-ya shourafa2 hazihi l ard.chor] Line 12: sync command (22.219s)
+2025-12-04 11:15:49,510 - [035-ya shourafa2 hazihi l ard.chor] Line 14: wait 1.5s (1.51s)
+2025-12-04 11:15:49,511 - [035-ya shourafa2 hazihi l ard.chor] Line 17: set speed 0.02 frps (0.0s)
+2025-12-04 11:15:49,522 - [035-ya shourafa2 hazihi l ard.chor] Line 19: move motor 1 0.35% (0.0s)
+2025-12-04 11:15:49,523 - [035-ya shourafa2 hazihi l ard.chor] Line 20: move motor 2 0.3% (0.0s)
+2025-12-04 11:15:49,524 - [035-ya shourafa2 hazihi l ard.chor] Line 21: move motor 4 0.38% (0.0s)
+2025-12-04 11:15:59,834 - [035-ya shourafa2 hazihi l ard.chor] Line 21: sync command (10.322s)
+2025-12-04 11:16:01,345 - [035-ya shourafa2 hazihi l ard.chor] Line 23: wait 1.5s (1.51s)
+2025-12-04 11:16:01,347 - [035-ya shourafa2 hazihi l ard.chor] Line 26: set speed 0.02 frps (0.0s)
+2025-12-04 11:16:01,359 - [035-ya shourafa2 hazihi l ard.chor] Line 28: move motor 1 0.5% (0.0s)
+2025-12-04 11:16:01,360 - [035-ya shourafa2 hazihi l ard.chor] Line 29: move motor 2 0.55% (0.0s)
+2025-12-04 11:16:01,361 - [035-ya shourafa2 hazihi l ard.chor] Line 30: move motor 4 0.47% (0.0s)
+2025-12-04 11:16:01,621 - STOPPING execution: 035-ya shourafa2 hazihi l ard.chor
+2025-12-04 11:16:14,285 - [035-ya shourafa2 hazihi l ard.chor] Line 30: sync command (12.937s)
+2025-12-04 11:16:14,394 - ========== FINISHED EXECUTION: 035-ya shourafa2 hazihi l ard.chor ==========
+
+2025-12-04 11:18:49,705 - ========== STARTING EXECUTION: 04-barry-white.chor ==========
+2025-12-04 11:18:49,706 - Choreography content:
+# Barry White Inspired Choreography
+
+set_frps 0.12;
+sync {
+    move(1, 0.3);
+    move(2, 0.2);
+    move(4, 0.25);
+}
+wait(1);
+
+# First verse - Gentle swaying motion
+set_frps 0.18;
+sync {
+    move(1, 0.6);
+    move(2, 0.5);
+    move(4, 0.55);
+}
+wait(0.5);
+
+set_frps 0.18;
+sync {
+    move(1, 0.3);
+    move(2, 0.2);
+    move(4, 0.25);
+}
+wait(0.5);
+
+# Building intensity - Smooth crescendo
+set_frps 0.25;
+sync {
+    move(1, 0.75);
+    move(2, 0.65);
+    move(4, 0.7);
+}
+wait(0.8);
+
+# Chorus - More passionate, fuller movements
+repeat 2 {
+    set_frps 0.3;
+    sync {
+        move(1, 0.85);
+        move(2, 0.8);
+        move(4, 0.82);
+    }
+    wait(0.4);
+    
+    set_frps 0.35;
+    sync {
+        move(1, 0.4);
+        move(2, 0.35);
+        move(4, 0.38);
+    }
+    wait(0.4);
+}
+
+# Bridge - Orchestral swell with alternating movements
+set_frps 0.15;
+move(1, 0.9);
+wait(0.3);
+move(2, 0.85);
+wait(0.3);
+move(4, 0.88);
+wait(0.6);
+
+# Smooth descent
+set_frps 0.2;
+sync {
+    move(1, 0.5);
+    move(2, 0.45);
+    move(4, 0.48);
+}
+wait(0.4);
+
+# Outro - Slow, sensual fade out
+set_frps 0.15;
+sync {
+    move(1, 0.3);
+    move(2, 0.25);
+    move(4, 0.28);
+}
+wait(0.5);
+
+# Final resolution - gentle close
+set_frps 0.08;
+sync {
+    move(1, 0);
+    move(2, 0);
+    move(4, 0);
+}
+
+2025-12-04 11:18:49,707 - ============================================================
+2025-12-04 11:18:49,743 - [04-barry-white.chor] Line 3: set speed 0.12 frps (0.0s)
+2025-12-04 11:18:49,754 - [04-barry-white.chor] Line 5: move motor 1 0.3% (0.0s)
+2025-12-04 11:18:49,755 - [04-barry-white.chor] Line 6: move motor 2 0.2% (0.0s)
+2025-12-04 11:18:49,756 - [04-barry-white.chor] Line 7: move motor 4 0.25% (0.0s)
+2025-12-04 11:18:53,189 - [04-barry-white.chor] Line 7: sync command (3.445s)
+2025-12-04 11:18:54,201 - [04-barry-white.chor] Line 9: wait 1.0s (1.01s)
+2025-12-04 11:18:54,203 - [04-barry-white.chor] Line 12: set speed 0.18 frps (0.0s)
+2025-12-04 11:18:54,216 - [04-barry-white.chor] Line 14: move motor 1 0.6% (0.001s)
+2025-12-04 11:18:54,219 - [04-barry-white.chor] Line 15: move motor 2 0.5% (0.001s)
+2025-12-04 11:18:54,225 - [04-barry-white.chor] Line 16: move motor 4 0.55% (0.004s)
+2025-12-04 11:18:56,725 - [04-barry-white.chor] Line 16: sync command (2.521s)
+2025-12-04 11:18:57,236 - [04-barry-white.chor] Line 18: wait 0.5s (0.51s)
+2025-12-04 11:18:57,237 - [04-barry-white.chor] Line 20: set speed 0.18 frps (0.0s)
+2025-12-04 11:18:57,249 - [04-barry-white.chor] Line 22: move motor 1 0.3% (0.0s)
+2025-12-04 11:18:57,250 - [04-barry-white.chor] Line 23: move motor 2 0.2% (0.0s)
+2025-12-04 11:18:57,251 - [04-barry-white.chor] Line 24: move motor 4 0.25% (0.0s)
+2025-12-04 11:18:59,687 - [04-barry-white.chor] Line 24: sync command (2.448s)
+2025-12-04 11:19:00,198 - [04-barry-white.chor] Line 26: wait 0.5s (0.51s)
+2025-12-04 11:19:00,198 - [04-barry-white.chor] Line 29: set speed 0.25 frps (0.0s)
+2025-12-04 11:19:00,209 - [04-barry-white.chor] Line 31: move motor 1 0.75% (0.0s)
+2025-12-04 11:19:00,210 - [04-barry-white.chor] Line 32: move motor 2 0.65% (0.0s)
+2025-12-04 11:19:00,211 - [04-barry-white.chor] Line 33: move motor 4 0.7% (0.0s)
+2025-12-04 11:19:03,150 - [04-barry-white.chor] Line 33: sync command (2.951s)
+2025-12-04 11:19:03,961 - [04-barry-white.chor] Line 35: wait 0.8s (0.81s)
+2025-12-04 11:19:03,962 - [04-barry-white.chor] Line 39: set speed 0.3 frps (0.0s)
+2025-12-04 11:19:03,973 - [04-barry-white.chor] Line 41: move motor 1 0.85% (0.0s)
+2025-12-04 11:19:03,974 - [04-barry-white.chor] Line 42: move motor 2 0.8% (0.0s)
+2025-12-04 11:19:03,975 - [04-barry-white.chor] Line 43: move motor 4 0.82% (0.0s)
+2025-12-04 11:19:04,690 - [04-barry-white.chor] Line 43: sync command (0.727s)
+2025-12-04 11:19:05,101 - [04-barry-white.chor] Line 45: wait 0.4s (0.41s)
+2025-12-04 11:19:05,101 - [04-barry-white.chor] Line 47: set speed 0.35 frps (0.0s)
+2025-12-04 11:19:05,112 - [04-barry-white.chor] Line 49: move motor 1 0.4% (0.0s)
+2025-12-04 11:19:05,113 - [04-barry-white.chor] Line 50: move motor 2 0.35% (0.0s)
+2025-12-04 11:19:05,114 - [04-barry-white.chor] Line 51: move motor 4 0.38% (0.0s)
+2025-12-04 11:19:07,613 - [04-barry-white.chor] Line 51: sync command (2.511s)
+2025-12-04 11:19:08,024 - [04-barry-white.chor] Line 53: wait 0.4s (0.41s)
+2025-12-04 11:19:08,025 - [04-barry-white.chor] Line 39: set speed 0.3 frps (0.0s)
+2025-12-04 11:19:08,036 - [04-barry-white.chor] Line 41: move motor 1 0.85% (0.0s)
+2025-12-04 11:19:08,036 - [04-barry-white.chor] Line 42: move motor 2 0.8% (0.0s)
+2025-12-04 11:19:08,037 - [04-barry-white.chor] Line 43: move motor 4 0.82% (0.0s)
+2025-12-04 11:19:10,674 - [04-barry-white.chor] Line 43: sync command (2.649s)
+2025-12-04 11:19:11,085 - [04-barry-white.chor] Line 45: wait 0.4s (0.41s)
+2025-12-04 11:19:11,085 - [04-barry-white.chor] Line 47: set speed 0.35 frps (0.0s)
+2025-12-04 11:19:11,096 - [04-barry-white.chor] Line 49: move motor 1 0.4% (0.0s)
+2025-12-04 11:19:11,097 - [04-barry-white.chor] Line 50: move motor 2 0.35% (0.0s)
+2025-12-04 11:19:11,098 - [04-barry-white.chor] Line 51: move motor 4 0.38% (0.0s)
+2025-12-04 11:19:13,576 - [04-barry-white.chor] Line 51: sync command (2.49s)
+2025-12-04 11:19:13,987 - [04-barry-white.chor] Line 53: wait 0.4s (0.41s)
+2025-12-04 11:19:13,987 - [04-barry-white.chor] Line 57: set speed 0.15 frps (0.0s)
+2025-12-04 11:19:13,988 - [04-barry-white.chor] Line 58: move motor 1 0.9% (0.0s)
+2025-12-04 11:19:18,617 - [04-barry-white.chor] Line 59: wait 0.3s (4.629s)
+2025-12-04 11:19:18,619 - [04-barry-white.chor] Line 60: move motor 2 0.85% (0.0s)
+2025-12-04 11:19:22,662 - [04-barry-white.chor] Line 61: wait 0.3s (4.043s)
+2025-12-04 11:19:22,664 - [04-barry-white.chor] Line 62: move motor 4 0.88% (0.0s)
+2025-12-04 11:19:27,322 - [04-barry-white.chor] Line 63: wait 0.6s (4.658s)
+2025-12-04 11:19:27,323 - [04-barry-white.chor] Line 66: set speed 0.2 frps (0.0s)
+2025-12-04 11:19:27,334 - [04-barry-white.chor] Line 68: move motor 1 0.5% (0.0s)
+2025-12-04 11:19:27,335 - [04-barry-white.chor] Line 69: move motor 2 0.45% (0.0s)
+2025-12-04 11:19:27,336 - [04-barry-white.chor] Line 70: move motor 4 0.48% (0.0s)
+2025-12-04 11:19:30,368 - [04-barry-white.chor] Line 70: sync command (3.044s)
+2025-12-04 11:19:30,779 - [04-barry-white.chor] Line 72: wait 0.4s (0.41s)
+2025-12-04 11:19:30,780 - [04-barry-white.chor] Line 75: set speed 0.15 frps (0.0s)
+2025-12-04 11:19:30,791 - [04-barry-white.chor] Line 77: move motor 1 0.3% (0.0s)
+2025-12-04 11:19:30,793 - [04-barry-white.chor] Line 78: move motor 2 0.25% (0.0s)
+2025-12-04 11:19:30,794 - [04-barry-white.chor] Line 79: move motor 4 0.28% (0.0s)
+2025-12-04 11:19:32,636 - [04-barry-white.chor] Line 79: sync command (1.855s)
+2025-12-04 11:19:33,147 - [04-barry-white.chor] Line 81: wait 0.5s (0.51s)
+2025-12-04 11:19:33,147 - [04-barry-white.chor] Line 84: set speed 0.08 frps (0.0s)
+2025-12-04 11:19:33,159 - [04-barry-white.chor] Line 86: move motor 1 0.0% (0.0s)
+2025-12-04 11:19:33,159 - [04-barry-white.chor] Line 87: move motor 2 0.0% (0.0s)
+2025-12-04 11:19:33,160 - [04-barry-white.chor] Line 88: move motor 4 0.0% (0.0s)
+2025-12-04 11:19:37,712 - [04-barry-white.chor] Line 88: sync command (4.563s)
+2025-12-04 11:19:37,783 - ========== FINISHED EXECUTION: 04-barry-white.chor ==========
+
+2025-12-04 11:26:18,406 - ========== STARTING EXECUTION: 06-icarus.chor ==========
+2025-12-04 11:26:18,407 - Choreography content:
+# Cue on samak
+
+set_frps 0.15
+sync {
+    move(1, 0.5)
+   move(2, 0.5)
+
+}
+
+sync {
+    move(1, 0)
+move(2, 0)
+}
+2025-12-04 11:26:18,408 - ============================================================
+2025-12-04 11:26:18,438 - [06-icarus.chor] Line 3: set speed 0.15 frps (0.0s)
+2025-12-04 11:26:18,450 - [06-icarus.chor] Line 5: move motor 1 0.5% (0.001s)
+2025-12-04 11:26:18,452 - [06-icarus.chor] Line 6: move motor 2 0.5% (0.001s)
+2025-12-04 11:26:23,074 - [06-icarus.chor] Line 6: sync command (4.635s)
+2025-12-04 11:26:23,085 - [06-icarus.chor] Line 11: move motor 1 0.0% (0.0s)
+2025-12-04 11:26:23,086 - [06-icarus.chor] Line 12: move motor 2 0.0% (0.0s)
+2025-12-04 11:26:27,705 - [06-icarus.chor] Line 12: sync command (4.631s)
+2025-12-04 11:26:27,769 - ========== FINISHED EXECUTION: 06-icarus.chor ==========
+
+2025-12-04 11:29:16,202 - ========== STARTING EXECUTION: 07-palestine.chor ==========
+2025-12-04 11:29:16,204 - Choreography content:
+
+
+repeat 1 {
+set_frps 0.015
+sync{
+  move (4,0.2)
+ }
+set_frps 0.015
+sync{
+  move(4,0)
+ }
+
+}
+2025-12-04 11:29:16,205 - ============================================================
+2025-12-04 11:29:16,235 - [07-palestine.chor] Line 4: set speed 0.015 frps (0.0s)
+2025-12-04 11:29:16,246 - [07-palestine.chor] Line 6: move motor 4 0.2% (0.0s)
+2025-12-04 11:29:30,105 - [07-palestine.chor] Line 6: sync command (13.869s)
+2025-12-04 11:29:30,105 - [07-palestine.chor] Line 8: set speed 0.015 frps (0.0s)
+2025-12-04 11:29:30,116 - [07-palestine.chor] Line 10: move motor 4 0.0% (0.0s)
+2025-12-04 11:29:44,006 - [07-palestine.chor] Line 10: sync command (13.901s)
+2025-12-04 11:29:44,120 - ========== FINISHED EXECUTION: 07-palestine.chor ==========
+
+2025-12-04 11:44:34,042 - ========== STARTING EXECUTION: 11-Final-5sec.chor ==========
+2025-12-04 11:44:34,043 - Choreography content:
+# Final - 5 second version
+# Slow, gentle closure
+# Motors 1, 2, and 4
+
+# Single sway
+set_frps 0.08
+
+sync {
+    move(1, 0.6)
+    move(2, 0.55)
+    move(4, 0.58)
+}
+wait(0.5)
+
+# Settle center
+set_frps 0.06
+sync {
+    move(1, 0.5)
+    move(2, 0.48)
+    move(4, 0.49)
+}
+
+
+
+
+2025-12-04 11:44:34,044 - ============================================================
+2025-12-04 11:44:34,079 - [11-Final-5sec.chor] Line 6: set speed 0.08 frps (0.0s)
+2025-12-04 11:44:34,093 - [11-Final-5sec.chor] Line 9: move motor 1 0.6% (0.0s)
+2025-12-04 11:44:34,095 - [11-Final-5sec.chor] Line 10: move motor 2 0.55% (0.0s)
+2025-12-04 11:44:34,096 - [11-Final-5sec.chor] Line 11: move motor 4 0.58% (0.0s)
+2025-12-04 11:44:43,247 - [11-Final-5sec.chor] Line 11: sync command (9.164s)
+2025-12-04 11:44:43,758 - [11-Final-5sec.chor] Line 13: wait 0.5s (0.51s)
+2025-12-04 11:44:43,759 - [11-Final-5sec.chor] Line 16: set speed 0.06 frps (0.0s)
+2025-12-04 11:44:43,770 - [11-Final-5sec.chor] Line 18: move motor 1 0.5% (0.0s)
+2025-12-04 11:44:43,771 - [11-Final-5sec.chor] Line 19: move motor 2 0.48% (0.0s)
+2025-12-04 11:44:43,772 - [11-Final-5sec.chor] Line 20: move motor 4 0.49% (0.0s)
+2025-12-04 11:44:45,705 - [11-Final-5sec.chor] Line 20: sync command (1.946s)
+2025-12-04 11:44:45,775 - ========== FINISHED EXECUTION: 11-Final-5sec.chor ==========
+
+2025-12-04 11:44:48,003 - ========== STARTING EXECUTION: 11-Final-5sec.chor ==========
+2025-12-04 11:44:48,003 - Choreography content:
+# Final - 5 second version
+# Slow, gentle closure
+# Motors 1, 2, and 4
+
+# Single sway
+set_frps 0.08
+
+sync {
+    move(1, 0.6)
+    move(2, 0.55)
+    move(4, 0.58)
+}
+wait(0.5)
+
+# Settle center
+set_frps 0.06
+sync {
+    move(1, 0.5)
+    move(2, 0.48)
+    move(4, 0.49)
+}
+
+
+
+
+2025-12-04 11:44:48,004 - ============================================================
+2025-12-04 11:44:48,018 - [11-Final-5sec.chor] Line 6: set speed 0.08 frps (0.0s)
+2025-12-04 11:44:48,029 - [11-Final-5sec.chor] Line 9: move motor 1 0.6% (0.0s)
+2025-12-04 11:44:48,030 - [11-Final-5sec.chor] Line 10: move motor 2 0.55% (0.0s)
+2025-12-04 11:44:48,030 - [11-Final-5sec.chor] Line 11: move motor 4 0.58% (0.0s)
+2025-12-04 11:44:49,542 - [11-Final-5sec.chor] Line 11: sync command (1.523s)
+2025-12-04 11:44:50,053 - [11-Final-5sec.chor] Line 13: wait 0.5s (0.51s)
+2025-12-04 11:44:50,054 - [11-Final-5sec.chor] Line 16: set speed 0.06 frps (0.0s)
+2025-12-04 11:44:50,065 - [11-Final-5sec.chor] Line 18: move motor 1 0.5% (0.0s)
+2025-12-04 11:44:50,065 - [11-Final-5sec.chor] Line 19: move motor 2 0.48% (0.0s)
+2025-12-04 11:44:50,066 - [11-Final-5sec.chor] Line 20: move motor 4 0.49% (0.0s)
+2025-12-04 11:44:51,989 - [11-Final-5sec.chor] Line 20: sync command (1.934s)
+2025-12-04 11:44:52,056 - ========== FINISHED EXECUTION: 11-Final-5sec.chor ==========
+
+2025-12-04 11:44:53,930 - ========== STARTING EXECUTION: 11-Final-5sec.chor ==========
+2025-12-04 11:44:53,931 - Choreography content:
+# Final - 5 second version
+# Slow, gentle closure
+# Motors 1, 2, and 4
+
+# Single sway
+set_frps 0.08
+
+sync {
+    move(1, 0.6)
+    move(2, 0.55)
+    move(4, 0.58)
+}
+wait(0.5)
+
+# Settle center
+set_frps 0.06
+sync {
+    move(1, 0.5)
+    move(2, 0.48)
+    move(4, 0.49)
+}
+
+
+
+
+2025-12-04 11:44:53,932 - ============================================================
+2025-12-04 11:44:53,964 - [11-Final-5sec.chor] Line 6: set speed 0.08 frps (0.0s)
+2025-12-04 11:44:53,976 - [11-Final-5sec.chor] Line 9: move motor 1 0.6% (0.0s)
+2025-12-04 11:44:53,977 - [11-Final-5sec.chor] Line 10: move motor 2 0.55% (0.0s)
+2025-12-04 11:44:53,979 - [11-Final-5sec.chor] Line 11: move motor 4 0.58% (0.001s)
+2025-12-04 11:44:55,510 - [11-Final-5sec.chor] Line 11: sync command (1.545s)
+2025-12-04 11:44:56,021 - [11-Final-5sec.chor] Line 13: wait 0.5s (0.51s)
+2025-12-04 11:44:56,021 - [11-Final-5sec.chor] Line 16: set speed 0.06 frps (0.0s)
+2025-12-04 11:44:56,032 - [11-Final-5sec.chor] Line 18: move motor 1 0.5% (0.0s)
+2025-12-04 11:44:56,033 - [11-Final-5sec.chor] Line 19: move motor 2 0.48% (0.0s)
+2025-12-04 11:44:56,034 - [11-Final-5sec.chor] Line 20: move motor 4 0.49% (0.0s)
+2025-12-04 11:44:57,956 - [11-Final-5sec.chor] Line 20: sync command (1.934s)
+2025-12-04 11:44:58,025 - ========== FINISHED EXECUTION: 11-Final-5sec.chor ==========
+
+2025-12-04 11:45:00,743 - ========== STARTING EXECUTION: 11-Final-5sec.chor ==========
+2025-12-04 11:45:00,744 - Choreography content:
+# Final - 5 second version
+# Slow, gentle closure
+# Motors 1, 2, and 4
+
+# Single sway
+set_frps 0.08
+
+sync {
+    move(1, 0.6)
+    move(2, 0.55)
+    move(4, 0.58)
+}
+wait(0.5)
+
+# Settle center
+set_frps 0.06
+sync {
+    move(1, 0.5)
+    move(2, 0.48)
+    move(4, 0.49)
+}
+
+
+
+
+2025-12-04 11:45:00,744 - ============================================================
+2025-12-04 11:45:00,779 - [11-Final-5sec.chor] Line 6: set speed 0.08 frps (0.0s)
+2025-12-04 11:45:00,791 - [11-Final-5sec.chor] Line 9: move motor 1 0.6% (0.0s)
+2025-12-04 11:45:00,792 - [11-Final-5sec.chor] Line 10: move motor 2 0.55% (0.0s)
+2025-12-04 11:45:00,793 - [11-Final-5sec.chor] Line 11: move motor 4 0.58% (0.0s)
+2025-12-04 11:45:02,325 - [11-Final-5sec.chor] Line 11: sync command (1.545s)
+2025-12-04 11:45:02,836 - [11-Final-5sec.chor] Line 13: wait 0.5s (0.511s)
+2025-12-04 11:45:02,837 - [11-Final-5sec.chor] Line 16: set speed 0.06 frps (0.0s)
+2025-12-04 11:45:02,847 - [11-Final-5sec.chor] Line 18: move motor 1 0.5% (0.0s)
+2025-12-04 11:45:02,848 - [11-Final-5sec.chor] Line 19: move motor 2 0.48% (0.0s)
+2025-12-04 11:45:02,849 - [11-Final-5sec.chor] Line 20: move motor 4 0.49% (0.0s)
+2025-12-04 11:45:04,782 - [11-Final-5sec.chor] Line 20: sync command (1.945s)
+2025-12-04 11:45:04,851 - ========== FINISHED EXECUTION: 11-Final-5sec.chor ==========
+
+2025-12-04 11:45:05,573 - ========== STARTING EXECUTION: 11-Final-5sec.chor ==========
+2025-12-04 11:45:05,574 - Choreography content:
+# Final - 5 second version
+# Slow, gentle closure
+# Motors 1, 2, and 4
+
+# Single sway
+set_frps 0.08
+
+sync {
+    move(1, 0.6)
+    move(2, 0.55)
+    move(4, 0.58)
+}
+wait(0.5)
+
+# Settle center
+set_frps 0.06
+sync {
+    move(1, 0.5)
+    move(2, 0.48)
+    move(4, 0.49)
+}
+
+
+
+
+2025-12-04 11:45:05,576 - ============================================================
+2025-12-04 11:45:05,590 - [11-Final-5sec.chor] Line 6: set speed 0.08 frps (0.0s)
+2025-12-04 11:45:05,601 - [11-Final-5sec.chor] Line 9: move motor 1 0.6% (0.0s)
+2025-12-04 11:45:05,602 - [11-Final-5sec.chor] Line 10: move motor 2 0.55% (0.0s)
+2025-12-04 11:45:05,603 - [11-Final-5sec.chor] Line 11: move motor 4 0.58% (0.0s)
+2025-12-04 11:45:07,112 - [11-Final-5sec.chor] Line 11: sync command (1.522s)
+2025-12-04 11:45:07,624 - [11-Final-5sec.chor] Line 13: wait 0.5s (0.51s)
+2025-12-04 11:45:07,625 - [11-Final-5sec.chor] Line 16: set speed 0.06 frps (0.0s)
+2025-12-04 11:45:07,636 - [11-Final-5sec.chor] Line 18: move motor 1 0.5% (0.0s)
+2025-12-04 11:45:07,637 - [11-Final-5sec.chor] Line 19: move motor 2 0.48% (0.0s)
+2025-12-04 11:45:07,637 - [11-Final-5sec.chor] Line 20: move motor 4 0.49% (0.0s)
+2025-12-04 11:45:09,560 - [11-Final-5sec.chor] Line 20: sync command (1.935s)
+2025-12-04 11:45:09,627 - ========== FINISHED EXECUTION: 11-Final-5sec.chor ==========
+
+2025-12-04 11:45:10,294 - ========== STARTING EXECUTION: 11-Final-5sec.chor ==========
+2025-12-04 11:45:10,295 - Choreography content:
+# Final - 5 second version
+# Slow, gentle closure
+# Motors 1, 2, and 4
+
+# Single sway
+set_frps 0.08
+
+sync {
+    move(1, 0.6)
+    move(2, 0.55)
+    move(4, 0.58)
+}
+wait(0.5)
+
+# Settle center
+set_frps 0.06
+sync {
+    move(1, 0.5)
+    move(2, 0.48)
+    move(4, 0.49)
+}
+
+
+
+
+2025-12-04 11:45:10,295 - ============================================================
+2025-12-04 11:45:10,308 - [11-Final-5sec.chor] Line 6: set speed 0.08 frps (0.0s)
+2025-12-04 11:45:10,319 - [11-Final-5sec.chor] Line 9: move motor 1 0.6% (0.0s)
+2025-12-04 11:45:10,320 - [11-Final-5sec.chor] Line 10: move motor 2 0.55% (0.0s)
+2025-12-04 11:45:10,320 - [11-Final-5sec.chor] Line 11: move motor 4 0.58% (0.0s)
+2025-12-04 11:45:11,831 - [11-Final-5sec.chor] Line 11: sync command (1.522s)
+2025-12-04 11:45:12,342 - [11-Final-5sec.chor] Line 13: wait 0.5s (0.51s)
+2025-12-04 11:45:12,343 - [11-Final-5sec.chor] Line 16: set speed 0.06 frps (0.0s)
+2025-12-04 11:45:12,354 - [11-Final-5sec.chor] Line 18: move motor 1 0.5% (0.0s)
+2025-12-04 11:45:12,355 - [11-Final-5sec.chor] Line 19: move motor 2 0.48% (0.0s)
+2025-12-04 11:45:12,357 - [11-Final-5sec.chor] Line 20: move motor 4 0.49% (0.0s)
+2025-12-04 11:45:14,302 - [11-Final-5sec.chor] Line 20: sync command (1.959s)
+2025-12-04 11:45:14,372 - ========== FINISHED EXECUTION: 11-Final-5sec.chor ==========
+
+2025-12-04 11:45:15,130 - ========== STARTING EXECUTION: 11-Final-5sec.chor ==========
+2025-12-04 11:45:15,131 - Choreography content:
+# Final - 5 second version
+# Slow, gentle closure
+# Motors 1, 2, and 4
+
+# Single sway
+set_frps 0.08
+
+sync {
+    move(1, 0.6)
+    move(2, 0.55)
+    move(4, 0.58)
+}
+wait(0.5)
+
+# Settle center
+set_frps 0.06
+sync {
+    move(1, 0.5)
+    move(2, 0.48)
+    move(4, 0.49)
+}
+
+
+
+
+2025-12-04 11:45:15,132 - ============================================================
+2025-12-04 11:45:15,151 - [11-Final-5sec.chor] Line 6: set speed 0.08 frps (0.0s)
+2025-12-04 11:45:15,163 - [11-Final-5sec.chor] Line 9: move motor 1 0.6% (0.001s)
+2025-12-04 11:45:15,165 - [11-Final-5sec.chor] Line 10: move motor 2 0.55% (0.001s)
+2025-12-04 11:45:15,168 - [11-Final-5sec.chor] Line 11: move motor 4 0.58% (0.001s)
+2025-12-04 11:45:16,669 - [11-Final-5sec.chor] Line 11: sync command (1.517s)
+2025-12-04 11:45:17,180 - [11-Final-5sec.chor] Line 13: wait 0.5s (0.51s)
+2025-12-04 11:45:17,181 - [11-Final-5sec.chor] Line 16: set speed 0.06 frps (0.0s)
+2025-12-04 11:45:17,191 - [11-Final-5sec.chor] Line 18: move motor 1 0.5% (0.0s)
+2025-12-04 11:45:17,192 - [11-Final-5sec.chor] Line 19: move motor 2 0.48% (0.0s)
+2025-12-04 11:45:17,193 - [11-Final-5sec.chor] Line 20: move motor 4 0.49% (0.0s)
+2025-12-04 11:45:19,126 - [11-Final-5sec.chor] Line 20: sync command (1.945s)
+2025-12-04 11:45:19,193 - ========== FINISHED EXECUTION: 11-Final-5sec.chor ==========
+
+2025-12-04 11:45:19,929 - ========== STARTING EXECUTION: 11-Final-5sec.chor ==========
+2025-12-04 11:45:19,930 - Choreography content:
+# Final - 5 second version
+# Slow, gentle closure
+# Motors 1, 2, and 4
+
+# Single sway
+set_frps 0.08
+
+sync {
+    move(1, 0.6)
+    move(2, 0.55)
+    move(4, 0.58)
+}
+wait(0.5)
+
+# Settle center
+set_frps 0.06
+sync {
+    move(1, 0.5)
+    move(2, 0.48)
+    move(4, 0.49)
+}
+
+
+
+
+2025-12-04 11:45:19,930 - ============================================================
+2025-12-04 11:45:19,944 - [11-Final-5sec.chor] Line 6: set speed 0.08 frps (0.0s)
+2025-12-04 11:45:19,955 - [11-Final-5sec.chor] Line 9: move motor 1 0.6% (0.0s)
+2025-12-04 11:45:19,955 - [11-Final-5sec.chor] Line 10: move motor 2 0.55% (0.0s)
+2025-12-04 11:45:19,956 - [11-Final-5sec.chor] Line 11: move motor 4 0.58% (0.0s)
+2025-12-04 11:45:21,467 - [11-Final-5sec.chor] Line 11: sync command (1.522s)
+2025-12-04 11:45:21,978 - [11-Final-5sec.chor] Line 13: wait 0.5s (0.51s)
+2025-12-04 11:45:21,979 - [11-Final-5sec.chor] Line 16: set speed 0.06 frps (0.0s)
+2025-12-04 11:45:21,990 - [11-Final-5sec.chor] Line 18: move motor 1 0.5% (0.0s)
+2025-12-04 11:45:21,991 - [11-Final-5sec.chor] Line 19: move motor 2 0.48% (0.0s)
+2025-12-04 11:45:21,991 - [11-Final-5sec.chor] Line 20: move motor 4 0.49% (0.0s)
+2025-12-04 11:45:23,935 - [11-Final-5sec.chor] Line 20: sync command (1.956s)
+2025-12-04 11:45:24,044 - ========== FINISHED EXECUTION: 11-Final-5sec.chor ==========
+
+2025-12-04 11:45:24,759 - ========== STARTING EXECUTION: 11-Final-5sec.chor ==========
+2025-12-04 11:45:24,760 - Choreography content:
+# Final - 5 second version
+# Slow, gentle closure
+# Motors 1, 2, and 4
+
+# Single sway
+set_frps 0.08
+
+sync {
+    move(1, 0.6)
+    move(2, 0.55)
+    move(4, 0.58)
+}
+wait(0.5)
+
+# Settle center
+set_frps 0.06
+sync {
+    move(1, 0.5)
+    move(2, 0.48)
+    move(4, 0.49)
+}
+
+
+
+
+2025-12-04 11:45:24,761 - ============================================================
+2025-12-04 11:45:24,774 - [11-Final-5sec.chor] Line 6: set speed 0.08 frps (0.0s)
+2025-12-04 11:45:24,786 - [11-Final-5sec.chor] Line 9: move motor 1 0.6% (0.0s)
+2025-12-04 11:45:24,786 - [11-Final-5sec.chor] Line 10: move motor 2 0.55% (0.0s)
+2025-12-04 11:45:24,787 - [11-Final-5sec.chor] Line 11: move motor 4 0.58% (0.0s)
+2025-12-04 11:45:26,297 - [11-Final-5sec.chor] Line 11: sync command (1.522s)
+2025-12-04 11:45:26,808 - [11-Final-5sec.chor] Line 13: wait 0.5s (0.51s)
+2025-12-04 11:45:26,809 - [11-Final-5sec.chor] Line 16: set speed 0.06 frps (0.0s)
+2025-12-04 11:45:26,820 - [11-Final-5sec.chor] Line 18: move motor 1 0.5% (0.0s)
+2025-12-04 11:45:26,821 - [11-Final-5sec.chor] Line 19: move motor 2 0.48% (0.0s)
+2025-12-04 11:45:26,822 - [11-Final-5sec.chor] Line 20: move motor 4 0.49% (0.0s)
+2025-12-04 11:45:28,747 - [11-Final-5sec.chor] Line 20: sync command (1.938s)
+2025-12-04 11:45:28,815 - ========== FINISHED EXECUTION: 11-Final-5sec.chor ==========
+
+2025-12-04 11:45:30,293 - ========== STARTING EXECUTION: 11-Final-5sec.chor ==========
+2025-12-04 11:45:30,294 - Choreography content:
+# Final - 5 second version
+# Slow, gentle closure
+# Motors 1, 2, and 4
+
+# Single sway
+set_frps 0.08
+
+sync {
+    move(1, 0.6)
+    move(2, 0.55)
+    move(4, 0.58)
+}
+wait(0.5)
+
+# Settle center
+set_frps 0.06
+sync {
+    move(1, 0.5)
+    move(2, 0.48)
+    move(4, 0.49)
+}
+
+
+
+
+2025-12-04 11:45:30,295 - ============================================================
+2025-12-04 11:45:30,310 - [11-Final-5sec.chor] Line 6: set speed 0.08 frps (0.0s)
+2025-12-04 11:45:30,321 - [11-Final-5sec.chor] Line 9: move motor 1 0.6% (0.0s)
+2025-12-04 11:45:30,322 - [11-Final-5sec.chor] Line 10: move motor 2 0.55% (0.0s)
+2025-12-04 11:45:30,322 - [11-Final-5sec.chor] Line 11: move motor 4 0.58% (0.0s)
+2025-12-04 11:45:31,812 - [11-Final-5sec.chor] Line 11: sync command (1.501s)
+2025-12-04 11:45:32,323 - [11-Final-5sec.chor] Line 13: wait 0.5s (0.51s)
+2025-12-04 11:45:32,324 - [11-Final-5sec.chor] Line 16: set speed 0.06 frps (0.0s)
+2025-12-04 11:45:32,335 - [11-Final-5sec.chor] Line 18: move motor 1 0.5% (0.0s)
+2025-12-04 11:45:32,336 - [11-Final-5sec.chor] Line 19: move motor 2 0.48% (0.0s)
+2025-12-04 11:45:32,337 - [11-Final-5sec.chor] Line 20: move motor 4 0.49% (0.0s)
+2025-12-04 11:45:34,260 - [11-Final-5sec.chor] Line 20: sync command (1.935s)
+2025-12-04 11:45:34,328 - ========== FINISHED EXECUTION: 11-Final-5sec.chor ==========
+
+2025-12-04 11:45:38,981 - ========== STARTING EXECUTION: 11-Final-5sec.chor ==========
+2025-12-04 11:45:38,982 - Choreography content:
+# Final - 5 second version
+# Slow, gentle closure
+# Motors 1, 2, and 4
+
+# Single sway
+set_frps 0.08
+
+sync {
+    move(1, 0.6)
+    move(2, 0.55)
+    move(4, 0.58)
+}
+wait(0.5)
+
+# Settle center
+set_frps 0.06
+sync {
+    move(1, 0.5)
+    move(2, 0.48)
+    move(4, 0.49)
+}
+
+
+
+
+2025-12-04 11:45:38,982 - ============================================================
+2025-12-04 11:45:39,014 - [11-Final-5sec.chor] Line 6: set speed 0.08 frps (0.0s)
+2025-12-04 11:45:39,025 - [11-Final-5sec.chor] Line 9: move motor 1 0.6% (0.001s)
+2025-12-04 11:45:39,027 - [11-Final-5sec.chor] Line 10: move motor 2 0.55% (0.0s)
+2025-12-04 11:45:39,028 - [11-Final-5sec.chor] Line 11: move motor 4 0.58% (0.0s)
+2025-12-04 11:45:40,597 - [11-Final-5sec.chor] Line 11: sync command (1.582s)
+2025-12-04 11:45:41,109 - [11-Final-5sec.chor] Line 13: wait 0.5s (0.51s)
+2025-12-04 11:45:41,110 - [11-Final-5sec.chor] Line 16: set speed 0.06 frps (0.0s)
+2025-12-04 11:45:41,122 - [11-Final-5sec.chor] Line 18: move motor 1 0.5% (0.001s)
+2025-12-04 11:45:41,124 - [11-Final-5sec.chor] Line 19: move motor 2 0.48% (0.0s)
+2025-12-04 11:45:41,126 - [11-Final-5sec.chor] Line 20: move motor 4 0.49% (0.001s)
+2025-12-04 11:45:43,104 - [11-Final-5sec.chor] Line 20: sync command (1.993s)
+2025-12-04 11:45:43,230 - ========== FINISHED EXECUTION: 11-Final-5sec.chor ==========
+
+2025-12-04 11:46:42,492 - ========== STARTING EXECUTION: 11-Final-5sec.chor ==========
+2025-12-04 11:46:42,493 - Choreography content:
+# Final - 5 second version
+# Slow, gentle closure
+# Motors 1, 2, and 4
+
+# Single sway
+set_frps 0.08
+
+sync {
+    move(1, 0.6)
+    move(2, 0.55)
+    move(4, 0.58)
+}
+wait(0.5)
+
+# Settle center
+set_frps 0.06
+sync {
+    move(1, 0.5)
+    move(2, 0.48)
+    move(4, 0.49)
+}
+
+
+
+
+2025-12-04 11:46:42,494 - ============================================================
+2025-12-04 11:46:42,516 - [11-Final-5sec.chor] Line 6: set speed 0.08 frps (0.0s)
+2025-12-04 11:46:42,527 - [11-Final-5sec.chor] Line 9: move motor 1 0.6% (0.0s)
+2025-12-04 11:46:42,529 - [11-Final-5sec.chor] Line 10: move motor 2 0.55% (0.0s)
+2025-12-04 11:46:42,530 - [11-Final-5sec.chor] Line 11: move motor 4 0.58% (0.0s)
+2025-12-04 11:46:44,084 - [11-Final-5sec.chor] Line 11: sync command (1.566s)
+2025-12-04 11:46:44,595 - [11-Final-5sec.chor] Line 13: wait 0.5s (0.51s)
+2025-12-04 11:46:44,595 - [11-Final-5sec.chor] Line 16: set speed 0.06 frps (0.0s)
+2025-12-04 11:46:44,606 - [11-Final-5sec.chor] Line 18: move motor 1 0.5% (0.0s)
+2025-12-04 11:46:44,607 - [11-Final-5sec.chor] Line 19: move motor 2 0.48% (0.0s)
+2025-12-04 11:46:44,607 - [11-Final-5sec.chor] Line 20: move motor 4 0.49% (0.0s)
+2025-12-04 11:46:46,540 - [11-Final-5sec.chor] Line 20: sync command (1.944s)
+2025-12-04 11:46:46,608 - ========== FINISHED EXECUTION: 11-Final-5sec.chor ==========
+
+2025-12-04 12:22:11,020 - ========== STARTING RESET SEQUENCE ==========
+2025-12-04 12:22:11,021 - Reset choreography content:
+set_frps 0.5
+sync {
+    move(1, 0)
+    move(2, 0)
+    move(3, 0)
+    move(4, 0)
+}
+2025-12-04 12:22:11,051 - [reset] Line 1: set speed 0.5 frps (0.0s)
+2025-12-04 12:22:11,063 - [reset] Line 3: move motor 1 0.0% (0.001s)
+2025-12-04 12:22:11,065 - [reset] Line 4: move motor 2 0.0% (0.001s)
+2025-12-04 12:22:11,067 - [reset] Line 5: move motor 3 0.0% (0.0s)
+2025-12-04 12:22:11,069 - [reset] Line 6: move motor 4 0.0% (0.0s)
+2025-12-04 12:22:13,326 - [reset] Line 6: sync command (2.274s)
+2025-12-04 12:22:13,392 - ========== FINISHED RESET SEQUENCE ==========
+
+2025-12-04 12:22:24,975 - ========== STARTING EXECUTION: 00-awakening.chor ==========
+2025-12-04 12:22:24,975 - Choreography content:
+# Total time: ~39 seconds
+# Slow awakening sequence with gradual materialization movements
+
+# First micro-movement - barely perceptible awakening
+set_frps 0.025
+move(1, 0.02)
+wait(0.5)
+move(2, 0.015)
+wait(0.5)
+move(4, 0.018)
+wait(2)
+
+# Slow materialization - the Machine becomes aware
+set_frps 0.03
+move(1, 0.12)
+wait(2)
+move(2, 0.10)
+wait(2.5)
+move(4, 0.11)
+wait(2.5)
+
+# First real breath
+set_frps 0.023
+sync {
+    move(1, 0.25)
+    move(2, 0.2)
+    move(4, 0.22)
+}
+wait(5)
+
+# The Machine is now present, breathing with her
+set_frps 0.04
+sync {
+    move(1, 0.22)
+    move(2, 0.18)
+    move(4, 0.2)
+}
+
+# Reset to zero for next scene
+wait(3)
+set_frps 0.025
+sync {
+    move(1, 0)
+    move(2, 0)
+    move(4, 0)
+}
+
+2025-12-04 12:22:24,976 - ============================================================
+2025-12-04 12:22:24,996 - [00-awakening.chor] Line 5: set speed 0.025 frps (0.0s)
+2025-12-04 12:22:24,996 - [00-awakening.chor] Line 6: move motor 1 0.02% (0.0s)
+2025-12-04 12:22:25,860 - [00-awakening.chor] Line 7: wait 0.5s (0.863s)
+2025-12-04 12:22:25,860 - [00-awakening.chor] Line 8: move motor 2 0.015% (0.0s)
+2025-12-04 12:22:26,492 - [00-awakening.chor] Line 9: wait 0.5s (0.631s)
+2025-12-04 12:22:26,492 - [00-awakening.chor] Line 10: move motor 4 0.018% (0.0s)
+2025-12-04 12:22:28,503 - [00-awakening.chor] Line 11: wait 2.0s (2.01s)
+2025-12-04 12:22:28,504 - [00-awakening.chor] Line 14: set speed 0.03 frps (0.0s)
+2025-12-04 12:22:28,504 - [00-awakening.chor] Line 15: move motor 1 0.12% (0.0s)
+2025-12-04 12:22:32,127 - [00-awakening.chor] Line 16: wait 2.0s (3.622s)
+2025-12-04 12:22:32,127 - [00-awakening.chor] Line 17: move motor 2 0.1% (0.0s)
+2025-12-04 12:22:35,091 - [00-awakening.chor] Line 18: wait 2.5s (2.963s)
+2025-12-04 12:22:35,091 - [00-awakening.chor] Line 19: move motor 4 0.11% (0.0s)
+2025-12-04 12:22:38,440 - [00-awakening.chor] Line 20: wait 2.5s (3.348s)
+2025-12-04 12:22:38,440 - [00-awakening.chor] Line 23: set speed 0.023 frps (0.0s)
+2025-12-04 12:22:38,451 - [00-awakening.chor] Line 25: move motor 1 0.25% (0.0s)
+2025-12-04 12:22:38,451 - [00-awakening.chor] Line 26: move motor 2 0.2% (0.0s)
+2025-12-04 12:22:38,452 - [00-awakening.chor] Line 27: move motor 4 0.22% (0.0s)
+2025-12-04 12:22:44,452 - [00-awakening.chor] Line 27: sync command (6.011s)
+2025-12-04 12:22:49,463 - [00-awakening.chor] Line 29: wait 5.0s (5.01s)
+2025-12-04 12:22:49,463 - [00-awakening.chor] Line 32: set speed 0.04 frps (0.0s)
+2025-12-04 12:22:49,474 - [00-awakening.chor] Line 34: move motor 1 0.22% (0.0s)
+2025-12-04 12:22:49,475 - [00-awakening.chor] Line 35: move motor 2 0.18% (0.0s)
+2025-12-04 12:22:49,476 - [00-awakening.chor] Line 36: move motor 4 0.2% (0.0s)
+2025-12-04 12:22:50,314 - [00-awakening.chor] Line 36: sync command (0.849s)
+2025-12-04 12:22:53,325 - [00-awakening.chor] Line 40: wait 3.0s (3.01s)
+2025-12-04 12:22:53,325 - [00-awakening.chor] Line 41: set speed 0.025 frps (0.0s)
+2025-12-04 12:22:53,336 - [00-awakening.chor] Line 43: move motor 1 0.0% (0.0s)
+2025-12-04 12:22:53,337 - [00-awakening.chor] Line 44: move motor 2 0.0% (0.0s)
+2025-12-04 12:22:53,337 - [00-awakening.chor] Line 45: move motor 4 0.0% (0.0s)
+2025-12-04 12:23:02,759 - [00-awakening.chor] Line 45: sync command (9.433s)
+2025-12-04 12:23:02,822 - ========== FINISHED EXECUTION: 00-awakening.chor ==========
+
+2025-12-04 12:23:11,884 - ========== STARTING EXECUTION: 02-ightirab-makani.chor ==========
+2025-12-04 12:23:11,885 - Choreography content:
+# Total time: ~2 seconds
+# Sharp recoil movement backwards on all motors
+
+# Sharp recoil backwards
+set_frps 20
+sync {
+    move(1, 0.2)
+    move(2, 0.15)
+    move(4, 0.17)
+}
+
+
+
+# Reset to zero for next scene
+set_frps 2
+sync {
+    move(1, 0)
+    move(2, 0)
+    move(4, 0)
+}
+
+2025-12-04 12:23:11,885 - ============================================================
+2025-12-04 12:23:11,908 - [02-ightirab-makani.chor] Line 5: set speed 20.0 frps (0.0s)
+2025-12-04 12:23:11,919 - [02-ightirab-makani.chor] Line 7: move motor 1 0.2% (0.0s)
+2025-12-04 12:23:11,921 - [02-ightirab-makani.chor] Line 8: move motor 2 0.15% (0.0s)
+2025-12-04 12:23:11,923 - [02-ightirab-makani.chor] Line 9: move motor 4 0.17% (0.001s)
+2025-12-04 12:23:12,408 - [02-ightirab-makani.chor] Line 9: sync command (0.499s)
+2025-12-04 12:23:12,409 - [02-ightirab-makani.chor] Line 15: set speed 2.0 frps (0.0s)
+2025-12-04 12:23:12,420 - [02-ightirab-makani.chor] Line 17: move motor 1 0.0% (0.0s)
+2025-12-04 12:23:12,421 - [02-ightirab-makani.chor] Line 18: move motor 2 0.0% (0.0s)
+2025-12-04 12:23:12,422 - [02-ightirab-makani.chor] Line 19: move motor 4 0.0% (0.0s)
+2025-12-04 12:23:13,027 - [02-ightirab-makani.chor] Line 19: sync command (0.617s)
+2025-12-04 12:23:13,088 - ========== FINISHED EXECUTION: 02-ightirab-makani.chor ==========
+
+2025-12-04 12:23:34,545 - ========== STARTING EXECUTION: 03-dabke.chor ==========
+2025-12-04 12:23:34,545 - Choreography content:
+# Total time: ~19 seconds
+# Traditional dabke dance with stomping rhythm and motor 4 showing off
+
+# Opening - All three motors stomping together (the line forms)
+set_frps 0.3
+
+# Basic dabke step: STOMP-step-STOMP-step
+sync {
+    move(1, 0.4)
+    move(2, 0.35)
+    move(4, 0.37)
+}
+wait(0.1)
+sync {
+    move(1, 0.2)
+    move(2, 0.15)
+    move(4, 0.17)
+}
+wait(0.2)
+
+sync {
+    move(1, 0.45)
+    move(2, 0.4)
+    move(4, 0.42)
+}
+wait(0.1)
+sync {
+    move(1, 0.2)
+    move(2, 0.15)
+    move(4, 0.17)
+}
+wait(0.2)
+
+# Continue line dancing - building energy
+set_frps 0.55
+sync {
+    move(1, 0.5)
+    move(2, 0.45)
+    move(4, 0.47)
+}
+wait(0.1)
+sync {
+    move(1, 0.25)
+    move(2, 0.2)
+    move(4, 0.22)
+}
+wait(0.2)
+
+sync {
+    move(1, 0.55)
+    move(2, 0.5)
+    move(4, 0.52)
+}
+wait(0.1)
+
+
+# Reset to zero for next scene
+set_frps 0.15
+sync {
+    move(1, 0)
+    move(2, 0)
+    move(4, 0)
+}
+
+2025-12-04 12:23:34,546 - ============================================================
+2025-12-04 12:23:34,568 - [03-dabke.chor] Line 5: set speed 0.3 frps (0.0s)
+2025-12-04 12:23:34,579 - [03-dabke.chor] Line 9: move motor 1 0.4% (0.0s)
+2025-12-04 12:23:34,580 - [03-dabke.chor] Line 10: move motor 2 0.35% (0.0s)
+2025-12-04 12:23:34,580 - [03-dabke.chor] Line 11: move motor 4 0.37% (0.0s)
+2025-12-04 12:23:36,971 - [03-dabke.chor] Line 11: sync command (2.402s)
+2025-12-04 12:23:37,082 - [03-dabke.chor] Line 13: wait 0.1s (0.11s)
+2025-12-04 12:23:37,092 - [03-dabke.chor] Line 15: move motor 1 0.2% (0.0s)
+2025-12-04 12:23:37,093 - [03-dabke.chor] Line 16: move motor 2 0.15% (0.0s)
+2025-12-04 12:23:37,094 - [03-dabke.chor] Line 17: move motor 4 0.17% (0.0s)
+2025-12-04 12:23:38,261 - [03-dabke.chor] Line 17: sync command (1.179s)
+2025-12-04 12:23:38,472 - [03-dabke.chor] Line 19: wait 0.2s (0.21s)
+2025-12-04 12:23:38,483 - [03-dabke.chor] Line 22: move motor 1 0.45% (0.0s)
+2025-12-04 12:23:38,484 - [03-dabke.chor] Line 23: move motor 2 0.4% (0.0s)
+2025-12-04 12:23:38,485 - [03-dabke.chor] Line 24: move motor 4 0.42% (0.0s)
+2025-12-04 12:23:39,955 - [03-dabke.chor] Line 24: sync command (1.482s)
+2025-12-04 12:23:40,065 - [03-dabke.chor] Line 26: wait 0.1s (0.11s)
+2025-12-04 12:23:40,076 - [03-dabke.chor] Line 28: move motor 1 0.2% (0.0s)
+2025-12-04 12:23:40,077 - [03-dabke.chor] Line 29: move motor 2 0.15% (0.0s)
+2025-12-04 12:23:40,078 - [03-dabke.chor] Line 30: move motor 4 0.17% (0.0s)
+2025-12-04 12:23:41,599 - [03-dabke.chor] Line 30: sync command (1.533s)
+2025-12-04 12:23:41,811 - [03-dabke.chor] Line 32: wait 0.2s (0.211s)
+2025-12-04 12:23:41,813 - [03-dabke.chor] Line 35: set speed 0.55 frps (0.0s)
+2025-12-04 12:23:41,827 - [03-dabke.chor] Line 37: move motor 1 0.5% (0.001s)
+2025-12-04 12:23:41,829 - [03-dabke.chor] Line 38: move motor 2 0.45% (0.001s)
+2025-12-04 12:23:41,831 - [03-dabke.chor] Line 39: move motor 4 0.47% (0.0s)
+2025-12-04 12:23:43,170 - [03-dabke.chor] Line 39: sync command (1.355s)
+2025-12-04 12:23:43,281 - [03-dabke.chor] Line 41: wait 0.1s (0.11s)
+2025-12-04 12:23:43,292 - [03-dabke.chor] Line 43: move motor 1 0.25% (0.0s)
+2025-12-04 12:23:43,293 - [03-dabke.chor] Line 44: move motor 2 0.2% (0.0s)
+2025-12-04 12:23:43,293 - [03-dabke.chor] Line 45: move motor 4 0.22% (0.0s)
+2025-12-04 12:23:44,381 - [03-dabke.chor] Line 45: sync command (1.099s)
+2025-12-04 12:23:44,591 - [03-dabke.chor] Line 47: wait 0.2s (0.21s)
+2025-12-04 12:23:44,602 - [03-dabke.chor] Line 50: move motor 1 0.55% (0.0s)
+2025-12-04 12:23:44,603 - [03-dabke.chor] Line 51: move motor 2 0.5% (0.0s)
+2025-12-04 12:23:44,604 - [03-dabke.chor] Line 52: move motor 4 0.52% (0.0s)
+2025-12-04 12:23:45,914 - [03-dabke.chor] Line 52: sync command (1.322s)
+2025-12-04 12:23:46,025 - [03-dabke.chor] Line 54: wait 0.1s (0.11s)
+2025-12-04 12:23:46,025 - [03-dabke.chor] Line 58: set speed 0.15 frps (0.0s)
+2025-12-04 12:23:46,036 - [03-dabke.chor] Line 60: move motor 1 0.0% (0.0s)
+2025-12-04 12:23:46,037 - [03-dabke.chor] Line 61: move motor 2 0.0% (0.0s)
+2025-12-04 12:23:46,038 - [03-dabke.chor] Line 62: move motor 4 0.0% (0.0s)
+2025-12-04 12:23:51,162 - [03-dabke.chor] Line 62: sync command (5.136s)
+2025-12-04 12:23:51,226 - ========== FINISHED EXECUTION: 03-dabke.chor ==========
+
+2025-12-04 12:24:03,091 - ========== STARTING EXECUTION: 035-ya shourafa2 hazihi l ard.chor ==========
+2025-12-04 12:24:03,092 - Choreography content:
+# Total time: ~49 seconds
+# Romantic slow swaying motion back and forth
+
+# Gentle sway right
+set_frps 0.02
+sync {
+    move(1, 0.45)
+    move(2, 0.5)
+    move(4, 0.42)
+}
+wait(1.5)
+
+# Sway left
+set_frps 0.02
+sync {
+    move(1, 0.35)
+    move(2, 0.3)
+    move(4, 0.38)
+}
+wait(1.5)
+
+# Sway right again
+set_frps 0.02
+sync {
+    move(1, 0.5)
+    move(2, 0.55)
+    move(4, 0.47)
+}
+wait(1.5)
+
+# Reset to zero for next scene
+set_frps 0.1
+sync {
+    move(1, 0)
+    move(2, 0)
+    move(4, 0)
+}
+
+2025-12-04 12:24:03,093 - ============================================================
+2025-12-04 12:24:03,135 - [035-ya shourafa2 hazihi l ard.chor] Line 5: set speed 0.02 frps (0.0s)
+2025-12-04 12:24:03,147 - [035-ya shourafa2 hazihi l ard.chor] Line 7: move motor 1 0.45% (0.0s)
+2025-12-04 12:24:03,149 - [035-ya shourafa2 hazihi l ard.chor] Line 8: move motor 2 0.5% (0.0s)
+2025-12-04 12:24:03,149 - [035-ya shourafa2 hazihi l ard.chor] Line 9: move motor 4 0.42% (0.0s)
+2025-12-04 12:24:28,930 - [035-ya shourafa2 hazihi l ard.chor] Line 9: sync command (25.794s)
+2025-12-04 12:24:30,441 - [035-ya shourafa2 hazihi l ard.chor] Line 11: wait 1.5s (1.51s)
+2025-12-04 12:24:30,442 - [035-ya shourafa2 hazihi l ard.chor] Line 14: set speed 0.02 frps (0.0s)
+2025-12-04 12:24:30,452 - [035-ya shourafa2 hazihi l ard.chor] Line 16: move motor 1 0.35% (0.0s)
+2025-12-04 12:24:30,453 - [035-ya shourafa2 hazihi l ard.chor] Line 17: move motor 2 0.3% (0.0s)
+2025-12-04 12:24:30,454 - [035-ya shourafa2 hazihi l ard.chor] Line 18: move motor 4 0.38% (0.0s)
+2025-12-04 12:24:40,775 - [035-ya shourafa2 hazihi l ard.chor] Line 18: sync command (10.333s)
+2025-12-04 12:24:42,286 - [035-ya shourafa2 hazihi l ard.chor] Line 20: wait 1.5s (1.51s)
+2025-12-04 12:24:42,287 - [035-ya shourafa2 hazihi l ard.chor] Line 23: set speed 0.02 frps (0.0s)
+2025-12-04 12:24:42,298 - [035-ya shourafa2 hazihi l ard.chor] Line 25: move motor 1 0.5% (0.0s)
+2025-12-04 12:24:42,299 - [035-ya shourafa2 hazihi l ard.chor] Line 26: move motor 2 0.55% (0.0s)
+2025-12-04 12:24:42,300 - [035-ya shourafa2 hazihi l ard.chor] Line 27: move motor 4 0.47% (0.0s)
+2025-12-04 12:24:55,193 - [035-ya shourafa2 hazihi l ard.chor] Line 27: sync command (12.906s)
+2025-12-04 12:24:56,704 - [035-ya shourafa2 hazihi l ard.chor] Line 29: wait 1.5s (1.51s)
+2025-12-04 12:24:56,705 - [035-ya shourafa2 hazihi l ard.chor] Line 32: set speed 0.1 frps (0.0s)
+2025-12-04 12:24:56,716 - [035-ya shourafa2 hazihi l ard.chor] Line 34: move motor 1 0.0% (0.0s)
+2025-12-04 12:24:56,718 - [035-ya shourafa2 hazihi l ard.chor] Line 35: move motor 2 0.0% (0.001s)
+2025-12-04 12:24:56,719 - [035-ya shourafa2 hazihi l ard.chor] Line 36: move motor 4 0.0% (0.0s)
+2025-12-04 12:25:03,129 - [035-ya shourafa2 hazihi l ard.chor] Line 36: sync command (6.424s)
+2025-12-04 12:25:03,195 - ========== FINISHED EXECUTION: 035-ya shourafa2 hazihi l ard.chor ==========
+
+2025-12-04 12:25:07,778 - ========== STARTING EXECUTION: 06-icarus.chor ==========
+2025-12-04 12:25:07,779 - Choreography content:
+# Total time: ~9 seconds
+# Simple rise and fall motion with motors 1 and 2
+
+set_frps 0.15
+sync {
+    move(1, 0.5)
+   move(2, 0.5)
+
+}
+
+sync {
+    move(1, 0)
+move(2, 0)
+}
+2025-12-04 12:25:07,780 - ============================================================
+2025-12-04 12:25:07,809 - [06-icarus.chor] Line 4: set speed 0.15 frps (0.0s)
+2025-12-04 12:25:07,821 - [06-icarus.chor] Line 6: move motor 1 0.5% (0.0s)
+2025-12-04 12:25:07,822 - [06-icarus.chor] Line 7: move motor 2 0.5% (0.0s)
+2025-12-04 12:25:12,516 - [06-icarus.chor] Line 7: sync command (4.707s)
+2025-12-04 12:25:12,528 - [06-icarus.chor] Line 12: move motor 1 0.0% (0.0s)
+2025-12-04 12:25:12,529 - [06-icarus.chor] Line 13: move motor 2 0.0% (0.0s)
+2025-12-04 12:25:17,185 - [06-icarus.chor] Line 13: sync command (4.668s)
+2025-12-04 12:25:17,248 - ========== FINISHED EXECUTION: 06-icarus.chor ==========
+
+2025-12-04 12:25:39,362 - Edited choreography file: 06-icarus.chor (165 chars)
+2025-12-04 12:25:40,261 - ========== STARTING EXECUTION: 06-icarus.chor ==========
+2025-12-04 12:25:40,262 - Choreography content:
+# Total time: ~9 seconds
+# Simple rise and fall motion with motors 1 and 2
+
+set_frps 0.15
+sync {
+  move(1, 0.5)
+  move(2, 0.7)
+
+}
+
+sync {
+    move(1, 0)
+move(2, 0)
+}
+2025-12-04 12:25:40,262 - ============================================================
+2025-12-04 12:25:40,274 - [06-icarus.chor] Line 4: set speed 0.15 frps (0.0s)
+2025-12-04 12:25:40,285 - [06-icarus.chor] Line 6: move motor 1 0.5% (0.0s)
+2025-12-04 12:25:40,286 - [06-icarus.chor] Line 7: move motor 2 0.7% (0.0s)
+2025-12-04 12:25:45,953 - [06-icarus.chor] Line 7: sync command (5.678s)
+2025-12-04 12:25:45,963 - [06-icarus.chor] Line 12: move motor 1 0.0% (0.0s)
+2025-12-04 12:25:45,964 - [06-icarus.chor] Line 13: move motor 2 0.0% (0.0s)
+2025-12-04 12:25:51,641 - [06-icarus.chor] Line 13: sync command (5.688s)
+2025-12-04 12:25:51,704 - ========== FINISHED EXECUTION: 06-icarus.chor ==========
+
+2025-12-04 12:26:03,690 - ========== STARTING EXECUTION: 07-palestine.chor ==========
+2025-12-04 12:26:03,691 - Choreography content:
+
+
+# Total time: ~28 seconds
+# Very slow single motor movement up and down on motor 4
+
+repeat 1 {
+set_frps 0.015
+sync{
+  move (4,0.2)
+ }
+set_frps 0.015
+sync{
+  move(4,0)
+ }
+
+}
+2025-12-04 12:26:03,692 - ============================================================
+2025-12-04 12:26:03,722 - [07-palestine.chor] Line 7: set speed 0.015 frps (0.0s)
+2025-12-04 12:26:03,733 - [07-palestine.chor] Line 9: move motor 4 0.2% (0.001s)
+2025-12-04 12:26:17,554 - [07-palestine.chor] Line 9: sync command (13.832s)
+2025-12-04 12:26:17,556 - [07-palestine.chor] Line 11: set speed 0.015 frps (0.0s)
+2025-12-04 12:26:17,568 - [07-palestine.chor] Line 13: move motor 4 0.0% (0.001s)
+2025-12-04 12:26:31,453 - [07-palestine.chor] Line 13: sync command (13.896s)
+2025-12-04 12:26:31,571 - ========== FINISHED EXECUTION: 07-palestine.chor ==========
+
+2025-12-04 12:26:54,925 - ========== STARTING EXECUTION: 09- explosion1.chor ==========
+2025-12-04 12:26:54,927 - Choreography content:
+set_frps 0.1
+
+sync{
+move (all,0.6)
+}
+ 
+2025-12-04 12:26:54,927 - ============================================================
+2025-12-04 12:26:54,954 - [09- explosion1.chor] Line 1: set speed 0.1 frps (0.0s)
+2025-12-04 12:26:54,967 - [09- explosion1.chor] Line 4: move motor all 0.6% (0.001s)
+2025-12-04 12:27:02,553 - [09- explosion1.chor] Line 4: sync command (7.598s)
+2025-12-04 12:27:02,621 - ========== FINISHED EXECUTION: 09- explosion1.chor ==========
+
+2025-12-04 12:27:07,824 - ========== STARTING EXECUTION: 10-explosion.chor ==========
+2025-12-04 12:27:07,825 - Choreography content:
+set_frps 200
+
+ 
+sync{
+move(all,0)
+
+}
+ 
+2025-12-04 12:27:07,825 - ============================================================
+2025-12-04 12:27:07,852 - [10-explosion.chor] Line 1: set speed 200.0 frps (0.0s)
+2025-12-04 12:27:07,865 - [10-explosion.chor] Line 5: move motor all 0.0% (0.001s)
+2025-12-04 12:27:09,426 - [10-explosion.chor] Line 5: sync command (1.572s)
+2025-12-04 12:27:09,486 - ========== FINISHED EXECUTION: 10-explosion.chor ==========
+
+2025-12-04 12:27:16,463 - ========== STARTING EXECUTION: 09- explosion1.chor ==========
+2025-12-04 12:27:16,464 - Choreography content:
+set_frps 0.1
+
+sync{
+move (all,0.6)
+}
+ 
+2025-12-04 12:27:16,465 - ============================================================
+2025-12-04 12:27:16,495 - [09- explosion1.chor] Line 1: set speed 0.1 frps (0.0s)
+2025-12-04 12:27:16,507 - [09- explosion1.chor] Line 4: move motor all 0.6% (0.001s)
+2025-12-04 12:27:24,088 - [09- explosion1.chor] Line 4: sync command (7.592s)
+2025-12-04 12:27:24,155 - ========== FINISHED EXECUTION: 09- explosion1.chor ==========
+
+2025-12-04 12:31:07,590 - ========== STARTING RESET SEQUENCE ==========
+2025-12-04 12:31:07,591 - Reset choreography content:
+set_frps 0.5
+sync {
+    move(1, 0)
+    move(2, 0)
+    move(3, 0)
+    move(4, 0)
+}
+2025-12-04 12:31:07,614 - [reset] Line 1: set speed 0.5 frps (0.0s)
+2025-12-04 12:31:07,626 - [reset] Line 3: move motor 1 0.0% (0.001s)
+2025-12-04 12:31:07,627 - [reset] Line 4: move motor 2 0.0% (0.0s)
+2025-12-04 12:31:07,629 - [reset] Line 5: move motor 3 0.0% (0.0s)
+2025-12-04 12:31:07,631 - [reset] Line 6: move motor 4 0.0% (0.001s)
+2025-12-04 12:31:10,412 - [reset] Line 6: sync command (2.797s)
+2025-12-04 12:31:10,475 - ========== FINISHED RESET SEQUENCE ==========
+
+2025-12-04 12:31:13,940 - ========== STARTING EXECUTION: slow-wave.chor ==========
+2025-12-04 12:31:13,941 - Choreography content:
+# Total time: ~45 seconds
+# Very slow wave motion flowing sequentially through all motors
+
+# Set very slow speed for gentle wave effect
+set_frps 0.02
+
+# First wave - motor 1 rises
+move(1, 0.5)
+wait(3)
+
+# Wave continues to motor 2
+move(2, 0.5)
+wait(3)
+
+# Wave reaches motor 4
+move(4, 0.5)
+wait(3)
+
+# Wave recedes - motor 1 falls first
+move(1, 0.3)
+wait(3)
+
+# Motor 2 falls
+move(2, 0.3)
+wait(3)
+
+# Motor 4 falls
+move(4, 0.3)
+wait(3)
+
+# Second wave - all rise together slowly
+set_frps 0.015
+sync {
+    move(1, 0.6)
+    move(2, 0.6)
+    move(4, 0.6)
+}
+wait(5)
+
+# Gentle descent back to neutral
+set_frps 0.02
+sync {
+    move(1, 0.4)
+    move(2, 0.4)
+    move(4, 0.4)
+}
+wait(3)
+
+# Reset to zero
+set_frps 0.03
+sync {
+    move(1, 0)
+    move(2, 0)
+    move(4, 0)
+}
+
+2025-12-04 12:31:13,942 - ============================================================
+2025-12-04 12:31:13,990 - [slow-wave.chor] Line 5: set speed 0.02 frps (0.0s)
+2025-12-04 12:31:13,991 - [slow-wave.chor] Line 8: move motor 1 0.5% (0.0s)
+2025-12-04 12:31:40,430 - [slow-wave.chor] Line 9: wait 3.0s (26.438s)
+2025-12-04 12:31:40,431 - [slow-wave.chor] Line 12: move motor 2 0.5% (0.0s)
+2025-12-04 12:32:06,251 - [slow-wave.chor] Line 13: wait 3.0s (25.82s)
+2025-12-04 12:32:06,252 - [slow-wave.chor] Line 16: move motor 4 0.5% (0.0s)
+2025-12-04 12:32:09,094 - STOPPING execution: slow-wave.chor
+2025-12-04 12:32:32,628 - [slow-wave.chor] Line 17: wait 3.0s (26.376s)
+2025-12-04 12:32:32,687 - ========== FINISHED EXECUTION: slow-wave.chor ==========
+
+2025-12-04 12:32:39,086 - ========== STARTING RESET SEQUENCE ==========
+2025-12-04 12:32:39,087 - Reset choreography content:
+set_frps 0.5
+sync {
+    move(1, 0)
+    move(2, 0)
+    move(3, 0)
+    move(4, 0)
+}
+2025-12-04 12:32:39,100 - [reset] Line 1: set speed 0.5 frps (0.0s)
+2025-12-04 12:32:39,111 - [reset] Line 3: move motor 1 0.0% (0.0s)
+2025-12-04 12:32:39,112 - [reset] Line 4: move motor 2 0.0% (0.0s)
+2025-12-04 12:32:39,113 - [reset] Line 5: move motor 3 0.0% (0.0s)
+2025-12-04 12:32:39,113 - [reset] Line 6: move motor 4 0.0% (0.0s)
+2025-12-04 12:32:41,358 - [reset] Line 6: sync command (2.258s)
+2025-12-04 12:32:41,419 - ========== FINISHED RESET SEQUENCE ==========
+
+2025-12-04 12:34:36,979 - ========== STARTING EXECUTION: slow-wave.chor ==========
+2025-12-04 12:34:36,980 - Choreography content:
+# Total time: ~20 seconds
+# Stadium wave - sequential up and down motion traveling through motors
+
+# Set moderate speed for stadium wave effect
+set_frps 0.3
+
+# Wave cycle 1 - motor 1 up and down
+move(1, 0.6)
+wait(0.3)
+move(1, 0)
+wait(0.1)
+
+# Wave to motor 2
+move(2, 0.6)
+wait(0.3)
+move(2, 0)
+wait(0.1)
+
+# Wave to motor 4
+move(4, 0.6)
+wait(0.3)
+move(4, 0)
+wait(0.5)
+
+# Wave cycle 2 - faster
+set_frps 0.4
+move(1, 0.6)
+wait(0.3)
+move(1, 0)
+wait(0.1)
+
+move(2, 0.6)
+wait(0.3)
+move(2, 0)
+wait(0.1)
+
+move(4, 0.6)
+wait(0.3)
+move(4, 0)
+wait(0.5)
+
+# Wave cycle 3 - even faster
+set_frps 0.5
+move(1, 0.6)
+wait(0.2)
+move(1, 0)
+wait(0.05)
+
+move(2, 0.6)
+wait(0.2)
+move(2, 0)
+wait(0.05)
+
+move(4, 0.6)
+wait(0.2)
+move(4, 0)
+wait(0.5)
+
+# Final wave - all together
+set_frps 0.4
+sync {
+    move(1, 0.6)
+    move(2, 0.6)
+    move(4, 0.6)
+}
+wait(0.4)
+
+# Reset to zero
+set_frps 0.3
+sync {
+    move(1, 0)
+    move(2, 0)
+    move(4, 0)
+}
+
+2025-12-04 12:34:36,982 - ============================================================
+2025-12-04 12:34:37,043 - [slow-wave.chor] Line 5: set speed 0.3 frps (0.0s)
+2025-12-04 12:34:37,044 - [slow-wave.chor] Line 8: move motor 1 0.6% (0.0s)
+2025-12-04 12:34:40,566 - [slow-wave.chor] Line 9: wait 0.3s (3.521s)
+2025-12-04 12:34:40,567 - [slow-wave.chor] Line 10: move motor 1 0.0% (0.001s)
+2025-12-04 12:34:44,120 - [slow-wave.chor] Line 11: wait 0.1s (3.552s)
+2025-12-04 12:34:44,121 - [slow-wave.chor] Line 14: move motor 2 0.6% (0.0s)
+2025-12-04 12:34:46,967 - [slow-wave.chor] Line 15: wait 0.3s (2.845s)
+2025-12-04 12:34:46,968 - [slow-wave.chor] Line 16: move motor 2 0.0% (0.0s)
+2025-12-04 12:34:49,858 - [slow-wave.chor] Line 17: wait 0.1s (2.889s)
+2025-12-04 12:34:49,859 - [slow-wave.chor] Line 20: move motor 4 0.6% (0.0s)
+2025-12-04 12:34:53,386 - [slow-wave.chor] Line 21: wait 0.3s (3.526s)
+2025-12-04 12:34:53,387 - [slow-wave.chor] Line 22: move motor 4 0.0% (0.001s)
+2025-12-04 12:34:57,054 - [slow-wave.chor] Line 23: wait 0.5s (3.665s)
+2025-12-04 12:34:57,055 - [slow-wave.chor] Line 26: set speed 0.4 frps (0.0s)
+2025-12-04 12:34:57,056 - [slow-wave.chor] Line 27: move motor 1 0.6% (0.0s)
+2025-12-04 12:35:00,095 - [slow-wave.chor] Line 28: wait 0.3s (3.039s)
+2025-12-04 12:35:00,096 - [slow-wave.chor] Line 29: move motor 1 0.0% (0.0s)
+2025-12-04 12:35:03,242 - [slow-wave.chor] Line 30: wait 0.1s (3.145s)
+2025-12-04 12:35:03,245 - [slow-wave.chor] Line 32: move motor 2 0.6% (0.001s)
+2025-12-04 12:35:05,600 - [slow-wave.chor] Line 33: wait 0.3s (2.353s)
+2025-12-04 12:35:05,601 - [slow-wave.chor] Line 34: move motor 2 0.0% (0.0s)
+2025-12-04 12:35:07,946 - [slow-wave.chor] Line 35: wait 0.1s (2.344s)
+2025-12-04 12:35:07,946 - [slow-wave.chor] Line 37: move motor 4 0.6% (0.0s)
+2025-12-04 12:35:10,995 - [slow-wave.chor] Line 38: wait 0.3s (3.048s)
+2025-12-04 12:35:10,996 - [slow-wave.chor] Line 39: move motor 4 0.0% (0.001s)
+2025-12-04 12:35:14,044 - [slow-wave.chor] Line 40: wait 0.5s (3.047s)
+2025-12-04 12:35:14,044 - [slow-wave.chor] Line 43: set speed 0.5 frps (0.0s)
+2025-12-04 12:35:14,045 - [slow-wave.chor] Line 44: move motor 1 0.6% (0.0s)
+2025-12-04 12:35:16,639 - [slow-wave.chor] Line 45: wait 0.2s (2.594s)
+2025-12-04 12:35:16,641 - [slow-wave.chor] Line 46: move motor 1 0.0% (0.0s)
+2025-12-04 12:35:19,268 - [slow-wave.chor] Line 47: wait 0.05s (2.626s)
+2025-12-04 12:35:19,269 - [slow-wave.chor] Line 49: move motor 2 0.6% (0.0s)
+2025-12-04 12:35:21,302 - [slow-wave.chor] Line 50: wait 0.2s (2.032s)
+2025-12-04 12:35:21,302 - [slow-wave.chor] Line 51: move motor 2 0.0% (0.0s)
+2025-12-04 12:35:23,328 - [slow-wave.chor] Line 52: wait 0.05s (2.025s)
+2025-12-04 12:35:23,329 - [slow-wave.chor] Line 54: move motor 4 0.6% (0.001s)
+2025-12-04 12:35:26,006 - [slow-wave.chor] Line 55: wait 0.2s (2.676s)
+2025-12-04 12:35:26,006 - [slow-wave.chor] Line 56: move motor 4 0.0% (0.0s)
+2025-12-04 12:35:28,701 - [slow-wave.chor] Line 57: wait 0.5s (2.694s)
+2025-12-04 12:35:28,702 - [slow-wave.chor] Line 60: set speed 0.4 frps (0.0s)
+2025-12-04 12:35:28,713 - [slow-wave.chor] Line 62: move motor 1 0.6% (0.0s)
+2025-12-04 12:35:28,714 - [slow-wave.chor] Line 63: move motor 2 0.6% (0.0s)
+2025-12-04 12:35:28,715 - [slow-wave.chor] Line 64: move motor 4 0.6% (0.0s)
+2025-12-04 12:35:31,839 - [slow-wave.chor] Line 64: sync command (3.136s)
+2025-12-04 12:35:32,250 - [slow-wave.chor] Line 66: wait 0.4s (0.41s)
+2025-12-04 12:35:32,251 - [slow-wave.chor] Line 69: set speed 0.3 frps (0.0s)
+2025-12-04 12:35:32,262 - [slow-wave.chor] Line 71: move motor 1 0.0% (0.0s)
+2025-12-04 12:35:32,263 - [slow-wave.chor] Line 72: move motor 2 0.0% (0.0s)
+2025-12-04 12:35:32,264 - [slow-wave.chor] Line 73: move motor 4 0.0% (0.0s)
+2025-12-04 12:35:35,832 - [slow-wave.chor] Line 73: sync command (3.58s)
+2025-12-04 12:35:35,914 - ========== FINISHED EXECUTION: slow-wave.chor ==========
+
+2025-12-04 12:46:02,575 - === Choreography Debug Mode Disabled ===

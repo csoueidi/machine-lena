@@ -1,6 +1,6 @@
-set_frps 0.1
+set_frps 0.018
 
 sync{
-move (all,0.8)
+move (all,0.3)
 }
  

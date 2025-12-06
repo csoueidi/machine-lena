@@ -1,46 +1,71 @@
-# PROLOGUE - She appears frozen, The Machine awakens with her
-# Very slow materialization as the Writer's voice begins
-# The city's first breath with her presence
-# Motors 1, 2, and 4 hey
+# Total time: ~30 seconds
+# Slow awakening sequence with gradual materialization movements
 
-# First micro-movement - barely perceptible awakening (7 seconds)
-set_frps 0.005
+ 
+set_frps 0.03
+
 sync {
-    move(1, 0.05)
-    move(2, 0.03)
-    move(4, 0.04)
+    move(1, 0.02)
+    move(4, 0.10)
+    move(2, 0.01)
 }
-wait(5)
 
-# Slow materialization - the Machine becomes aware (7 seconds)
-set_frps 0.007
+ 
+set_frps 0.035
+move(1, 0.12)
+wait(1.5)
+move(2, 0.20)
+wait(1.8)
+move(4, 0.11)
+wait(3.8)
+
+set_frps 0.28
+move(2, 0.45)
+
+wait(2)
+
+set_frps 0.028
 sync {
-    move(1, 0.18)
-    move(2, 0.15)
-    move(4, 0.16)
+    move(1, 0.25)
+    move(2, 0.25)
+    move(4, 0.22)
 }
-wait(5)
 
-# First real breath (7 seconds)
-set_frps 0.013
+ 
+set_frps 0.049
+move(1, 0.08)
+
+move(2, 0.015)
+
+move(4, 0.018)
+
+ 
+set_frps 0.035
+move(1, 0.12)
+wait(1.5)
+move(2, 0.10)
+wait(1.8)
+move(4, 0.11)
+wait(1.8)
+
+
+set_frps 0.028
 sync {
     move(1, 0.25)
     move(2, 0.2)
     move(4, 0.22)
 }
-wait(5)
 
-# The Machine is now present, breathing with her (7 seconds)
-set_frps 0.007
+
+set_frps 0.03
 sync {
     move(1, 0.22)
     move(2, 0.18)
     move(4, 0.2)
 }
 
-# Reset to zero for next scene
-wait(3)
-set_frps 0.025
+wait(4)
+set_frps 0.06
 sync {
     move(1, 0)
     move(2, 0)

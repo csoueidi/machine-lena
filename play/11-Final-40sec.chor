@@ -1,0 +1,93 @@
+# Final - 40 second version
+# Slow, gentle swaying like a tender slow dance
+# Soft back and forth movements
+# Motors 1, 2, and 4
+
+# Gentle sway right
+set_frps 0.08
+sync {
+    move(1, 0.65)
+    move(2, 0.7)
+    move(4, 0.62)
+}
+wait(1.5)
+
+# Sway left
+set_frps 0.08
+sync {
+    move(1, 0.5)
+    move(2, 0.45)
+    move(4, 0.55)
+}
+wait(1.5)
+
+# Sway right again
+set_frps 0.08
+sync {
+    move(1, 0.7)
+    move(2, 0.75)
+    move(4, 0.67)
+}
+wait(1.5)
+
+# Sway left
+set_frps 0.08
+sync {
+    move(1, 0.45)
+    move(2, 0.4)
+    move(4, 0.5)
+}
+wait(1.5)
+
+# Deeper sway right - more emotion
+set_frps 0.08
+sync {
+    move(1, 0.75)
+    move(2, 0.8)
+    move(4, 0.72)
+}
+wait(1.5)
+
+# Gentle pull back
+set_frps 0.08
+sync {
+    move(1, 0.55)
+    move(2, 0.5)
+    move(4, 0.6)
+}
+wait(1.5)
+
+# Rise together
+set_frps 0.07
+sync {
+    move(1, 0.65)
+    move(2, 0.62)
+    move(4, 0.63)
+}
+wait(1.5)
+
+# Center - gentle rise
+set_frps 0.07
+sync {
+    move(1, 0.6)
+    move(2, 0.58)
+    move(4, 0.58)
+}
+wait(1.5)
+
+# Final sway - settling
+set_frps 0.06
+sync {
+    move(1, 0.55)
+    move(2, 0.5)
+    move(4, 0.53)
+}
+wait(2)
+
+# Reset to zero for next scene
+set_frps 0.1
+sync {
+    move(1, 0)
+    move(2, 0)
+    move(4, 0)
+}

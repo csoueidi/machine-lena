@@ -207,9 +207,7 @@ class Stepper:
 
         self.running = True
         self.timer = threading.Thread(target=self._timer_callback)
-        self.timer.start()
-
-    def stop(self):
+        self.timer.start()    def stop(self):
         self.running = False
         if self.timer is not None and self.timer.is_alive():
             self.timer.join()

@@ -157,8 +157,51 @@ def stop_action(filename):
     myParser.stop()
     return jsonify({"success": f"File {filename} stopped"})
 
- 
-
+@app.route('/reset', methods=['POST'])
+def reset_machine():
+    """Reset the machine by moving all motors to position 0 at speed 0.5"""
+    global is_executing, executing_file, execution_message, myParser
+    
+    if is_executing:
+        return abort(400, description="Wait! Another file is currently executing.")
+    
+    log_choreography_debug("========== STARTING RESET SEQUENCE ==========")
+    
+    # Create a temporary reset choreography in memory
+    reset_content = """set_frps 0.5
+sync {
+    move(1, 0)
+    move(2, 0)
+    move(3, 0)
+    move(4, 0)
+}"""
+    
+    # Create temporary file
+    import tempfile
+    with tempfile.NamedTemporaryFile(mode='w', suffix='.chor', delete=False) as temp_file:
+        temp_file.write(reset_content)
+        temp_file_path = temp_file.name
+    
+    try:
+        # Set debug logger on parser if debug mode is enabled
+        if debug_mode:
+            myParser.set_debug_logger(debug_logger)
+            log_choreography_debug(f"Reset choreography content:\n{reset_content}")
+        else:
+            myParser.set_debug_logger(None)
+        
+        is_executing = True
+        execution_message = myParser.execute(temp_file_path, "reset")
+        is_executing = False
+        
+        log_choreography_debug("========== FINISHED RESET SEQUENCE ==========\n")
+        
+        return jsonify({"success": "Machine reset complete"})
+    finally:
+        # Clean up temporary file
+        import os
+        if os.path.exists(temp_file_path):
+            os.remove(temp_file_path)
 
 @app.route('/check_execution_status')
 def check_execution_status():

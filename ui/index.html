@@ -355,6 +355,7 @@
             <div class="editor-controls">
                 <button class="button" id="executeButton" type="button" onclick="executeLoadedFile(event)">▶️ Execute</button>
                 <button class="button" type="button" onclick="stopExecution(event)" style="background-color: #ffebee;">⏹️ Stop</button>
+                <button class="button" id="resetButton" type="button" onclick="resetMachine(event)" style="background-color: #e3f2fd;">🔄 Reset</button>
             </div>
         </div>
 
@@ -557,8 +558,12 @@
 
         function updateButtonState() {
             const executeButton = document.getElementById("executeButton");
+            const resetButton = document.getElementById("resetButton");
             if (executeButton) {
                 executeButton.disabled = is_executing; // Disable if is_executing is true
+            }
+            if (resetButton) {
+                resetButton.disabled = is_executing; // Disable reset button during execution
             }
         }
 
@@ -623,6 +628,35 @@
             }).catch(error => {
                 
               appendLog(error); // Log the action
+            }).finally(() => {
+                is_executing = false;
+                updateButtonState();
+            });
+        }
+
+        function resetMachine(event) {
+            event.preventDefault();
+            
+            appendLog("Resetting machine - moving all motors to position 0");
+            
+            is_executing = true;
+            updateButtonState();
+            
+            fetch(`${BASE_URL}/reset`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            }).then(response => {
+                if (response.ok) {
+                    return response.json();
+                } else {
+                    console.log(response);
+                }
+            }).then(data => {
+                appendLog("Reset complete - all motors at position 0");
+            }).catch(error => {
+                appendLog("Reset error: " + error);
             }).finally(() => {
                 is_executing = false;
                 updateButtonState();

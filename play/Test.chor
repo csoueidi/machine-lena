@@ -1,0 +1,3 @@
+set_frps 0.2
+move(all,0.5)
+move(all,0)

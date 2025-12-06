@@ -1,5 +1,4 @@
-# Total time: ~48 seconds
-# Smooth sensual movements building from gentle sway to passionate crescendo
+# Barry White Inspired Choreography
 
 set_frps 0.12;
 sync {
@@ -9,7 +8,7 @@ sync {
 }
 wait(1);
 
-# First verse
+# First verse - Gentle swaying motion
 set_frps 0.18;
 sync {
     move(1, 0.6);
@@ -26,7 +25,7 @@ sync {
 }
 wait(0.5);
 
-# Building intensity
+# Building intensity - Smooth crescendo
 set_frps 0.25;
 sync {
     move(1, 0.75);
@@ -35,7 +34,7 @@ sync {
 }
 wait(0.8);
 
-# Chorus
+# Chorus - More passionate, fuller movements
 repeat 2 {
     set_frps 0.3;
     sync {
@@ -54,7 +53,7 @@ repeat 2 {
     wait(0.4);
 }
 
-# Bridge
+# Bridge - Orchestral swell with alternating movements
 set_frps 0.15;
 move(1, 0.9);
 wait(0.3);
@@ -70,18 +69,56 @@ sync {
     move(2, 0.45);
     move(4, 0.48);
 }
+wait(0.6);
+
+# Second verse - Deep groove
+set_frps 0.25;
+sync {
+    move(1, 0.7);
+    move(2, 0.6);
+    move(4, 0.65);
+}
 wait(0.4);
 
-# Outro
+set_frps 0.25;
+sync {
+    move(1, 0.35);
+    move(2, 0.3);
+    move(4, 0.32);
+}
+wait(0.4);
+
+# Final chorus - Peak emotional intensity
+repeat 2 {
+    set_frps 0.4;
+    sync {
+        move(1, 0.95);
+        move(2, 0.9);
+        move(4, 0.92);
+    }
+    wait(0.3);
+    
+    set_frps 0.45;
+    sync {
+        move(1, 0.5);
+        move(2, 0.45);
+        move(4, 0.48);
+    }
+    wait(0.3);
+}
+
+# Outro - Slow, sensual fade out
 set_frps 0.15;
 sync {
-    move(1, 0.3);
-    move(2, 0.25);
-    move(4, 0.28);
+    move(1, 0.6);
+    move(2, 0.5);
+    move(4, 0.55);
 }
-wait(0.5);
+wait(0.8);
 
-# Final resolution
+
+
+# Final resolution - gentle close
 set_frps 0.08;
 sync {
     move(1, 0);

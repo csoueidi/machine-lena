@@ -1,7 +1,5 @@
-# SCENE 11: Recoil - All Motors
-# A sudden pull back, like flinching from something
-# One sharp recoil movement on motors 1, 2, and 4
-# ~10 seconds total
+# Total time: ~2 seconds
+# Sharp recoil movement backwards on all motors
 
 # Sharp recoil backwards
 set_frps 20

@@ -1,69 +1,45 @@
-# SCENE 13: Romantic Sway
-# Slow, gentle swaying like a tender slow dance
-# Soft back and forth movements
+# SCENE 13: Al Salamou 3ala Dahikin
+# Each hand moves separately, far apart, very slow
+# Independent movements creating expansive gestures
 # Motors 1, 2, and 4
-# ~50 seconds total
+# ~40 seconds total
 
-# Gentle sway right
-set_frps 0.065
-sync {
-    move(1, 0.45)
-    move(2, 0.5)
-    move(4, 0.42)
-}
-wait(1.5)
-
-# Sway left
-set_frps 0.065
-sync {
-    move(1, 0.35)
-    move(2, 0.3)
-    move(4, 0.38)
-}
-wait(1.5)
-
-# Sway right again
-set_frps 0.065
-sync {
-    move(1, 0.5)
-    move(2, 0.55)
-    move(4, 0.47)
-}
-wait(1.5)
-
-# Sway left
-set_frps 0.065
-sync {
-    move(1, 0.3)
-    move(2, 0.25)
-    move(4, 0.33)
-}
-wait(1.5)
-
-# Center - gentle rise
-set_frps 0.065
-sync {
-    move(1, 0.42)
-    move(2, 0.4)
-    move(4, 0.4)
-}
-wait(1.5)
-
-# Final sway - settling
-set_frps 0.05
-sync {
-    move(1, 0.38)
-    move(2, 0.35)
-    move(4, 0.37)
-}
+# Motor 1 rises slowly (slow execution ~8s)
+set_frps 0.04
+move(1, 0.25)
 wait(2)
 
-# Reset to zero for next scene
-set_frps 0.1
+# Motor 2 moves to different position (slow execution ~10s)
+set_frps 0.02
+move(2, 0.5)
+wait(1.5)
+
+# Motor 4 goes high (slow execution ~8s)
+set_frps 0.2
+move(4, 0.4)
+wait(1)
+
+
+
+# Reset to zero for next scene (slow execution ~8s)
+set_frps 0.06
 sync {
-    move(1, 0)
-    move(2, 0)
-    move(4, 0)
+move(1,0)
 }
+ 
+sync {
+move(2,0)
+}
+
+ 
+sync {
+move(4,0)
+}
+
+wait(3)
+
+set_frps 10000
+move(1,0.15)
+move(1,0)
 
 # Thanks madre
