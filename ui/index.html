@@ -116,6 +116,12 @@
             border: 2px solid #ccc;
             resize: none;
             line-height: 1.5;
+            cursor: text;
+        }
+        
+        textarea:focus {
+            outline: 2px solid #4CAF50;
+            outline-offset: -2px;
         }
         
         /* Make selection visible even when textarea doesn't have focus */
@@ -127,6 +133,12 @@
         textarea::-moz-selection {
             background-color: #ffeb3b;
             color: #000;
+        }
+        
+        /* Strong visual indicator during execution */
+        textarea.executing-highlight {
+            box-shadow: inset 0 0 0 4px #ff9800 !important;
+            background-color: #fff9e6 !important;
         }
         
         textarea.executing {
@@ -316,6 +328,18 @@
             font-size: 12px;
             font-weight: bold;
         }
+        
+        kbd {
+            background-color: #f4f4f4;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            box-shadow: 0 1px 0 rgba(0,0,0,0.2);
+            padding: 2px 6px;
+            font-family: monospace;
+            font-size: 11px;
+            display: inline-block;
+        }
+        
     </style>
 </head>
 <body>
@@ -327,6 +351,9 @@
             <div style="display: flex; gap: 8px; margin-bottom: 8px;">
                 <button class="button refresh-button" type="button" onclick="getAllFiles()" style="flex: 1;">🔄 Refresh</button>
                 <button class="button refresh-button" type="button" onclick="toggleDebugMode()" id="debugButton" style="flex: 1;">🐛 Debug</button>
+            </div>
+            <div style="display: flex; gap: 8px; margin-bottom: 8px;">
+                <button class="button refresh-button" type="button" onclick="downloadAllChoreographies()" style="flex: 1; background-color: #4CAF50; color: white;">📦 Download All</button>
             </div>
             
             <h3>Files</h3>
@@ -351,9 +378,14 @@
             <div class="textarea-wrapper">
                 <textarea id="fileContent" placeholder="Select a file to view..."></textarea>
             </div>
+            
+            <div style="font-size: 11px; color: #666; margin-bottom: 6px; font-style: italic;">
+                💡 Tip: Click and drag to select text, then press <kbd>Ctrl+E</kbd> (or <kbd>Cmd+E</kbd>) to execute selection. Press <kbd>Ctrl+E</kbd> without selection to execute all.
+            </div>
 
             <div class="editor-controls">
-                <button class="button" id="executeButton" type="button" onclick="executeLoadedFile(event)">▶️ Execute</button>
+                <button class="button" id="executeButton" type="button" onclick="executeLoadedFile(event)" title="Execute entire choreography (Ctrl+E or Cmd+E)">▶️ Execute</button>
+                <button class="button" id="executeSelectionButton" type="button" onclick="executeSelection(event)" style="background-color: #fff3cd;" title="Execute selected text only (Ctrl+E or Cmd+E with selection)">⚡ Execute Selection</button>
                 <button class="button" type="button" onclick="stopExecution(event)" style="background-color: #ffebee;">⏹️ Stop</button>
                 <button class="button" id="resetButton" type="button" onclick="resetMachine(event)" style="background-color: #e3f2fd;">🔄 Reset</button>
             </div>
@@ -399,6 +431,23 @@
         let debugMode = false;
         let debugLogFile = null;
      
+        // Keyboard shortcuts
+        document.addEventListener('keydown', function(event) {
+            // Check for Ctrl+E or Cmd+E
+            if ((event.ctrlKey || event.metaKey) && event.key === 'e') {
+                event.preventDefault(); // Prevent default browser behavior
+                
+                const textarea = document.getElementById('fileContent');
+                const selectedText = textarea.value.substring(textarea.selectionStart, textarea.selectionEnd);
+                
+                // If there's a selection, execute it; otherwise execute the whole file
+                if (selectedText.trim().length > 0) {
+                    executeSelection(event);
+                } else {
+                    executeLoadedFile(event);
+                }
+            }
+        });
  
         function getAllFiles() {
             if (isLoadingFiles) return; // Prevent duplicate calls
@@ -445,8 +494,28 @@
             highlightSelectedFile(filename);
             getFile(filename);
 
-            // Make textarea read-only to prevent accidental edits
-            document.getElementById('fileContent').readOnly = true;
+            // Keep textarea editable for easier selection
+            // User should use Edit modal for actual editing
+            const textarea = document.getElementById('fileContent');
+            textarea.readOnly = false;
+            
+            // Prevent accidental edits with a warning
+            textarea.onkeydown = function(e) {
+                // Allow Ctrl/Cmd shortcuts
+                if (e.ctrlKey || e.metaKey) {
+                    return true;
+                }
+                // Allow navigation keys
+                if ([37, 38, 39, 40, 36, 35, 33, 34].includes(e.keyCode)) {
+                    return true;
+                }
+                // Warn about editing
+                if (!textarea.dataset.editWarned) {
+                    alert("To edit this file, click the '✏️ Edit' button to open the editor modal.");
+                    textarea.dataset.editWarned = 'true';
+                }
+                return false;
+            };
 
             // Update the title with the filename
             const editFileTitle = document.getElementById("editFileTitle");
@@ -558,9 +627,13 @@
 
         function updateButtonState() {
             const executeButton = document.getElementById("executeButton");
+            const executeSelectionButton = document.getElementById("executeSelectionButton");
             const resetButton = document.getElementById("resetButton");
             if (executeButton) {
                 executeButton.disabled = is_executing; // Disable if is_executing is true
+            }
+            if (executeSelectionButton) {
+                executeSelectionButton.disabled = is_executing; // Disable if is_executing is true
             }
             if (resetButton) {
                 resetButton.disabled = is_executing; // Disable reset button during execution
@@ -568,7 +641,21 @@
         }
 
         let is_executing = false;
+        let userIsSelecting = false;
 
+        // Track when user is selecting text
+        document.addEventListener('mousedown', function(event) {
+            const textarea = document.getElementById('fileContent');
+            if (event.target === textarea) {
+                userIsSelecting = true;
+            }
+        });
+
+        document.addEventListener('mouseup', function(event) {
+            setTimeout(() => {
+                userIsSelecting = false;
+            }, 500); // Give user 500ms after mouse up before resuming highlights
+        });
 
 
         function stopExecution(event) {
@@ -628,6 +715,59 @@
             }).catch(error => {
                 
               appendLog(error); // Log the action
+            }).finally(() => {
+                is_executing = false;
+                updateButtonState();
+            });
+        }
+
+        function executeSelection(event) {
+            event.preventDefault();
+            
+            const textarea = document.getElementById('fileContent');
+            const selectedText = textarea.value.substring(textarea.selectionStart, textarea.selectionEnd);
+            
+            if (!selectedText || selectedText.trim().length === 0) {
+                alert("Please select a portion of the choreography to execute!");
+                return;
+            }
+
+            if (is_executing) {
+                alert("Another choreography is currently executing!");
+                return;
+            }
+
+            const selectionStart = textarea.selectionStart;
+            const selectionEnd = textarea.selectionEnd;
+            const beforeSelection = textarea.value.substring(0, selectionStart);
+            const lineNumber = beforeSelection.split('\n').length;
+            
+            appendLog(`Executing selection from line ${lineNumber} (${selectedText.split('\n').length} lines)`);
+            
+            is_executing = true;
+            updateButtonState();
+            
+            fetch(`${BASE_URL}/execute_selection`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ 
+                    content: selectedText,
+                    filename: currentFilename || 'selection',
+                    lineNumber: lineNumber
+                })
+            }).then(response => {
+                if (response.ok) {
+                    return response.json();
+                } else {
+                    throw new Error('Failed to execute selection');
+                }
+            }).then(data => {
+                appendLog(`Selection executed successfully`);
+            }).catch(error => {
+                console.error('Error executing selection:', error);
+                appendLog(`Error executing selection: ${error.message}`);
             }).finally(() => {
                 is_executing = false;
                 updateButtonState();
@@ -770,6 +910,11 @@
         }
         
         function updateExecutionStatus() {
+    // Skip updating if user is actively selecting text
+    if (userIsSelecting) {
+        return;
+    }
+    
     fetch(`${BASE_URL}/check_execution_status`)
         .then(response => response.json())
         .then(data => {
@@ -814,9 +959,19 @@ function displayExecutionLogs(logs) {
 
 function highlightExecutingLine(lineNumber) {
     const textarea = document.getElementById('fileContent');
+    
+    // Don't highlight if user is actively selecting text manually
+    const userSelection = textarea.selectionEnd - textarea.selectionStart;
+    if (userSelection > 0 && userIsSelecting) {
+        return; // User is actively selecting, don't interfere
+    }
+    
     const lines = textarea.value.split('\n');
     
     if (lineNumber > 0 && lineNumber <= lines.length) {
+        // Add strong visual border and background
+        textarea.classList.add('executing-highlight');
+        
         // Calculate the start and end position of the line
         let startPos = 0;
         for (let i = 0; i < lineNumber - 1; i++) {
@@ -824,33 +979,32 @@ function highlightExecutingLine(lineNumber) {
         }
         const endPos = startPos + lines[lineNumber - 1].length;
         
-        // Temporarily remove readonly to allow selection highlighting
-        textarea.readOnly = false;
-        
-        // Focus the textarea first to make selection visible
-        textarea.focus();
-        
-        // Select the line - this shows the highlight
+        // Select the line - this creates the yellow highlight
         textarea.setSelectionRange(startPos, endPos);
         
-        // Scroll to the line with more context
+        // Scroll to the line with context
         const lineHeight = parseInt(window.getComputedStyle(textarea).lineHeight) || 21;
-        const contextLines = 3; // Lines to show before current line
+        const contextLines = 3;
         textarea.scrollTop = Math.max(0, (lineNumber - contextLines - 1) * lineHeight);
         
-        // Immediately make readonly again to prevent editing
-        setTimeout(() => {
-            textarea.readOnly = true;
-        }, 100);
+        // Force focus to make selection visible
+        textarea.focus();
     }
 }
 
 function clearHighlight() {
     const textarea = document.getElementById('fileContent');
     if (textarea) {
-        textarea.setSelectionRange(0, 0);
+        // Remove visual class
+        textarea.classList.remove('executing-highlight');
+        
+        // Only clear selection if user isn't actively selecting
+        if (!userIsSelecting) {
+            textarea.setSelectionRange(0, 0);
+            textarea.blur(); // Remove focus after execution
+        }
     }
-    lastLogCount = 0; // Reset log counter for next execution
+    lastLogCount = 0;
 }
 
 // Poll every second
@@ -900,6 +1054,42 @@ function checkDebugStatus() {
     })
     .catch(error => {
         console.error('Error checking debug status:', error);
+    });
+}
+
+function downloadAllChoreographies() {
+    appendLog("Preparing download of all choreographies...");
+    
+    fetch(`${BASE_URL}/download_all`)
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Failed to download choreographies');
+        }
+        return response.blob();
+    })
+    .then(blob => {
+        // Create a download link
+        const url = window.URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.style.display = 'none';
+        a.href = url;
+        
+        // Get filename from Content-Disposition header or use default
+        const timestamp = new Date().toISOString().replace(/[:.]/g, '-').slice(0, -5);
+        a.download = `choreographies_${timestamp}.zip`;
+        
+        document.body.appendChild(a);
+        a.click();
+        
+        // Cleanup
+        window.URL.revokeObjectURL(url);
+        document.body.removeChild(a);
+        
+        appendLog("Choreographies downloaded successfully");
+    })
+    .catch(error => {
+        console.error('Error downloading choreographies:', error);
+        appendLog(`Error downloading choreographies: ${error.message}`);
     });
 }
 

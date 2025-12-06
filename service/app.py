@@ -1,4 +1,4 @@
-from flask import Flask, jsonify, request, send_from_directory, abort
+from flask import Flask, jsonify, request, send_from_directory, abort, send_file
 from flask_cors import CORS
 import os
 import time
@@ -6,6 +6,8 @@ import sys
 import logging
 from datetime import datetime
 from myparser import MyParser
+import zipfile
+import io
 
 
 app = Flask(__name__)
@@ -147,6 +149,55 @@ def execute_action(filename):
 
     return abort(404, description="File not found")
 
+@app.route('/execute_selection', methods=['POST'])
+def execute_selection():
+    """Execute a selected portion of choreography code"""
+    global is_executing, executing_file, execution_message, myParser
+    if is_executing:
+        return abort(400, description="Wait! Another file is currently executing.")
+    
+    data = request.json
+    content = data.get('content', '')
+    filename = data.get('filename', 'selection')
+    line_number = data.get('lineNumber', 0)
+    
+    if not content or content.strip() == '':
+        return abort(400, description="No content provided")
+    
+    log_choreography_debug(f"========== STARTING SELECTION EXECUTION (from {filename} line {line_number}) ==========")
+    if debug_mode:
+        log_choreography_debug(f"Selection content:\n{content}")
+        log_choreography_debug("=" * 60)
+    
+    # Create temporary file with the selection
+    import tempfile
+    with tempfile.NamedTemporaryFile(mode='w', suffix='.chor', delete=False) as temp_file:
+        temp_file.write(content)
+        temp_file_path = temp_file.name
+    
+    try:
+        # Set debug logger on parser if debug mode is enabled
+        if debug_mode:
+            myParser.set_debug_logger(debug_logger)
+        else:
+            myParser.set_debug_logger(None)
+        
+        is_executing = True
+        execution_message = myParser.execute(temp_file_path, f"{filename}_selection_line{line_number}")
+        is_executing = False
+        
+        log_choreography_debug(f"========== FINISHED SELECTION EXECUTION ==========\n")
+        
+        return jsonify({"success": "Selection executed successfully"})
+    except Exception as e:
+        is_executing = False
+        log_choreography_debug(f"Error executing selection: {str(e)}")
+        return abort(500, description=f"Error executing selection: {str(e)}")
+    finally:
+        # Clean up temporary file
+        if os.path.exists(temp_file_path):
+            os.remove(temp_file_path)
+
 @app.route('/stop/<filename>', methods=['POST'])
 def stop_action(filename): 
     global myParser, is_executing
@@ -263,6 +314,40 @@ def debug_status():
         "debug_mode": debug_mode,
         "log_file": debug_log_file
     })
+
+@app.route('/download_all', methods=['GET'])
+def download_all_choreographies():
+    """Download all choreography files as a zip"""
+    try:
+        play_dir = os.path.join(os.getcwd(), 'play')
+        files = [f for f in os.listdir(play_dir) if f.endswith('.chor')]
+        
+        if not files:
+            return abort(404, description="No choreography files found")
+        
+        # Create a zip file in memory
+        memory_file = io.BytesIO()
+        with zipfile.ZipFile(memory_file, 'w', zipfile.ZIP_DEFLATED) as zipf:
+            for filename in files:
+                file_path = os.path.join(play_dir, filename)
+                zipf.write(file_path, filename)
+        
+        memory_file.seek(0)
+        
+        # Generate timestamp for filename
+        timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+        zip_filename = f'choreographies_{timestamp}.zip'
+        
+        print(f"Sending zip file with {len(files)} choreographies")
+        return send_file(
+            memory_file,
+            mimetype='application/zip',
+            as_attachment=True,
+            download_name=zip_filename
+        )
+    except Exception as e:
+        print(f"Error creating zip: {e}")
+        return abort(500, description=f"Error creating zip file: {str(e)}")
 
 
 

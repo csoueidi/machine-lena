@@ -1,13 +1,33 @@
-  
-    repeat 9{
-        sync {  
-                move(all, 0.1,1000);
-                move(all, 0,1000);
-            }
-    }
-    repeat 9{
-        sync {  
-                move(all, 0.1,1000);
-                move(all, 0,1000);
-            }
-    }
+# 0.005 102
+
+set_frps 0.03
+
+repeat 2{
+move(1, 0.25)
+
+ 
+sync{
+move(1, 0.4)
+move(2, 0.15)
+ 
+}
+ 
+
+sync{
+move(1, 0.6)
+move(2, 0.48)
+move(4, 0.49)
+}
+
+sync{
+move(1, 0)
+move(2, 0)
+move(4, 0)
+}
+}
+
+sync{
+move(1, 0.6)
+move(2, 0.48)
+move(4, 0.49)
+}
