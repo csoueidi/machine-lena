@@ -1,4 +1,4 @@
-set_frps 0.08
+set_frps 200
 sync {
     move(1, 0)
     move(2, 0)

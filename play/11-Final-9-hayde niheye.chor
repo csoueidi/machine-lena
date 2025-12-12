@@ -1,4 +1,4 @@
-# 0.005 102
+# hayde l niheye - 7asse b nabad
 
 set_frps 0.03
 
@@ -9,7 +9,8 @@ move(1, 0.25)
 sync{
 move(1, 0.4)
 move(2, 0.15)
- 
+move(4, 0.15)
+
 }
  
 
@@ -18,3 +19,4 @@ move(1, 0.6)
 move(2, 0.48)
 move(4, 0.49)
 }
+

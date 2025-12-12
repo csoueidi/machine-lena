@@ -1,19 +1,5 @@
-  # Knock
-    repeat 9{
-        sync {  
-                move(all, 0.1,1000);
-                move(all, 0,1000);
-            }
-    }
-    repeat 9{
-        sync {  
-                move(all, 0.1,1000);
-                move(all, 0,1000);
-            }
-    }
-
-
-# Shake
+# HERE
+# Shake up/down with crescendo at 4 FRPS
 
 repeat 3
 {
@@ -44,27 +30,3 @@ sync {
     move(4, 0.49)
 }
 }
-   
-# Breathe
-
-# set_frps 0.05;
-# sync {
-   #  move(all, 0.3);
-# }
-
-repeat 2 {
-    set_frps 0.05;
-    sync {
-        move(all, 0.35);
-    }
-
-    sync {
-        move(all, 0.15);
-    }
-
-}
-
-
-sync {
-        move(all, 0);
-    }

@@ -1,0 +1,18 @@
+sync {
+        move(all, 0);
+    }
+
+
+    wait(2)
+    repeat 9{
+        sync {  
+                move(all, 0.1,1000);
+                move(all, 0,1000);
+            }
+    }
+    repeat 9{
+        sync {  
+                move(all, 0.1,1000);
+                move(all, 0,1000);
+            }
+    }

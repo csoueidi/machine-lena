@@ -1,27 +1,28 @@
 # Total time: ~49 seconds
 # Romantic slow swaying motion back and forth
+# removed the waits
 
 # Gentle sway right
 set_frps 0.02
 sync {
-    move(1, 0.45)
+    move(1, 0.4)
     move(2, 0.5)
-    move(4, 0.42)
+    move(4, 0.4)
 }
-wait(1)
+
 
 # Sway left
-set_frps 0.02
+set_frps 0.04
 sync {
     move(1, 0.25)
     move(2, 0.15)
     move(4, 0.25)
 }
-wait(1.5)
+
 
 
 # Reset to zero for next scene
-set_frps 0.1
+set_frps 0.15
 sync {
     move(1, 0)
     move(2, 0)

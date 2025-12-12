@@ -1,26 +1,5 @@
-# 0.005 102
+# when they start crawling - kish ya mot and laughs
 
-set_frps 0.08
-
-
-move(1, 0.25)
-
- 
-sync{
-move(1, 0.4)
-move(2, 0.15)
- 
-}
- 
-
-sync{
-move(1, 0)
-move(2, 0)
-move(4, 0)
-}
-
- 
-# HERE
 # Shake up/down with crescendo at 4 FRPS
 
 repeat 3
@@ -106,3 +85,21 @@ sync {
                 move(all, 0,1000);
             }
     }
+
+set_frps 0.01
+sync{
+move(1, 0.6)
+move(2, 0.58)
+move(4, 0.29)
+}
+
+sync{
+move(1, 0.3)
+move(2, 0.28)
+}
+
+sync{
+move(1, 0.6)
+move(2, 0.58)
+move(4, 0.29)
+}
