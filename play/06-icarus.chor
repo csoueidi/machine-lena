@@ -1,5 +1,4 @@
-# Total time: ~9 seconds
-# Simple rise and fall motion with motors 1 and 2
+# bteer ma3 naweris la estad l samak - Then Ziad whistles - after first whistle
 
 set_frps 0.02
 sync {

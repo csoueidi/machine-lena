@@ -3,7 +3,7 @@ application:
 motors:
   1:
     dir_pin: 20
-    initial_position: 4441
+    initial_position: 5336
     inverted: true
     led_pin: 16
     max_deg: 1000
@@ -13,7 +13,7 @@ motors:
     steps_per_second: 500
   2:
     dir_pin: 25
-    initial_position: 4266
+    initial_position: 4886
     inverted: true
     led_pin: 12
     max_deg: 1000
@@ -23,7 +23,7 @@ motors:
     steps_per_second: 500
   3:
     dir_pin: 17
-    initial_position: 14
+    initial_position: 0
     inverted: true
     led_pin: 7
     max_deg: 1000
@@ -33,7 +33,7 @@ motors:
     steps_per_second: 500
   4:
     dir_pin: 5
-    initial_position: 4358
+    initial_position: 5156
     inverted: true
     led_pin: 1
     max_deg: 1000
