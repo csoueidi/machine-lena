@@ -11,9 +11,10 @@ parent_dir = str(Path(__file__).parent.parent)
 sys.path.append(parent_dir)
 
 import config.config as config
+from lights.motor_led_controller import MotorLEDController
 
 class Stepper:
-    def __init__(self, step_pin, dir_pin, en_pin=None, steps_per_rev=200, speed_sps=10,  max_deg = 360, min_deg=0,invert_dir=False, motor_name=None, initial_position=0):
+    def __init__(self, step_pin, dir_pin, en_pin=None, steps_per_rev=200, speed_sps=10,  max_deg = 360, min_deg=0,invert_dir=False, motor_name=None, initial_position=0, led_pin=None):
         
         GPIO.setmode(GPIO.BCM)
         # GPIO Configuration modes
@@ -51,6 +52,14 @@ class Stepper:
         self.isExecuting = False
         self.pending_target_deg = self.get_pos_deg()  # Track the target after all queued moves
         self.timer = None
+        
+        # Initialize LED controller if led_pin is provided
+        self.led_controller = None
+        if led_pin is not None:
+            self.led_controller = MotorLEDController(led_pin)
+        
+        self.current_frps = 0  # Track current speed for LED updates
+        
         self.track_target()
     
     def enqueue_item(self, degree, speed, is_move):
@@ -196,6 +205,12 @@ class Stepper:
                     velocity = vel * self.maxsteps    
                     self.speed(velocity)
                     self.target_deg(degree)
+                    
+                    # Update LED brightness based on speed
+                    self.current_frps = vel
+                    if self.led_controller is not None:
+                        self.led_controller.update_brightness(vel)
+                        print(f"Motor {self.motor_name}: LED brightness updated for speed {vel} frps")
 
             if self.target_pos > self.pos:
                 self.step(1)
@@ -204,6 +219,11 @@ class Stepper:
                 self.step(-1)
                 self.isExecuting = True
             else:
+                # Motor stopped, turn off LED
+                if self.isExecuting:  # Only update if transitioning from moving to stopped
+                    self.current_frps = 0
+                    if self.led_controller is not None:
+                        self.led_controller.turn_off()
                 self.isExecuting = False
 
             time.sleep(self.update_rate)
@@ -230,6 +250,10 @@ class Stepper:
         GPIO.output(self.dir_pin, GPIO.LOW)
         if self.en_pin is not None:
             GPIO.output(self.en_pin, GPIO.LOW)
+        
+        # Turn off LED when motor stops
+        if self.led_controller is not None:
+            self.led_controller.cleanup()
 
     def save_position(self):
         config.update_initial_position(self.motor_name, self.pos)

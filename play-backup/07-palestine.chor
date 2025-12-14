@@ -1,0 +1,16 @@
+
+
+# Total time: ~28 seconds
+# Very slow single motor movement up and down on motor 4
+
+repeat 1 {
+set_frps 0.015
+sync{
+  move (4,0.2)
+ }
+set_frps 0.015
+sync{
+  move(4,0)
+ }
+
+}

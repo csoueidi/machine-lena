@@ -27,7 +27,7 @@ class MockGPIO:
         x=1
 
 class Stepper:
-    def __init__(self, step_pin, dir_pin, en_pin=None, steps_per_rev=200, speed_sps=10,  max_deg = 360, min_deg=0,invert_dir=False, motor_name=None, initial_position=0):
+    def __init__(self, step_pin, dir_pin, en_pin=None, steps_per_rev=200, speed_sps=10,  max_deg = 360, min_deg=0,invert_dir=False, motor_name=None, initial_position=0, led_pin=None):
         self.GPIO = MockGPIO
         self.GPIO.setmode(MockGPIO.BCM)
         self.GPIO.setup(step_pin, MockGPIO.OUT)
@@ -58,6 +58,11 @@ class Stepper:
         self.running = False
         self.isExecuting = False
         self.timer = None
+        
+        # LED controller is not used in mock mode
+        self.led_controller = None
+        self.current_frps = 0
+        
         self.track_target()
     
     def enqueue_item(self, degree, speed, is_move):

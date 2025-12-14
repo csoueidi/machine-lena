@@ -1,14 +1,20 @@
-
-
-# Total time: ~28 seconds
-# Very slow single motor movement up and down on motor 4
-
+# beteer mn hon la hon
 repeat 1 {
-set_frps 0.015
+set_frps 0.025
 sync{
-  move (4,0.2)
+  move (4,0.25)
  }
-set_frps 0.015
+set_frps 0.02
+wait(1)
+sync{
+  move (4,0.15)
+ }
+wait(0.1)
+sync{
+  move (4,0.3)
+ }
+
+set_frps 0.025
 sync{
   move(4,0)
  }

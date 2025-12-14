@@ -19,6 +19,7 @@ import time
 
 class MyParser:
     def __init__(self):
+            self.motors = None  # Initialize as None first
             self.motors = config.get_motors_map()
             self.visitor = None
             self.debug_logger = None
@@ -40,6 +41,15 @@ class MyParser:
             self.visitor.pause_flag.clear()             
 
     def execute(self, file_path, filename):
+        
+        # Clean up existing motors and their LED controllers before creating new ones
+        if hasattr(self, 'motors') and self.motors is not None:
+            for motor_id, motor in self.motors.items():
+                if hasattr(motor, 'led_controller') and motor.led_controller is not None:
+                    try:
+                        motor.led_controller.cleanup()
+                    except:
+                        pass
  
         self.motors = config.get_motors_map()
         with open(file_path, "r") as file:

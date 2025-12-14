@@ -1,0 +1,62 @@
+# 19 seconds - 7 km and riwa jumps into inside the machine
+
+# Opening - All three motors stomping together (the line forms)
+set_frps 0.2
+
+# Basic dabke step: STOMP-step-STOMP-step
+sync {
+    move(1, 0.4)
+    move(2, 0.35)
+    move(4, 0.37)
+}
+wait(0.1)
+sync {
+    move(1, 0.2)
+    move(2, 0.15)
+    move(4, 0.17)
+}
+wait(0.15)
+
+sync {
+    move(1, 0.45)
+    move(2, 0.4)
+    move(4, 0.42)
+}
+wait(0.1)
+sync {
+    move(1, 0.2)
+    move(2, 0.15)
+    move(4, 0.17)
+}
+wait(0.2)
+
+# Continue line dancing - building energy
+set_frps 0.35
+sync {
+    move(1, 0.5)
+    move(2, 0.45)
+    move(4, 0.47)
+}
+wait(0.1)
+sync {
+    move(1, 0.25)
+    move(2, 0.2)
+    move(4, 0.22)
+}
+wait(0.2)
+
+sync {
+    move(1, 0.55)
+    move(2, 0.5)
+    move(4, 0.52)
+}
+wait(0.1)
+
+
+# Reset to zero for next scene
+set_frps 0.15
+sync {
+    move(1, 0)
+    move(2, 0)
+    move(4, 0)
+}

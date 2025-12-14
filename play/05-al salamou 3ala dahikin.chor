@@ -1,45 +1,30 @@
-# SCENE 13: Al Salamou 3ala Dahikin
-# Each hand moves separately, far apart, very slow
-# Independent movements creating expansive gestures
-# Motors 1, 2, and 4
-# ~40 seconds total
+# when they become in machine behind -> al 3omro alathi here
+ 
+ 
+sync{ 
+move(1, 0.7,0.035)
 
-# Motor 1 rises slowly (slow execution ~8s)
-set_frps 0.04
-move(1, 0.25)
-wait(2)
+move(2, 0.55, 0.02)
 
-# Motor 2 moves to different position (slow execution ~10s)
-set_frps 0.02
-move(2, 0.5)
-wait(1.5)
+move(4, 0.15, 0.02)
+}
+ 
+wait(3)
 
-# Motor 4 goes high (slow execution ~8s)
-set_frps 0.2
-move(4, 0.4)
-wait(1)
-
-
-
-# Reset to zero for next scene (slow execution ~8s)
-set_frps 0.06
+ 
+set_frps 0.05
 sync {
 move(1,0)
-}
- 
-sync {
-move(2,0)
-}
 
- 
-sync {
+move(2,0)
+
 move(4,0)
 }
 
-wait(3)
+wait(1.5)
 
 set_frps 10000
 move(1,0.15)
 move(1,0)
 
-# Thanks madre
+ 

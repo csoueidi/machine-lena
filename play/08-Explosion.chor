@@ -1,0 +1,6 @@
+   repeat 4{
+        sync {  
+                move(all, 0.1,1000);
+                move(all, 0,1000);
+            }
+    }

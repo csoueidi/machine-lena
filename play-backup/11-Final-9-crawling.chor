@@ -1,0 +1,125 @@
+# when they start crawling - kish ya mot and laughs
+
+# Shake up/down with crescendo at 4 FRPS
+
+repeat 4
+{
+set_frps 4.0
+
+# Crescendo shakes — increasing amplitude
+sync { move(1, 0.50) move(2, 0.48) move(4, 0.49) }   # baseline
+
+# Small shake
+sync { move(1, 0.52) move(2, 0.46) move(4, 0.51) }
+sync { move(1, 0.48) move(2, 0.50) move(4, 0.47) }
+
+# Medium shake
+sync { move(1, 0.54) move(2, 0.44) move(4, 0.53) }
+sync { move(1, 0.46) move(2, 0.52) move(4, 0.45) }
+
+# Large shake (crescendo peak)
+sync { move(1, 0.56) move(2, 0.42) move(4, 0.55) }
+sync { move(1, 0.44) move(2, 0.54) move(4, 0.43) }
+
+wait(0.5)
+
+# Settle center
+set_frps 0.06
+sync {
+    move(1, 0.5)
+    move(2, 0.48)
+    move(4, 0.49)
+}
+}
+
+set_frps 0.15
+
+repeat 2{
+move(1, 0.25)
+move(4, 0.75)
+ 
+sync{
+move(1, 0.4)
+move(2, 0.25)
+move(4, 0.35)
+ 
+}
+ 
+
+sync{
+move(1, 0.6)
+move(2, 0.48)
+move(4, 0.49)
+}
+}
+
+   
+
+repeat 3
+{
+set_frps 4.0
+
+# Crescendo shakes — increasing amplitude
+sync { move(1, 0.50) move(2, 0.48) move(4, 0.49) }   # baseline
+
+# Small shake
+sync { move(1, 0.52) move(2, 0.46) move(4, 0.51) }
+sync { move(1, 0.48) move(2, 0.50) move(4, 0.47) }
+
+# Medium shake
+sync { move(1, 0.54) move(2, 0.44) move(4, 0.53) }
+sync { move(1, 0.46) move(2, 0.52) move(4, 0.45) }
+
+# Large shake (crescendo peak)
+sync { move(1, 0.56) move(2, 0.42) move(4, 0.55) }
+sync { move(1, 0.44) move(2, 0.54) move(4, 0.43) }
+
+wait(0.5)
+
+# Settle center
+set_frps 0.06
+sync {
+    move(1, 0.5)
+    move(2, 0.48)
+    move(4, 0.49)
+}
+
+
+}
+set_frps 0.25
+sync {
+        move(all, 0);
+    }
+
+
+    wait(2)
+    repeat 9{
+        sync {  
+                move(all, 0.1,1000);
+                move(all, 0,1000);
+            }
+    }
+    repeat 9{
+        sync {  
+                move(all, 0.1,1000);
+                move(all, 0,1000);
+            }
+    }
+
+set_frps 0.01
+sync{
+move(1, 0.6)
+move(2, 0.58)
+move(4, 0.29)
+}
+
+sync{
+move(1, 0.3)
+move(2, 0.28)
+}
+
+sync{
+move(1, 0.6)
+move(2, 0.58)
+move(4, 0.29)
+}

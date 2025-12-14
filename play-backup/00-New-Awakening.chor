@@ -1,0 +1,22 @@
+# when she hangs upside down and start playing with her hands
+# 40 seconds
+
+set_frps 0.01
+
+sync{
+
+move(2, 0.2)
+ 
+}
+
+sync{
+move(1, 0.2)
+move(2, 0.4)
+move(4, 0.2)
+}
+set_frps 0.01
+sync{
+move(1, 0)
+move(2, 0)
+move(4, 0)
+}

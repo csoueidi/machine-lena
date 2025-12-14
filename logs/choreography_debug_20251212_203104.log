@@ -1,0 +1,580 @@
+2025-12-12 20:31:04,260 - === Choreography Debug Mode Enabled ===
+2025-12-12 20:31:04,260 - Logging to: /home/pi/Code/machine-code/machine/logs/choreography_debug_20251212_203104.log
+2025-12-12 20:31:05,945 - ========== STARTING EXECUTION: test_light.chor ==========
+2025-12-12 20:31:05,946 - Choreography content:
+set_frps 0.02
+
+sync{
+move(1, 0.1)
+}
+
+wait(0.1)
+
+set_frps 0.05
+sync{
+move(1, 0.2)
+}
+
+ wait (2)
+sync{
+move(1, 0)
+}
+
+ 
+2025-12-12 20:31:05,947 - ============================================================
+2025-12-12 20:31:05,969 - [test_light.chor] Line 1: set speed 0.02 frps (0.0s)
+2025-12-12 20:31:05,980 - [test_light.chor] Line 4: move motor 1 0.1% (0.0s)
+2025-12-12 20:31:11,259 - [test_light.chor] Line 4: sync command (5.289s)
+2025-12-12 20:31:11,370 - [test_light.chor] Line 7: wait 0.1s (0.11s)
+2025-12-12 20:31:11,371 - [test_light.chor] Line 9: set speed 0.05 frps (0.0s)
+2025-12-12 20:31:11,382 - [test_light.chor] Line 11: move motor 1 0.2% (0.001s)
+2025-12-12 20:31:13,650 - [test_light.chor] Line 11: sync command (2.279s)
+2025-12-12 20:31:15,661 - [test_light.chor] Line 14: wait 2.0s (2.01s)
+2025-12-12 20:31:15,672 - [test_light.chor] Line 16: move motor 1 0.0% (0.0s)
+2025-12-12 20:31:20,196 - [test_light.chor] Line 16: sync command (4.535s)
+2025-12-12 20:31:20,324 - ========== FINISHED EXECUTION: test_light.chor ==========
+
+2025-12-12 20:31:34,958 - ========== STARTING EXECUTION: test_light.chor ==========
+2025-12-12 20:31:34,959 - Choreography content:
+set_frps 0.02
+
+sync{
+move(1, 0.1)
+}
+
+wait(0.1)
+
+set_frps 0.05
+sync{
+move(1, 0.2)
+}
+
+ wait (2)
+sync{
+move(1, 0)
+}
+
+ 
+2025-12-12 20:31:34,959 - ============================================================
+2025-12-12 20:31:34,974 - [test_light.chor] Line 1: set speed 0.02 frps (0.0s)
+2025-12-12 20:31:34,985 - [test_light.chor] Line 4: move motor 1 0.1% (0.0s)
+2025-12-12 20:31:40,264 - [test_light.chor] Line 4: sync command (5.289s)
+2025-12-12 20:31:40,375 - [test_light.chor] Line 7: wait 0.1s (0.11s)
+2025-12-12 20:31:40,375 - [test_light.chor] Line 9: set speed 0.05 frps (0.0s)
+2025-12-12 20:31:40,386 - [test_light.chor] Line 11: move motor 1 0.2% (0.0s)
+2025-12-12 20:31:42,654 - [test_light.chor] Line 11: sync command (2.278s)
+2025-12-12 20:31:44,666 - [test_light.chor] Line 14: wait 2.0s (2.01s)
+2025-12-12 20:31:44,677 - [test_light.chor] Line 16: move motor 1 0.0% (0.0s)
+2025-12-12 20:31:49,197 - [test_light.chor] Line 16: sync command (4.53s)
+2025-12-12 20:31:49,288 - ========== FINISHED EXECUTION: test_light.chor ==========
+
+2025-12-12 20:31:51,627 - ========== STARTING EXECUTION: test_light.chor ==========
+2025-12-12 20:31:51,627 - Choreography content:
+set_frps 0.02
+
+sync{
+move(1, 0.1)
+}
+
+wait(0.1)
+
+set_frps 0.05
+sync{
+move(1, 0.2)
+}
+
+ wait (2)
+sync{
+move(1, 0)
+}
+
+ 
+2025-12-12 20:31:51,628 - ============================================================
+2025-12-12 20:31:51,642 - [test_light.chor] Line 1: set speed 0.02 frps (0.0s)
+2025-12-12 20:31:51,653 - [test_light.chor] Line 4: move motor 1 0.1% (0.0s)
+2025-12-12 20:31:56,911 - [test_light.chor] Line 4: sync command (5.268s)
+2025-12-12 20:31:57,022 - [test_light.chor] Line 7: wait 0.1s (0.11s)
+2025-12-12 20:31:57,023 - [test_light.chor] Line 9: set speed 0.05 frps (0.0s)
+2025-12-12 20:31:57,033 - [test_light.chor] Line 11: move motor 1 0.2% (0.0s)
+2025-12-12 20:31:59,323 - [test_light.chor] Line 11: sync command (2.301s)
+2025-12-12 20:32:01,334 - [test_light.chor] Line 14: wait 2.0s (2.01s)
+2025-12-12 20:32:01,345 - [test_light.chor] Line 16: move motor 1 0.0% (0.0s)
+2025-12-12 20:32:05,882 - [test_light.chor] Line 16: sync command (4.548s)
+2025-12-12 20:32:05,962 - ========== FINISHED EXECUTION: test_light.chor ==========
+
+2025-12-12 20:32:09,877 - ========== STARTING EXECUTION: test_light.chor ==========
+2025-12-12 20:32:09,878 - Choreography content:
+set_frps 0.02
+
+sync{
+move(1, 0.1)
+}
+
+wait(0.1)
+
+set_frps 0.05
+sync{
+move(1, 0.2)
+}
+
+ wait (2)
+sync{
+move(1, 0)
+}
+
+ 
+2025-12-12 20:32:09,879 - ============================================================
+2025-12-12 20:32:09,896 - [test_light.chor] Line 1: set speed 0.02 frps (0.0s)
+2025-12-12 20:32:09,907 - [test_light.chor] Line 4: move motor 1 0.1% (0.0s)
+2025-12-12 20:32:15,185 - [test_light.chor] Line 4: sync command (5.289s)
+2025-12-12 20:32:15,296 - [test_light.chor] Line 7: wait 0.1s (0.11s)
+2025-12-12 20:32:15,297 - [test_light.chor] Line 9: set speed 0.05 frps (0.0s)
+2025-12-12 20:32:15,307 - [test_light.chor] Line 11: move motor 1 0.2% (0.0s)
+2025-12-12 20:32:17,598 - [test_light.chor] Line 11: sync command (2.301s)
+2025-12-12 20:32:19,609 - [test_light.chor] Line 14: wait 2.0s (2.01s)
+2025-12-12 20:32:19,620 - [test_light.chor] Line 16: move motor 1 0.0% (0.0s)
+2025-12-12 20:32:24,163 - [test_light.chor] Line 16: sync command (4.553s)
+2025-12-12 20:32:24,237 - ========== FINISHED EXECUTION: test_light.chor ==========
+
+2025-12-12 20:32:37,615 - ========== STARTING EXECUTION: test_light.chor ==========
+2025-12-12 20:32:37,615 - Choreography content:
+set_frps 0.02
+
+sync{
+move(1, 0.1)
+}
+
+wait(0.1)
+
+set_frps 0.05
+sync{
+move(1, 0.2)
+}
+
+ wait (2)
+sync{
+move(1, 0)
+}
+
+ 
+2025-12-12 20:32:37,616 - ============================================================
+2025-12-12 20:32:37,633 - [test_light.chor] Line 1: set speed 0.02 frps (0.0s)
+2025-12-12 20:32:37,644 - [test_light.chor] Line 4: move motor 1 0.1% (0.0s)
+2025-12-12 20:32:42,907 - [test_light.chor] Line 4: sync command (5.274s)
+2025-12-12 20:32:43,018 - [test_light.chor] Line 7: wait 0.1s (0.11s)
+2025-12-12 20:32:43,019 - [test_light.chor] Line 9: set speed 0.05 frps (0.0s)
+2025-12-12 20:32:43,030 - [test_light.chor] Line 11: move motor 1 0.2% (0.0s)
+2025-12-12 20:32:45,285 - [test_light.chor] Line 11: sync command (2.266s)
+2025-12-12 20:32:47,296 - [test_light.chor] Line 14: wait 2.0s (2.01s)
+2025-12-12 20:32:47,307 - [test_light.chor] Line 16: move motor 1 0.0% (0.0s)
+2025-12-12 20:32:51,846 - [test_light.chor] Line 16: sync command (4.549s)
+2025-12-12 20:32:51,923 - ========== FINISHED EXECUTION: test_light.chor ==========
+
+2025-12-12 20:33:14,837 - ========== STARTING EXECUTION: test_light.chor ==========
+2025-12-12 20:33:14,838 - Choreography content:
+set_frps 0.02
+
+sync{
+move(1, 0.1)
+}
+
+wait(0.1)
+
+set_frps 0.05
+sync{
+move(1, 0.2)
+}
+
+ wait (2)
+sync{
+move(1, 0)
+}
+
+ 
+2025-12-12 20:33:14,838 - ============================================================
+2025-12-12 20:33:14,872 - [test_light.chor] Line 1: set speed 0.02 frps (0.0s)
+2025-12-12 20:33:14,884 - [test_light.chor] Line 4: move motor 1 0.1% (0.0s)
+2025-12-12 20:33:20,102 - [test_light.chor] Line 4: sync command (5.229s)
+2025-12-12 20:33:20,212 - [test_light.chor] Line 7: wait 0.1s (0.11s)
+2025-12-12 20:33:20,213 - [test_light.chor] Line 9: set speed 0.05 frps (0.0s)
+2025-12-12 20:33:20,224 - [test_light.chor] Line 11: move motor 1 0.2% (0.0s)
+2025-12-12 20:33:22,521 - [test_light.chor] Line 11: sync command (2.307s)
+2025-12-12 20:33:24,531 - [test_light.chor] Line 14: wait 2.0s (2.01s)
+2025-12-12 20:33:24,542 - [test_light.chor] Line 16: move motor 1 0.0% (0.0s)
+2025-12-12 20:33:29,084 - [test_light.chor] Line 16: sync command (4.552s)
+2025-12-12 20:33:29,159 - ========== FINISHED EXECUTION: test_light.chor ==========
+
+2025-12-12 20:33:56,922 - ========== STARTING EXECUTION: test_light.chor ==========
+2025-12-12 20:33:56,923 - Choreography content:
+set_frps 0.02
+
+sync{
+move(1, 0.1)
+}
+
+wait(0.1)
+
+set_frps 0.05
+sync{
+move(1, 0.2)
+}
+
+ wait (2)
+sync{
+move(1, 0)
+}
+
+ 
+2025-12-12 20:33:56,923 - ============================================================
+2025-12-12 20:33:56,937 - [test_light.chor] Line 1: set speed 0.02 frps (0.0s)
+2025-12-12 20:33:56,948 - [test_light.chor] Line 4: move motor 1 0.1% (0.0s)
+2025-12-12 20:34:02,215 - [test_light.chor] Line 4: sync command (5.277s)
+2025-12-12 20:34:02,326 - [test_light.chor] Line 7: wait 0.1s (0.11s)
+2025-12-12 20:34:02,327 - [test_light.chor] Line 9: set speed 0.05 frps (0.0s)
+2025-12-12 20:34:02,337 - [test_light.chor] Line 11: move motor 1 0.2% (0.0s)
+2025-12-12 20:34:04,602 - [test_light.chor] Line 11: sync command (2.275s)
+2025-12-12 20:34:06,612 - [test_light.chor] Line 14: wait 2.0s (2.01s)
+2025-12-12 20:34:06,623 - [test_light.chor] Line 16: move motor 1 0.0% (0.0s)
+2025-12-12 20:34:11,143 - [test_light.chor] Line 16: sync command (4.531s)
+2025-12-12 20:34:11,218 - ========== FINISHED EXECUTION: test_light.chor ==========
+
+2025-12-12 20:34:26,436 - ========== STARTING EXECUTION: test_light.chor ==========
+2025-12-12 20:34:26,437 - Choreography content:
+set_frps 0.02
+
+sync{
+move(1, 0.1)
+}
+
+wait(0.1)
+
+set_frps 0.05
+sync{
+move(1, 0.2)
+}
+
+ wait (2)
+sync{
+move(1, 0)
+}
+
+ 
+2025-12-12 20:34:26,437 - ============================================================
+2025-12-12 20:34:26,453 - [test_light.chor] Line 1: set speed 0.02 frps (0.0s)
+2025-12-12 20:34:26,464 - [test_light.chor] Line 4: move motor 1 0.1% (0.0s)
+2025-12-12 20:34:31,730 - [test_light.chor] Line 4: sync command (5.276s)
+2025-12-12 20:34:31,842 - [test_light.chor] Line 7: wait 0.1s (0.11s)
+2025-12-12 20:34:31,842 - [test_light.chor] Line 9: set speed 0.05 frps (0.0s)
+2025-12-12 20:34:31,853 - [test_light.chor] Line 11: move motor 1 0.2% (0.0s)
+2025-12-12 20:34:34,109 - [test_light.chor] Line 11: sync command (2.266s)
+2025-12-12 20:34:36,119 - [test_light.chor] Line 14: wait 2.0s (2.01s)
+2025-12-12 20:34:36,131 - [test_light.chor] Line 16: move motor 1 0.0% (0.0s)
+2025-12-12 20:34:40,643 - [test_light.chor] Line 16: sync command (4.523s)
+2025-12-12 20:34:40,771 - ========== FINISHED EXECUTION: test_light.chor ==========
+
+2025-12-12 20:34:44,426 - ========== STARTING EXECUTION: test_light.chor ==========
+2025-12-12 20:34:44,426 - Choreography content:
+set_frps 0.02
+
+sync{
+move(1, 0.1)
+}
+
+wait(0.1)
+
+set_frps 0.05
+sync{
+move(1, 0.2)
+}
+
+ wait (2)
+sync{
+move(1, 0)
+}
+
+ 
+2025-12-12 20:34:44,427 - ============================================================
+2025-12-12 20:34:44,441 - [test_light.chor] Line 1: set speed 0.02 frps (0.0s)
+2025-12-12 20:34:44,453 - [test_light.chor] Line 4: move motor 1 0.1% (0.0s)
+2025-12-12 20:34:49,719 - [test_light.chor] Line 4: sync command (5.277s)
+2025-12-12 20:34:49,830 - [test_light.chor] Line 7: wait 0.1s (0.11s)
+2025-12-12 20:34:49,830 - [test_light.chor] Line 9: set speed 0.05 frps (0.0s)
+2025-12-12 20:34:49,841 - [test_light.chor] Line 11: move motor 1 0.2% (0.0s)
+2025-12-12 20:34:52,130 - [test_light.chor] Line 11: sync command (2.3s)
+2025-12-12 20:34:54,141 - [test_light.chor] Line 14: wait 2.0s (2.01s)
+2025-12-12 20:34:54,152 - [test_light.chor] Line 16: move motor 1 0.0% (0.0s)
+2025-12-12 20:34:58,695 - [test_light.chor] Line 16: sync command (4.554s)
+2025-12-12 20:34:58,776 - ========== FINISHED EXECUTION: test_light.chor ==========
+
+2025-12-12 20:35:02,978 - ========== STARTING EXECUTION: test_light.chor ==========
+2025-12-12 20:35:02,979 - Choreography content:
+set_frps 0.02
+
+sync{
+move(1, 0.1)
+}
+
+wait(0.1)
+
+set_frps 0.05
+sync{
+move(1, 0.2)
+}
+
+ wait (2)
+sync{
+move(1, 0)
+}
+
+ 
+2025-12-12 20:35:02,979 - ============================================================
+2025-12-12 20:35:02,995 - [test_light.chor] Line 1: set speed 0.02 frps (0.0s)
+2025-12-12 20:35:03,006 - [test_light.chor] Line 4: move motor 1 0.1% (0.0s)
+2025-12-12 20:35:08,273 - [test_light.chor] Line 4: sync command (5.278s)
+2025-12-12 20:35:08,384 - [test_light.chor] Line 7: wait 0.1s (0.11s)
+2025-12-12 20:35:08,384 - [test_light.chor] Line 9: set speed 0.05 frps (0.0s)
+2025-12-12 20:35:08,395 - [test_light.chor] Line 11: move motor 1 0.2% (0.0s)
+2025-12-12 20:35:10,672 - [test_light.chor] Line 11: sync command (2.287s)
+2025-12-12 20:35:12,683 - [test_light.chor] Line 14: wait 2.0s (2.01s)
+2025-12-12 20:35:12,694 - [test_light.chor] Line 16: move motor 1 0.0% (0.0s)
+2025-12-12 20:35:17,208 - [test_light.chor] Line 16: sync command (4.525s)
+2025-12-12 20:35:17,284 - ========== FINISHED EXECUTION: test_light.chor ==========
+
+2025-12-12 20:35:23,425 - ========== STARTING EXECUTION: test_light.chor ==========
+2025-12-12 20:35:23,426 - Choreography content:
+set_frps 0.02
+
+sync{
+move(1, 0.1)
+}
+
+wait(0.1)
+
+set_frps 0.05
+sync{
+move(1, 0.2)
+}
+
+ wait (2)
+sync{
+move(1, 0)
+}
+
+ 
+2025-12-12 20:35:23,427 - ============================================================
+2025-12-12 20:35:23,441 - [test_light.chor] Line 1: set speed 0.02 frps (0.0s)
+2025-12-12 20:35:23,452 - [test_light.chor] Line 4: move motor 1 0.1% (0.0s)
+2025-12-12 20:35:28,722 - [test_light.chor] Line 4: sync command (5.28s)
+2025-12-12 20:35:28,832 - [test_light.chor] Line 7: wait 0.1s (0.11s)
+2025-12-12 20:35:28,833 - [test_light.chor] Line 9: set speed 0.05 frps (0.0s)
+2025-12-12 20:35:28,844 - [test_light.chor] Line 11: move motor 1 0.2% (0.0s)
+2025-12-12 20:35:31,101 - [test_light.chor] Line 11: sync command (2.268s)
+2025-12-12 20:35:33,112 - [test_light.chor] Line 14: wait 2.0s (2.01s)
+2025-12-12 20:35:33,123 - [test_light.chor] Line 16: move motor 1 0.0% (0.0s)
+2025-12-12 20:35:37,643 - [test_light.chor] Line 16: sync command (4.531s)
+2025-12-12 20:35:37,778 - ========== FINISHED EXECUTION: test_light.chor ==========
+
+2025-12-12 20:35:55,391 - ========== STARTING EXECUTION: test_light.chor ==========
+2025-12-12 20:35:55,392 - Choreography content:
+set_frps 0.02
+
+sync{
+move(1, 0.1)
+}
+
+wait(0.1)
+
+set_frps 0.05
+sync{
+move(1, 0.2)
+}
+
+ wait (2)
+sync{
+move(1, 0)
+}
+
+ 
+2025-12-12 20:35:55,392 - ============================================================
+2025-12-12 20:35:55,407 - [test_light.chor] Line 1: set speed 0.02 frps (0.0s)
+2025-12-12 20:35:55,418 - [test_light.chor] Line 4: move motor 1 0.1% (0.0s)
+2025-12-12 20:36:00,627 - [test_light.chor] Line 4: sync command (5.22s)
+2025-12-12 20:36:00,738 - [test_light.chor] Line 7: wait 0.1s (0.11s)
+2025-12-12 20:36:00,739 - [test_light.chor] Line 9: set speed 0.05 frps (0.0s)
+2025-12-12 20:36:00,750 - [test_light.chor] Line 11: move motor 1 0.2% (0.0s)
+2025-12-12 20:36:03,017 - [test_light.chor] Line 11: sync command (2.277s)
+2025-12-12 20:36:05,028 - [test_light.chor] Line 14: wait 2.0s (2.01s)
+2025-12-12 20:36:05,039 - [test_light.chor] Line 16: move motor 1 0.0% (0.0s)
+2025-12-12 20:36:09,566 - [test_light.chor] Line 16: sync command (4.538s)
+2025-12-12 20:36:09,641 - ========== FINISHED EXECUTION: test_light.chor ==========
+
+2025-12-12 20:41:27,510 - ========== STARTING EXECUTION: test_light.chor ==========
+2025-12-12 20:41:27,511 - Choreography content:
+set_frps 0.02
+
+sync{
+move(1, 0.1)
+}
+
+wait(0.1)
+
+set_frps 0.05
+sync{
+move(1, 0.2)
+}
+
+ wait (2)
+sync{
+move(1, 0)
+}
+
+ 
+2025-12-12 20:41:27,511 - ============================================================
+2025-12-12 20:41:27,527 - [test_light.chor] Line 1: set speed 0.02 frps (0.0s)
+2025-12-12 20:41:27,537 - [test_light.chor] Line 4: move motor 1 0.1% (0.0s)
+2025-12-12 20:41:32,803 - [test_light.chor] Line 4: sync command (5.276s)
+2025-12-12 20:41:32,914 - [test_light.chor] Line 7: wait 0.1s (0.11s)
+2025-12-12 20:41:32,914 - [test_light.chor] Line 9: set speed 0.05 frps (0.0s)
+2025-12-12 20:41:32,925 - [test_light.chor] Line 11: move motor 1 0.2% (0.0s)
+2025-12-12 20:41:35,180 - [test_light.chor] Line 11: sync command (2.266s)
+2025-12-12 20:41:37,191 - [test_light.chor] Line 14: wait 2.0s (2.01s)
+2025-12-12 20:41:37,203 - [test_light.chor] Line 16: move motor 1 0.0% (0.0s)
+2025-12-12 20:41:41,780 - [test_light.chor] Line 16: sync command (4.588s)
+2025-12-12 20:41:41,858 - ========== FINISHED EXECUTION: test_light.chor ==========
+
+2025-12-12 20:41:59,701 - ========== STARTING EXECUTION: test_light.chor ==========
+2025-12-12 20:41:59,701 - Choreography content:
+set_frps 0.02
+
+sync{
+move(1, 0.1)
+}
+
+wait(0.1)
+
+set_frps 0.05
+sync{
+move(1, 0.2)
+}
+
+ wait (2)
+sync{
+move(1, 0)
+}
+
+ 
+2025-12-12 20:41:59,702 - ============================================================
+2025-12-12 20:41:59,716 - [test_light.chor] Line 1: set speed 0.02 frps (0.0s)
+2025-12-12 20:41:59,727 - [test_light.chor] Line 4: move motor 1 0.1% (0.0s)
+2025-12-12 20:42:04,995 - [test_light.chor] Line 4: sync command (5.278s)
+2025-12-12 20:42:05,106 - [test_light.chor] Line 7: wait 0.1s (0.11s)
+2025-12-12 20:42:05,107 - [test_light.chor] Line 9: set speed 0.05 frps (0.0s)
+2025-12-12 20:42:05,118 - [test_light.chor] Line 11: move motor 1 0.2% (0.0s)
+2025-12-12 20:42:07,388 - [test_light.chor] Line 11: sync command (2.281s)
+2025-12-12 20:42:09,399 - [test_light.chor] Line 14: wait 2.0s (2.01s)
+2025-12-12 20:42:09,411 - [test_light.chor] Line 16: move motor 1 0.0% (0.0s)
+2025-12-12 20:42:13,931 - [test_light.chor] Line 16: sync command (4.531s)
+2025-12-12 20:42:14,005 - ========== FINISHED EXECUTION: test_light.chor ==========
+
+2025-12-12 20:42:29,424 - ========== STARTING EXECUTION: test_light.chor ==========
+2025-12-12 20:42:29,425 - Choreography content:
+set_frps 0.02
+
+sync{
+move(1, 0.1)
+}
+
+wait(0.1)
+
+set_frps 0.05
+sync{
+move(1, 0.2)
+}
+
+ wait (2)
+sync{
+move(1, 0)
+}
+
+ 
+2025-12-12 20:42:29,425 - ============================================================
+2025-12-12 20:42:29,452 - [test_light.chor] Line 1: set speed 0.02 frps (0.0s)
+2025-12-12 20:42:29,463 - [test_light.chor] Line 4: move motor 1 0.1% (0.0s)
+2025-12-12 20:42:34,730 - [test_light.chor] Line 4: sync command (5.277s)
+2025-12-12 20:42:34,841 - [test_light.chor] Line 7: wait 0.1s (0.11s)
+2025-12-12 20:42:34,842 - [test_light.chor] Line 9: set speed 0.05 frps (0.0s)
+2025-12-12 20:42:34,853 - [test_light.chor] Line 11: move motor 1 0.2% (0.0s)
+2025-12-12 20:42:37,143 - [test_light.chor] Line 11: sync command (2.3s)
+2025-12-12 20:42:39,154 - [test_light.chor] Line 14: wait 2.0s (2.01s)
+2025-12-12 20:42:39,164 - [test_light.chor] Line 16: move motor 1 0.0% (0.0s)
+2025-12-12 20:42:43,696 - [test_light.chor] Line 16: sync command (4.541s)
+2025-12-12 20:42:43,771 - ========== FINISHED EXECUTION: test_light.chor ==========
+
+2025-12-12 20:42:49,735 - ========== STARTING EXECUTION: test_light.chor ==========
+2025-12-12 20:42:49,736 - Choreography content:
+set_frps 0.02
+
+sync{
+move(1, 0.1)
+}
+
+wait(0.1)
+
+set_frps 0.05
+sync{
+move(1, 0.2)
+}
+
+ wait (2)
+sync{
+move(1, 0)
+}
+
+ 
+2025-12-12 20:42:49,737 - ============================================================
+2025-12-12 20:42:49,754 - [test_light.chor] Line 1: set speed 0.02 frps (0.0s)
+2025-12-12 20:42:49,765 - [test_light.chor] Line 4: move motor 1 0.1% (0.0s)
+2025-12-12 20:42:55,034 - [test_light.chor] Line 4: sync command (5.279s)
+2025-12-12 20:42:55,146 - [test_light.chor] Line 7: wait 0.1s (0.11s)
+2025-12-12 20:42:55,146 - [test_light.chor] Line 9: set speed 0.05 frps (0.0s)
+2025-12-12 20:42:55,159 - [test_light.chor] Line 11: move motor 1 0.2% (0.0s)
+2025-12-12 20:42:57,426 - [test_light.chor] Line 11: sync command (2.279s)
+2025-12-12 20:42:59,437 - [test_light.chor] Line 14: wait 2.0s (2.01s)
+2025-12-12 20:42:59,448 - [test_light.chor] Line 16: move motor 1 0.0% (0.0s)
+2025-12-12 20:43:03,990 - [test_light.chor] Line 16: sync command (4.552s)
+2025-12-12 20:43:04,066 - ========== FINISHED EXECUTION: test_light.chor ==========
+
+2025-12-12 20:43:10,830 - ========== STARTING EXECUTION: test_light.chor ==========
+2025-12-12 20:43:10,830 - Choreography content:
+set_frps 0.02
+
+sync{
+move(1, 0.1)
+}
+
+wait(0.1)
+
+set_frps 0.05
+sync{
+move(1, 0.2)
+}
+
+ wait (2)
+sync{
+move(1, 0)
+}
+
+ 
+2025-12-12 20:43:10,831 - ============================================================
+2025-12-12 20:43:10,845 - [test_light.chor] Line 1: set speed 0.02 frps (0.0s)
+2025-12-12 20:43:10,857 - [test_light.chor] Line 4: move motor 1 0.1% (0.0s)
+2025-12-12 20:43:16,134 - [test_light.chor] Line 4: sync command (5.287s)
+2025-12-12 20:43:16,244 - [test_light.chor] Line 7: wait 0.1s (0.11s)
+2025-12-12 20:43:16,245 - [test_light.chor] Line 9: set speed 0.05 frps (0.0s)
+2025-12-12 20:43:16,256 - [test_light.chor] Line 11: move motor 1 0.2% (0.0s)
+2025-12-12 20:43:18,512 - [test_light.chor] Line 11: sync command (2.266s)
+2025-12-12 20:43:20,523 - [test_light.chor] Line 14: wait 2.0s (2.01s)
+2025-12-12 20:43:20,534 - [test_light.chor] Line 16: move motor 1 0.0% (0.0s)
+2025-12-12 20:43:25,046 - [test_light.chor] Line 16: sync command (4.522s)
+2025-12-12 20:43:25,121 - ========== FINISHED EXECUTION: test_light.chor ==========
+

@@ -32,8 +32,8 @@ def create_motors(config):
             max_deg=settings.get('max_deg', 360),  # Default to 360 degrees if not specified
             min_deg=settings.get('min_deg', 0),    # Default to 0 degrees if not specified
             invert_dir=settings.get('inverted', False),  # Default to False if not specified
-            initial_position=settings.get('initial_position', 0)
-
+            initial_position=settings.get('initial_position', 0),
+            led_pin=settings.get('led_pin', None)
         )
     return motors
 
@@ -50,7 +50,8 @@ def create_motors_map(config):
             min_deg=settings.get('min_deg', 0),
             invert_dir=settings.get('inverted', False),
             motor_name = motor_name,
-            initial_position=settings.get('initial_position', 0)
+            initial_position=settings.get('initial_position', 0),
+            led_pin=settings.get('led_pin', None)
         )
     return motors    
 

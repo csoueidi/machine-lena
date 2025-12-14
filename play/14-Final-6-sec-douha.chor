@@ -1,0 +1,23 @@
+# Total time: ~4 seconds - cut the third one in half
+# Gentle closing gesture with slight sway and settle
+
+# Single sway
+set_frps 0.08
+
+sync {
+    move(1, 0.6)
+    move(2, 0.55)
+    move(4, 0.58)
+}
+wait(0.5)
+
+# Settle center
+set_frps 0.06
+sync {
+    move(1, 0.5)
+    move(2, 0.48)
+    move(4, 0.49)
+}
+
+
+

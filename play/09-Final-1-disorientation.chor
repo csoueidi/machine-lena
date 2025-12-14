@@ -1,0 +1,72 @@
+## shouf el dakhne after the explosion - hessin ma3on raboo - ana mohak menz 7oroub - wait for ziad
+set_frps 0.02
+sync {
+    move(1, 0.1)
+    move(2, 0.1)
+    move(4, 0.1)
+}
+wait(0.2)
+
+sync {
+    move(1, 0.2)
+    move(2, 0.2)
+    move(4, 0.2)
+}
+
+wait(0.2)
+
+sync {
+    move(1, 0.3)
+    move(2, 0.3)
+    move(4, 0.3)
+}
+
+wait(0.2)
+
+sync {
+    move(1, 0.4)
+    move(2, 0.4)
+    move(4, 0.4)
+}
+
+
+wait(0.2)
+
+sync {
+    move(1, 0.5)
+    move(2, 0.5)
+    move(4, 0.5)
+}
+
+wait(0.2)
+
+sync {
+    move(1, 0.6)
+    move(2, 0.6)
+    move(4, 0.6)
+}
+
+wait(0.2)
+
+sync {
+    move(1, 0.7)
+    move(2, 0.7)
+    move(4, 0.7)
+}
+
+wait(0.2)
+
+sync {
+    move(1, 0.8)
+    move(2, 0.8)
+    move(4, 0.8)
+}
+
+wait(0.2)
+
+sync {
+    move(1, 0.9)
+    move(2, 0.8)
+    move(4, 0.9)
+}
+
