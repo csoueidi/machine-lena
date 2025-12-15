@@ -1,15 +1,17 @@
 # after she start singing douha second time wil ka3bi banouha
 
-set_frps 0.07
+set_frps 0.08
 
 repeat 2{
 move(1, 0.25)
 move(4, 0.75)
+move(3, 0.75)
  
 sync{
 move(1, 0.4)
 move(2, 0.15)
 move(4, 0.35)
+move(3, 0.35)
  
 }
  
@@ -18,5 +20,6 @@ sync{
 move(1, 0.5)
 move(2, 0.48)
 move(4, 0.49)
+move(3, 0.49)
 }
 }

@@ -1,14 +1,17 @@
-# bteer ma3 naweris la estad l samak - Then Ziad whistles - after first whistle
+# bteer ma3 naweris la estad l samak OR when Ziad whistles - after first whistle
 
-set_frps 0.02
+set_frps 0.025
 sync {
   move(1, 0.15)
   move(2, 0.15)
-  move(4, 0.1)
+  move(3,0.25)
+  move(4, 0.15)
 }
 
 sync {
-  move(1, 0.45, 0.4)
+  move(1, 0.45, 0.5)
+ move(3, 0.75, 0.5)
+  move(2,0,0.5)
 }
 
 wait(0.5)
@@ -16,4 +19,6 @@ wait(0.5)
 sync {
 move(1, 0)
 move(2, 0)
+move(3, 0)
+move(4, 0)
 }

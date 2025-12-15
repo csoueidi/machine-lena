@@ -1,4 +1,5 @@
 # beteer mn hon la hon
+# 38 seconds - very good
 
 repeat 1 {
 set_frps 0.025

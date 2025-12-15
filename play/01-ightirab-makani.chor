@@ -2,7 +2,5 @@
 
 set_frps 200
 sync {
-    move(1, 0)
-    move(2, 0)
-    move(4, 0)
+    move(all,0)
 }

@@ -1,0 +1,8 @@
+set_frps 0.5
+
+sync{
+    move(1, 0.6)
+    move(2, 0.58)
+    move(4, 0.29)
+    move(3, 0.29)
+}

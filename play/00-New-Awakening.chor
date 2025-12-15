@@ -13,4 +13,20 @@ sync{
 move(1, 0.33)
 move(2, 0.4)
 move(4, 0.33)
+move(3, 0.33)
 }
+
+
+sync{
+move(all,0.2,0.02)
+}
+
+set_frps 0.01
+
+sync{
+move(1, 0.33)
+move(2, 0.4)
+move(4, 0.33)
+move(3, 0.33)
+}
+
