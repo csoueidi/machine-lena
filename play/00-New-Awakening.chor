@@ -5,15 +5,15 @@ set_frps 0.01
 
 sync{
 
-move(2, 0.2)
+move(3, 0.2)
  
 }
 
 sync{
 move(1, 0.33)
-move(2, 0.4)
+move(3, 0.4)
 move(4, 0.33)
-move(3, 0.33)
+move(2, 0.33)
 }
 
 
@@ -25,8 +25,8 @@ set_frps 0.01
 
 sync{
 move(1, 0.33)
-move(2, 0.4)
+move(3, 0.4)
 move(4, 0.33)
-move(3, 0.33)
+move(2, 0.33)
 }
 

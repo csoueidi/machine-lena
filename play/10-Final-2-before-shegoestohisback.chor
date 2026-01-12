@@ -6,9 +6,9 @@
 set_frps 200
 sync {
     move(1, 0)
-    move(2, 0)
-    move(4, 0)
     move(3, 0)
+    move(4, 0)
+    move(2, 0)
 
 }
 
@@ -20,25 +20,25 @@ repeat 3
 set_frps 4.0
 
 # Crescendo shakes — increasing amplitude with asymmetric movement
-sync { move(1, 0.65) move(2, 0.63) move(4, 0.64) }   # baseline - raised
+sync { move(1, 0.65) move(3, 0.63) move(4, 0.64) }   # baseline - raised
 
 # Small shake - alternating leads
-sync { move(1, 0.68) move(2, 0.60) move(4, 0.66)  move(3, 0.66)}
-sync { move(1, 0.62) move(2, 0.66) move(4, 0.63)  move(3, 0.63)}
-sync { move(1, 0.66) move(2, 0.62) move(4, 0.68)  move(3, 0.68)}
+sync { move(1, 0.68) move(3, 0.60) move(4, 0.66)  move(2, 0.66)}
+sync { move(1, 0.62) move(3, 0.66) move(4, 0.63)  move(2, 0.63)}
+sync { move(1, 0.66) move(3, 0.62) move(4, 0.68)  move(2, 0.68)}
 
 # Medium shake - more varied rhythm
-sync { move(1, 0.70) move(2, 0.58) move(4, 0.67)  move(3, 0.67)}
-sync { move(1, 0.60) move(2, 0.68) move(4, 0.61)  move(3, 0.61)}
-sync { move(1, 0.68) move(2, 0.60) move(4, 0.69)  move(3, 0.69) }
-sync { move(1, 0.62) move(2, 0.66) move(4, 0.60) move(3, 0.60) }
+sync { move(1, 0.70) move(3, 0.58) move(4, 0.67)  move(2, 0.67)}
+sync { move(1, 0.60) move(3, 0.68) move(4, 0.61)  move(2, 0.61)}
+sync { move(1, 0.68) move(3, 0.60) move(4, 0.69)  move(2, 0.69) }
+sync { move(1, 0.62) move(3, 0.66) move(4, 0.60) move(2, 0.60) }
 
 # Large shake (crescendo peak) - complex patterns
-sync { move(1, 0.72) move(2, 0.56) move(4, 0.70) move(3, 0.7) }
-sync { move(1, 0.58) move(2, 0.70) move(4, 0.59) move(3, 0.59) }
-sync { move(1, 0.70) move(2, 0.58) move(4, 0.71) move(3, 0.71) }
-sync { move(1, 0.60) move(2, 0.68) move(4, 0.58) move(3, 0.58) }
-sync { move(1, 0.69) move(2, 0.59) move(4, 0.69) move(3, 0.69) }
+sync { move(1, 0.72) move(3, 0.56) move(4, 0.70) move(2, 0.7) }
+sync { move(1, 0.58) move(3, 0.70) move(4, 0.59) move(2, 0.59) }
+sync { move(1, 0.70) move(3, 0.58) move(4, 0.71) move(2, 0.71) }
+sync { move(1, 0.60) move(3, 0.68) move(4, 0.58) move(2, 0.58) }
+sync { move(1, 0.69) move(3, 0.59) move(4, 0.69) move(2, 0.69) }
 
 wait(0.5)
 
@@ -46,9 +46,9 @@ wait(0.5)
 set_frps 0.06
 sync {
     move(1, 0.65)
-    move(2, 0.63)
+    move(3, 0.63)
     move(4, 0.64)
-    move(3, 0.64) 
+    move(2, 0.64) 
 }
 }
 
@@ -65,19 +65,19 @@ repeat 3
 set_frps 4.0
 
 # Crescendo shakes — increasing amplitude
-sync { move(1, 0.50) move(2, 0.48) move(4, 0.49) move(3, 0.49) }   # baseline
+sync { move(1, 0.50) move(3, 0.48) move(4, 0.49) move(2, 0.49) }   # baseline
 
 # Small shake
-sync { move(1, 0.52) move(2, 0.46) move(4, 0.51) move(3, 0.51) }
-sync { move(1, 0.48) move(2, 0.50) move(4, 0.47) move(3, 0.47) }
+sync { move(1, 0.52) move(3, 0.46) move(4, 0.51) move(2, 0.51) }
+sync { move(1, 0.48) move(3, 0.50) move(4, 0.47) move(2, 0.47) }
 
 # Medium shake
-sync { move(1, 0.54) move(2, 0.44) move(4, 0.53) move(3, 0.53) }
-sync { move(1, 0.46) move(2, 0.52) move(4, 0.45) move(3, 0.45) }
+sync { move(1, 0.54) move(3, 0.44) move(4, 0.53) move(2, 0.53) }
+sync { move(1, 0.46) move(3, 0.52) move(4, 0.45) move(2, 0.45) }
 
 # Large shake (crescendo peak)
-sync { move(1, 0.56) move(2, 0.42) move(4, 0.55) move(3, 0.55) }
-sync { move(1, 0.44) move(2, 0.54) move(4, 0.43) move(3, 0.43) }
+sync { move(1, 0.56) move(3, 0.42) move(4, 0.55) move(2, 0.55) }
+sync { move(1, 0.44) move(3, 0.54) move(4, 0.43) move(2, 0.43) }
 
 wait(0.5)
 
@@ -85,8 +85,8 @@ wait(0.5)
 set_frps 0.5
 sync {
     move(1, 0.5)
-    move(2, 0.48)
+    move(3, 0.48)
     move(4, 0.49)
-    move(3, 0.49) 
+    move(2, 0.49) 
 }
 }

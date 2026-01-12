@@ -3,9 +3,9 @@
 set_frps 0.12;
 sync {
     move(1, 0.3);
-    move(2, 0.2);
+    move(3, 0.2);
     move(4, 0.25);
-    move(3, 0.27);
+    move(2, 0.27);
 }
 wait(1);
 
@@ -13,18 +13,18 @@ wait(1);
 set_frps 0.18;
 sync {
     move(1, 0.6);
-    move(2, 0.5);
+    move(3, 0.5);
     move(4, 0.55);
-    move(3, 0.55);
+    move(2, 0.55);
 }
 wait(0.5);
 
 set_frps 0.18;
 sync {
     move(1, 0.3);
-    move(2, 0.2);
+    move(3, 0.2);
     move(4, 0.25);
-     move(3, 0.25);
+     move(2, 0.25);
 }
 wait(0.5);
 
@@ -32,9 +32,9 @@ wait(0.5);
 set_frps 0.25;
 sync {
     move(1, 0.75);
-    move(2, 0.65);
+    move(3, 0.65);
     move(4, 0.7);
-     move(3, 0.65);
+     move(2, 0.65);
 }
 wait(0.8);
 
@@ -43,18 +43,18 @@ repeat 2 {
     set_frps 0.3;
     sync {
         move(1, 0.85);
-        move(2, 0.8);
+        move(3, 0.8);
         move(4, 0.82);
-         move(3, 0.80);
+         move(2, 0.80);
     }
     wait(0.4);
     
     set_frps 0.35;
     sync {
         move(1, 0.4);
-        move(2, 0.35);
+        move(3, 0.35);
         move(4, 0.38);
-         move(3, 0.36);
+         move(2, 0.36);
     }
     wait(0.4);
 }
@@ -63,7 +63,7 @@ repeat 2 {
 set_frps 0.15;
 move(1, 0.9);
 wait(0.3);
-move(2, 0.85);
+move(3, 0.85);
 wait(0.3);
 move(4, 0.88);
 wait(0.6);
@@ -72,7 +72,7 @@ wait(0.6);
 set_frps 0.2;
 sync {
     move(1, 0.5);
-    move(2, 0.45);
+    move(3, 0.45);
     move(4, 0.48);
      
 }
@@ -82,7 +82,7 @@ wait(0.4);
 set_frps 0.15;
 sync {
     move(1, 0.3);
-    move(2, 0.25);
+    move(3, 0.25);
     move(4, 0.28);
 }
 wait(0.5);
@@ -91,7 +91,7 @@ wait(0.5);
 set_frps 0.08;
 sync {
     move(1, 0);
-    move(2, 0);
+    move(3, 0);
     move(4, 0);
-    move(3, 0)
+    move(2, 0)
 }

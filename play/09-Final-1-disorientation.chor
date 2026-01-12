@@ -7,18 +7,18 @@ wait(0.2)
 
 sync {
     move(1, 0.2)
-    move(2, 0.2)
+    move(3, 0.2)
     move(4, 0.2)
-     move(3, 0.2);
+     move(2, 0.2);
 }
 
 wait(0.2)
 
 sync {
     move(1, 0.3)
-    move(2, 0.3)
+    move(3, 0.3)
     move(4, 0.3)
-     move(3, 0.3);
+     move(2, 0.3);
 
 }
 
@@ -26,9 +26,9 @@ wait(0.2)
 
 sync {
     move(1, 0.4)
-    move(2, 0.4)
+    move(3, 0.4)
     move(4, 0.4)
-     move(3, 0.4);
+     move(2, 0.4);
 }
 
 
@@ -36,44 +36,44 @@ wait(0.2)
 
 sync {
     move(1, 0.5)
-    move(2, 0.5)
+    move(3, 0.5)
     move(4, 0.5)
-     move(3, 0.5);
+     move(2, 0.5);
 }
 
 wait(0.2)
 
 sync {
     move(1, 0.6)
-    move(2, 0.6)
+    move(3, 0.6)
     move(4, 0.6)
-     move(3, 0.6);
+     move(2, 0.6);
 }
 
 wait(0.2)
 
 sync {
     move(1, 0.7)
-    move(2, 0.7)
+    move(3, 0.7)
     move(4, 0.7)
-     move(3, 0.7);
+     move(2, 0.7);
 }
 
 wait(0.2)
 
 sync {
     move(1, 0.8)
-    move(2, 0.8)
+    move(3, 0.8)
     move(4, 0.8)
-     move(3, 0.8);
+     move(2, 0.8);
 }
 
 wait(0.2)
 
 sync {
     move(1, 0.9)
-    move(2, 0.8)
+    move(3, 0.8)
     move(4, 0.9)
-     move(3, 0.8)
+     move(2, 0.8)
 }
 
